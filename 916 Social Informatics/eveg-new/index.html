@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width/1.5, initial-scale=1.2">
+  <link rel="stylesheet" media="screen and (max-width: 600px)" href="shopmobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 601px)" href="shop.css">
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="colours.css">
+  <script src="products.js"></script>
+  <script src="shop.js"></script>
+  <title>E-Grocery Shop</title>
+</head>
+
+<body>
+  <div class="hero">
+    <div class="title">
+      <a href="index.html" style="text-decoration: none; color: inherit;">E-Grocery</a>
+    </div>
+    <div class="welcome">Welcome, Test User!</div>
+    <div class="navbar">
+      <div class="toggle-wrapper">
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+      </div>
+      <div class="navbar-links">
+        <ul>
+          <li><a href="javascript:void(0);" id="contactLink"><span>Help</span></a></li>
+          <li><a href="javascript:void(0);" id="aboutLink"><span>About & Contact</span></a></li>
+          <li class="spacer">&nbsp;</li>
+          <li><a href="javascript:void(0);" id="checkoutLink"><span id="checkoutTotalCount">
+                Basket(0)</span></a></li>
+        </ul>
+      </div>
+      <div class="popup" id="contactPopup">
+        <div class="popup-content">
+          <h3>1. How to Browse Products?</h3>
+          <p>Scroll down the homepage to explore our products.</p>
+          <h3>2. How to Use the Search Function?</h3>
+          <p>Enter keywords in the search bar on the homepage to show relevant products.</p>
+          <h3>3. How to Filter Search Results?</h3>
+          <p>Go to "Filter" dropdown menu to narrow down results based on category.</p>
+          <h3>4. How to Sort Search Results?</h3>
+          <p>Go to "Sort by" dropdown menu to organize and view search results based on your preference for product name or price order.</p>
+          <h3>5. How to Add Items to the Basket?</h3> 
+          <p>To add items to your basket, you can click the "+" button below a product to add one unit, and optionally click the "-" button to reduce the quantity by one. You may also enter the quantity in the input field below the product.</p>
+          <h3>6. How to View and Edit the Basket?</h3>
+          <p>Click on "Basket" in the top right corner to view the basket, you can increase or decrease the quantity of items, remove a product or clear the basket.</p>
+          <h3>7. How to Make a Payment?</h3>
+          <p>Click on "Checkout" from the Basket to proceed to checkout page, where you can browse your order and make further adjustments. Once you have confirmed the shopping list, enter payment details and then click "Pay".</p>
+          <button id="closePopup" class="closeButton">Close</button>
+        </div>
+      </div>
+      <div class="popup" id="aboutPopup">
+        <div class="popup-content">
+          <h2>InterVeg Coventry</h2>
+          <p>InterVeg Coventry Ltd. is a devoted enterprise committed to delivering a bountiful array of fresh produce harvested from the verdant landscapes of the Midlands.</p>
+          <p>Established in the year 2021, our mission revolves around the delivery of superior-quality fruits and vegetables that are sourced locally. We aspire to bring the essence of the Midlands' lush countryside directly to our customers, ensuring a delightful and nourishing experience with each product we offer, cultivating a greener, healthier future, uniting tradition and innovation in every harvest.</p>
+          <p>If you have any questions, please feel free to contact us. Thank you for choosing our services, and we look forward to assisting you.</p>
+          <p><br></p>
+          <h2>Contact Information</h2>
+          <p>Phone: 123-456-7890</p>
+          <p>Email: info@example.com</p>
+          <button id="closeAboutPopup" class="closeButton">Close</button>
+        </div>
+      </div>
+      <div class="popup" id="checkoutPopup">
+        <div class="popup-content">
+          <div id="checkoutContainer" style="display: block;">
+            <h2>Basket Contents</h2>
+            <table class="cartcheckoutList">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Amount</th>
+                  <th>Price</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+            </table>
+            <button id="proceedButton" onclick="proceedToCheckout()" disabled="true">Checkout</button>
+            <button id="clearButton" onclick="clearBucket()">Clear</button>
+            <button id="closeCheckoutPopup" class="closeButton">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="filters">
+      <div class="search-bar">
+        <input type="text" id="searchbox"></input>
+        <button id="searchbutton" href="#">Search</button>
+        <button id="cancelsearch" href="#">Cancel</button>
+      </div>
+
+      <div id="dropdownMenu" class="dropdown-content">
+        <label for="categorySelector">Filter:</label>
+        <select id="categorySelector">
+          <option value="allcategories" selected>All</option>
+          <option value="fruit">Fruit</option>
+          <option value="vegetable">Vegetables</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div id="sortdropdown">
+        <label for="sortOrderSelector">Sort by:</label>
+        <select id="sortOrderSelector">
+          <option value="none" selected>---</option>
+          <option value="nameasc">Name: A to Z</option>
+          <option value="namedesc">Name: Z to A</option>
+          <option value="priceasc">Price: Low to High</option>
+          <option value="pricedesc">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="productList">
+
+    </div>
+
+    <div class="about">
+      <div>&copy; 2021 InterVeg Coventry Ltd.</div>
+      <div>Fresh produce from the Midland's green countryside.</div>
+    </div>
+    <div id="cookieMessage">
+      <h1>This site uses cookies</h1>
+      <p>By using this site, you are consenting to our use of cookies.</p>
+      <p>We use cookies purely for the functionality of the website - to store the products that are in your basket.</p>
+      <p>For further details of how we use your data, please see our <a id="showPrivacyPopup" href="#">privacy policy</a>.</p>
+      <div class="buttonsWrapper">
+        <p><button id="acceptCookies" class="closeButton">Accept & Close</button></p>
+      </div>
+    </div>
+
+    <div class="popup" id="privacyPopup">
+      <div class="popup-content">
+        <h2>Privacy Policy</h2>
+        <p>We respect your privacy. This policy outlines how InterVeg Coventry collects, uses, and protects your personal information.</p>
+        <h3>1. Information Collection</h3>
+        <p>We collect personal information when you register or use our services, and automatically gather data during interactions.</p>
+        <h3>2. Use of Information & Cookies</h3>
+        <p>We use your information to provide and maintain services. We may use cookies for user experience enhancement and analytical purposes.</p>
+        <h3>3. Information Protection & Sharing</h3>
+        <p>We employ security measures to keep your information from unauthorized access. We do not sell your information. Any sharing of your data is undertaken with your explicit consent or as required by law.</p>
+        <button id="closePrivacyPopup" class="closeButton">Close</button>
+      </div>
+    </div>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()">Top</button>
+</body>
+
+</html>

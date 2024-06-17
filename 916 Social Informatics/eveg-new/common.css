@@ -1,0 +1,667 @@
+/*Common CSS to be shown on all versions (mobile/desktop)*/
+.productBasketDiv {
+    width: 8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+button {
+    background-color: var(--colour-5);
+    color: var(--colour-1);
+    font-size: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.shop-product-img img {
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.shop-product-desc {
+    display: none;
+}
+
+.shop-product {
+    font-size: 100%;
+}
+
+.shop-product-price {
+    float: left;
+}
+
+.shop-product-units {
+    float: right;
+    font-style: italic;
+}
+
+.adjustDiv {
+    margin-top: 5px;
+}
+
+html {
+    --hero-height: 13em;
+    --colour-1: hsl(var(--colour-1-h), var(--colour-1-s), var(--colour-1-l));
+    --colour-2: hsl(var(--colour-2-h), var(--colour-2-s), var(--colour-2-l));
+    --colour-3: hsl(var(--colour-3-h), var(--colour-3-s), var(--colour-3-l));
+    --colour-4: hsl(var(--colour-4-h), var(--colour-4-s), var(--colour-4-l));
+    --colour-5: hsl(var(--colour-5-h), var(--colour-5-s), var(--colour-5-l));
+    --colour-6: hsl(var(--colour-6-h), var(--colour-6-s), var(--colour-6-l));
+    --colour-7: hsl(var(--colour-7-h), var(--colour-7-s), var(--colour-7-l));
+
+}
+
+
+.shop-product {
+    width: 20%;
+}
+
+.menu {
+    position: absolute;
+    height: 100%;
+    border-right: solid 5px hsl(var(--colour-1-h), var(--colour-1-s), var(--colour-1-l));
+}
+
+.productList {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.navbar {
+    height: 3em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+}
+  
+.navbar,
+li ul {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    padding-top: 0.5em;
+}
+
+.about {
+    clear: both;
+    padding: 2em;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navbar-links ul {
+    margin: 0;
+    padding: 6rem;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.navbar-links {
+    display: flex;
+    width: 100%;
+}
+
+.spacer {
+    flex-grow: 1;
+    /* width: 10%; */
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a,
+.subnavbar-links li a {
+    color: var(--colour-1);
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 400;
+    font-family: 'Georgia', serif;
+    min-width: 4em;
+    text-align: center;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    display: block;
+}
+
+.navbar-links li a:hover,
+.subnavbar-links li a:hover {
+    text-decoration: underline;
+    text-decoration: underline;
+}
+
+.navbar-links li a:active,
+.subnavbar-links li a:active {
+    background-color: var(--colour-5);
+}
+
+.navbar-links ul li span {
+    padding-bottom: 2px;
+}
+
+.navbar-links ul li ul {
+    display: none;
+}
+
+.navbar-links ul li:hover ul {
+    display: flex;
+}
+
+.navbar-links li ul {
+    position: absolute;
+    display: flex;
+}
+
+.toggle-wrapper {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.25);
+    /* background: black; */
+    padding: 1em;
+}
+
+.toggle-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.toggle-wrapper {
+    display: none;
+}
+
+.hero:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: var(--hero-height);
+}
+
+* {
+    margin: 0;
+    /* color: var(--colour-6); */
+}
+
+#basket {
+    position: absolute;
+    display: none;
+    width: 20em;
+    height: var(--hero-height);
+    background-color: var(--colour-1);
+    opacity: 1;
+}
+
+.hero {
+    text-align: center;
+    height: var(--hero-height);
+}
+
+
+/* .hero div.title{
+    font-size: 6rem;
+    font-weight: 900;
+    font-family: 'Garamond', serif;
+    width: 100%;
+    height: calc(100% - 6rem);
+    display: inline-block;
+    color: var(--colour-1);
+} */
+
+.hero div.title {
+    line-height: 2;
+    font-size: 6rem;
+    font-weight: 900;
+    font-family: 'Garamond', serif;
+    width: 100%;
+    height: calc(100% - 4rem);
+    display: inline-block;
+    color: var(--colour-1);
+}
+
+.hero div.welcome {
+    font-size: 1.5rem;
+    font-family: 'Garamond', serif;
+    padding-bottom: 20px;
+}
+
+.imgspacer {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#cookieMessage {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: hsl(var(--colour-4-h), var(--colour-4-s), var(--colour-4-l));
+    padding: 30px;
+    /* display: none; */
+}
+
+#showPrivacyPopup {
+    font-size: 100%;
+    font-style: italic;
+    text-decoration: underline;
+    margin-top: 2rem;
+    color: blue;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 150%;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-size: 100%;
+}
+
+#cookieMessage h1 {
+    margin-bottom: 10px;
+}
+
+#cookieMessage p {
+    text-align: left;
+}
+
+#cookieMessage .closeButton {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+body {
+    background-color: var(--colour-2);
+    margin: 0;
+    padding: 0;
+    padding-top: 3em;
+}
+
+a {
+    color: var(--colour-4);
+}
+
+a:visited {
+    color: var(--colour-5);
+}
+
+
+form.customerDetails {
+    background: #f9f9f9;
+    border: 1px solid #c1c1c1;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+form.customerDetails label {
+    display: block;
+    margin-top: 20px;
+}
+
+form.customerDetails input {
+    width: 80%;
+    margin-top: 10px;
+}
+
+form.customerDetails button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.checkoutList {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+    background-color: #f0f0f0;
+}
+
+.checkoutList tr td:nth-child(4) {
+    font-weight: bold;
+}
+
+.checkoutList tr:last-child {
+    font-weight: bold;
+}
+
+.checkoutList tr:last-child td:first-child {
+    text-align: right;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+.buyInput {
+    width: 60px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchbox {
+    margin-right: 0.5em;
+}
+
+#searchbutton,
+#cancelsearch {
+    text-decoration: none;
+    background-color: var(--colour-6);
+    color: white;
+}
+
+.filters {
+    height: 20px;
+    margin-top: 10px;
+}
+
+.search-bar,
+#dropdownMenu,
+#sortdropdown {
+    display: inline-block;
+}
+
+#dropdownMenu {
+    margin-left: 3em;
+}
+
+#sortdropdown {
+    margin-left: 3em;
+}
+
+#searchbox {
+    margin-right: 0.5em;
+}
+
+#applyFilter {
+    margin-left: 0.5em;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+.popup-content {
+    text-align: center;
+    line-height: 2;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.popup-content .closeButton {
+    margin-top: 20px;
+}
+
+#contactPopup, #aboutPopup, #privacyPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+#contactPopup .popup-content, 
+#aboutPopup .popup-content,
+#privacyPopup .popup-content {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contactPopup h2,
+#contactPopup p,
+#aboutPopup h2,
+#aboutPopup p,
+#privacyPopup h2,
+#privacyPopup p {
+    margin: 0 0 10px;
+}
+
+#aboutPopup p:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+#contactPopup .closeButton,
+#aboutPopup .closeButton,
+#privacyPopup .closeButton {
+    margin-top: 20px;
+}
+
+.buttonsWrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#checkoutPopup .popup-content {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.cartcheckoutList {
+    text-align: center;
+    margin: 0 auto;
+    background-color: transparent;
+}
+
+#proceedButton {
+    margin-right: 20px;
+}
+
+#clearButton {
+    margin-right: 20px;
+}
+
+.grayed-out {
+    color: #888;
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.default-value {
+    color: gray;
+}
+
+.user-input {
+    color: black;
+}
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .shop-product {
+        width: 33%;
+    }
+
+    .navbar-links ul {
+        padding: 3rem;
+    }
+
+    .about {
+        font-size: 15px;
+    }
+
+    .search-bar,
+    #dropdownMenu {
+        padding: 5px;
+    }
+
+    .filters>div {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .filters {
+        height: 60px;
+    }
+
+    .popup-content {
+        line-height: 1.75;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .popup {
+        width: 60%;
+    }
+
+    .cartcheckoutList {
+        font-size: 85%;
+    }
+
+    .checkoutList {
+        width: 70%;
+    }
+
+    form.customerDetails {
+        width: 70%;
+    }
+
+    #sortdropdown {
+        margin-right: 3em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .shop-product {
+        width: 100%;
+    }
+
+    .about {
+        font-size: 10px;
+    }
+
+    .navbar-links ul {
+        padding: 1rem;
+    }
+
+    .navbar-links li a,
+    .subnavbar-links li a {
+        font-size: 1em;
+    }
+
+    .search-bar,
+    #dropdownMenu {
+        padding: 5px;
+    }
+
+    .filters {
+        height: 100px;
+    }
+
+    .hero div.title {
+        font-size: 4rem;
+        height: calc(100% - 7rem);
+    }
+
+    .popup-content {
+        line-height: 1.5;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .popup {
+        width: 80%;
+    }
+
+    .cartcheckoutList {
+        font-size: 70%;
+    }
+
+    .checkoutList {
+        width: 90%;
+        font-size: 90%;
+    }
+
+    form.customerDetails {
+        width: 90%;
+    }
+
+    #dropdownMenu {
+        margin-right: 3em;
+    }
+}
