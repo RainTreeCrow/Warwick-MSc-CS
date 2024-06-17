@@ -1,0 +1,205 @@
+IMPLEMENTATION
+  L_SEQUENCE_RANGE_1 ( LSR_minrge , LSR_maxrge , LSR_maxsize , LSR_VALUE )
+
+REFINES
+  L_SEQUENCE_RANGE
+
+IMPORTS
+  (seq_rge_arr.L_ARRAY3_RANGE) ( LSR_minrge , LSR_maxrge , LSR_maxsize , LSR_VALUE ) ,
+  (seq_rge_siz.L_ARRAY1) ( 0 .. MAXINT - 1 , LSR_maxrge )
+
+INVARIANT
+  ! rr . ( rr : LSR_minrge .. LSR_maxrge => seq_rge ( rr ) =
+       1 .. size ( seq_rge ( rr ) ) <| (seq_rge_arr.arr_rge) ( rr ) ) &
+  ! rr . ( rr : LSR_minrge .. LSR_maxrge => (seq_rge_siz.arr_vrb) ( rr ) = size ( seq_rge ( rr ) ) )
+
+INITIALISATION
+  (seq_rge_siz.SET_ARRAY) ( LSR_minrge , LSR_maxrge , 0 )
+
+OPERATIONS
+
+  nn <-- LEN_SEQ_RGE ( range ) = BEGIN
+    nn <-- (seq_rge_siz.VAL_ARRAY) ( range )
+  END ;
+
+  bb <-- IS_FULL_SEQ_RGE ( range ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF zz = LSR_maxsize THEN
+      bb := TRUE
+    ELSE
+      bb := FALSE
+    END
+  END ;
+
+  bb <-- IS_INDEX_SEQ_RGE ( range , ii ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF 1 <= ii & ii <= zz THEN
+      bb := TRUE
+    ELSE
+      bb := FALSE
+    END
+  END ;
+
+  vv <-- VAL_SEQ_RGE ( range , ii ) = BEGIN
+    vv <-- (seq_rge_arr.VAL_ARR_RGE) ( range , ii )
+  END ;
+
+  vv <-- FIRST_SEQ_RGE ( range ) = BEGIN
+    vv <-- (seq_rge_arr.VAL_ARR_RGE) ( range , 1 )
+  END ;
+
+  vv <-- LAST_SEQ_RGE ( range ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    vv <-- (seq_rge_arr.VAL_ARR_RGE) ( range , zz )
+  END ;
+
+  PUSH_SEQ_RGE ( range , vv ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    zz := zz + 1 ;
+    (seq_rge_siz.STR_ARRAY) ( range , zz ) ;
+    (seq_rge_arr.STR_ARR_RGE) ( range , zz , vv )
+  END ;
+
+  POP_SEQ_RGE ( range ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    zz := zz - 1 ;
+    (seq_rge_siz.STR_ARRAY) ( range , zz )
+  END ;
+
+  STR_SEQ_RGE ( range , ii , vv ) = BEGIN
+    (seq_rge_arr.STR_ARR_RGE) ( range , ii , vv )
+  END ;
+
+  RMV_SEQ_RGE ( range , ii ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF ii < zz THEN
+      (seq_rge_arr.LEFT_SHIFT_RGE) ( range , ii + 1 , zz , 1 )
+    END ;
+    zz := zz - 1 ;
+    (seq_rge_siz.STR_ARRAY) ( range , zz )
+  END ;
+
+  INS_AFT_SEQ_RGE ( range , ii , vv ) = VAR zz , xx IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    xx := ii + 1 ;
+    IF ii < zz THEN
+      (seq_rge_arr.RIGHT_SHIFT_RGE) ( range , xx , zz , 1 )
+    END ;
+    (seq_rge_arr.STR_ARR_RGE) ( range , xx , vv ) ;
+    zz := zz + 1 ;
+    (seq_rge_siz.STR_ARRAY) ( range , zz )
+  END ;
+
+  CLR_SEQ_RGE ( range ) = (seq_rge_siz.STR_ARRAY) ( range , 0 ) ;
+
+  TAIL_SEQ_RGE ( range ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF 2 <= zz THEN
+      (seq_rge_arr.LEFT_SHIFT_RGE) ( range , 2 , zz , 1 )
+    END ;
+    zz := zz - 1 ;
+    (seq_rge_siz.STR_ARRAY) ( range , zz )
+  END ;
+
+  KEEP_SEQ_RGE ( range , nn ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF nn < zz THEN
+      (seq_rge_siz.STR_ARRAY) ( range , nn )
+    END
+  END ;
+
+  CUT_SEQ_RGE ( range , nn ) = VAR zz IN
+    IF nn /= 0 THEN
+      zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+      IF nn < zz THEN
+        (seq_rge_arr.LEFT_SHIFT_RGE) ( range , nn + 1 , zz , nn ) ;
+        (seq_rge_siz.STR_ARRAY) ( range , zz - nn )
+      ELSE
+        (seq_rge_siz.STR_ARRAY) ( range , 0 )
+      END
+    END
+  END ;
+
+  PART_SEQ_RGE ( range , ii , jj ) = VAR zz , xx IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF jj <= zz THEN
+      xx := jj
+    ELSE
+      xx := zz
+    END ;
+    IF ii <= xx THEN
+      IF 1 < ii THEN
+    (seq_rge_arr.LEFT_SHIFT_RGE) ( range , ii , xx , ii - 1 )
+      END ;
+      (seq_rge_siz.STR_ARRAY) ( range , xx - ii + 1 )
+    ELSE
+      (seq_rge_siz.STR_ARRAY) ( range , 0 )
+    END
+  END ;
+
+  REV_SEQ_RGE ( range ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF zz >= 2 THEN
+      (seq_rge_arr.REVERSE_RGE) ( range , 1 , zz )
+    END
+  END ;
+
+  bb , ii <-- FIND_FIRST_SEQ_RGE ( range , vv ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF 1 <= zz THEN
+      ii , bb <-- (seq_rge_arr.SEARCH_MIN_EQL_RGE) ( range , 1 , zz , vv )
+    ELSE
+      ii := 0 ;
+      bb := FALSE
+    END
+  END ;
+
+  bb , ii <-- FIND_LAST_SEQ_RGE ( range , vv ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( range ) ;
+    IF 1 <= zz THEN
+      ii , bb <-- (seq_rge_arr.SEARCH_MAX_EQL_RGE) ( range , 1 , zz , vv )
+    ELSE
+      ii := 0 ;
+      bb := FALSE
+    END
+  END ;
+
+  COP_SEQ_RGE ( dst , src ) = VAR zz IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( src ) ;
+    (seq_rge_arr.COP_ARR_RGE) ( dst , src ) ;
+    (seq_rge_siz.STR_ARRAY) ( dst , zz )
+  END ;
+
+  bb <-- CMP_SEQ_RGE ( rng1 , rng2 ) = VAR zz1 , zz2 , xx , bb1 IN
+    zz1 <-- (seq_rge_siz.VAL_ARRAY) ( rng1 ) ;
+    zz2 <-- (seq_rge_siz.VAL_ARRAY) ( rng2 ) ;
+    IF zz1 /= zz2 THEN
+      bb := FALSE
+    ELSIF zz1 = 0 THEN
+      bb := TRUE
+    ELSE
+      xx , bb1 <-- (seq_rge_arr.PCMP_ARR_RGE) ( rng2 , 1 , rng1 , 1 , zz1 ) ;
+      IF bb1 = TRUE THEN
+        bb := FALSE
+      ELSE
+        bb := TRUE
+      END
+    END
+  END ;
+
+  PCOP_SEQ_RGE ( dst , idx , src , ii , jj ) = VAR zz , xx IN
+    zz <-- (seq_rge_siz.VAL_ARRAY) ( dst ) ;
+    (seq_rge_arr.PCOP_ARR_RGE) ( dst , idx , src , ii , jj ) ;
+    xx := jj ;
+    xx := xx - ii ;
+    xx := xx + idx ;
+    IF zz < xx THEN
+      (seq_rge_siz.STR_ARRAY) ( dst , xx )
+    END
+  END ;
+
+  idx , bb <-- PCMP_SEQ_RGE ( rng1 , ii , jj , rng2 , kk ) = BEGIN
+    idx , bb <-- (seq_rge_arr.PCMP_ARR_RGE) ( rng2 , kk , rng1 , ii , jj )
+  END
+
+END

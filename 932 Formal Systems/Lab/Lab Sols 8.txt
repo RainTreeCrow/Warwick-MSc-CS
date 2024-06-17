@@ -1,0 +1,134 @@
+For the $Abset$ machine - see the answers to Q1 in the exercise sheet.
+
+First suggested refinement
+==========================
+You'll find that this refinement won't prove - it can't establish
+that the initialisation establishes the invariant. You may notice that 
+this is similar to case we had in lectures and that we encounter a 
+problem because our linking invariant doesn't work when myset = {}. 
+See the solutions to exercises for more information. But the machine 
+seems to be providing acceptable behaviour and the abstract machine 
+doesn't promise any output if myset is empty. So, we can fix this by 
+altering the linking invariant to: 
+  myset /= {} => num : myset
+You should now find this is a proveable refinement.
+
+Second suggested refinement
+===========================
+Again, this  refinement won't prove as it stands and this time the
+first unproved proof obligation occurs with the set_add operation. 
+You may see from the failed proof in the interactive prover
+(or by going through the proof obligations as in the exercise sheet) 
+that you can't establish the concrete precondition is met. This is 
+because the precondition has been strengthened (the operation is ruling
+out more starting states). We are not allowed to do this. In this case
+we can achieve a very similar effect by turning the PRE in the concrete
+operation to an IF. 
+With this alteration, that particular PO now proves. But there are 
+still unproved obligations. Some are due to lack of rules. Either check by
+inspection that there shouldn't be a problem or prove (possibly needing to add
+rules). For example, in set_out, we're left trying to show that 
+myseq = {} => 0: myset The abstract spec has a PRE that 
+myset /= {} so we don't care what the refinement does in that case. 
+But the prover isn't clever enough to find a proof. Either convince 
+yourself that this IS ok - or try the following proof:
+  dd  - gives 0:myset as goal
+  sh(a) - shows hypotheses. Looks like we can get a contradiction as can
+          derive that myset is both empty and not empty. But need to add
+          myset = {} explicitly as it's not quite in that form
+  ah(myset = {}) - now myset = {} becomes the goal. See if it can prove that...
+  click pr - it does and we now have goal: 0:{}. This looks weird, but
+             remember we're heading for a proof by contradiciton. Check out 
+             the hyps (maybe clear the window first - right click, clear 
+             window - then do sh(a) again to see exactly what you've got.
+             Both myset = {} and not(myset = {}) are now in the hyps. There
+             should be a contradiction rule for this - but the closest I can
+             find is ContradictionXY43. We could either add a suitable
+             contradiction rule (as it's clear that anything follows from 
+             A and not A) or we could add the hyp that ContradictionXY43 
+             needs. Try 2nd option.
+  ah(not(myset={} & not(myset={})))  - now have to prove this!
+  pr  - hmm, it's now in the form of an implication, so remove it to hyps...
+  dd  - see if it can prove it now...
+  pr  - job done!
+
+=====================================================================
+
+Adding a delete operation to AbSet
+----------------------------------
+set_del(nn) = PRE nn:NAT & nn: myset THEN myset := myset - {nn} END
+
+The first refinement cannot deal with this operation. If the element 
+deleted is the value recorded by num it would need to know about other
+possible elements- but it has no record of this.
+
+The second refinement can cope - just remove it, eg:
+set_del(nn) = IF nn/:ran(myseq) THEN 
+       myseq := (myseq /|\ myseq~(nn-1)) ^ (myseq \|/ myseq~(nn)) END
+
+======================================================================
+Refinement of Colours by ColoursR
+
+This is an odd-looking machine and refinement, but it does obey the
+refinement rules. The "exists" may cause trouble in the prover. 
+
+In the interactive prover, consider first the Init condition that remains. 
+  dd - to create hyps
+  sh(a) - to show hyps
+The remaining goal is an exists statement and the prover doesn't show any 
+particularly helpful-looking rules. However, looking at the body
+of this and the hypotheses, it should work if we could suggest the 
+term {colour$2} as an instantiation for the quantified variable. The command to
+do this is:
+  se({colour$2})
+A more tractable looking goal now emerges.  This looks like
+it should be easy because we have colour$2: COLOUR-{blue} in the hypotheses
+but if you click pr the goal turns to bfalse. It seems to have backed itself 
+up a blind alley. Ok, so click the back button to go back one step. If pr 
+can't do it, we could click pp1 which is the "predicate prover" that
+tries a bit harder with logic proof. That finishes the job.
+
+The second unproved obligation relates to the change operation. Again,
+go into Ip and look at the goal after running dd and sh(a). Again 
+looking at the exists statement it looks like a suitable choice to 
+instantiate with would be {colour$2} so let's try that.
+  se({colour$2})  - can the prover now cope? It turns out that pp in
+                    this case would not get the whole way. But the 
+                    predicate prover, pp1, finishes the proof.
+ 
+
+======================================================================
+
+MACHINE           ColoursPlus
+
+/* This adds an operation which the refinement can't handle. */
+/* You could choose anything which requires more information */
+/* than the concrete state is recording.                     */
+
+SETS              COLOUR = {red,green,blue}
+
+VARIABLES         cols
+
+INVARIANT         cols <: COLOUR
+
+INITIALISATION    cols :: POW(COLOUR - {blue})
+
+OPERATIONS
+
+  add(cc:COLOUR) = cols := cols \/ {cc};
+
+  cc <-- query =   PRE   cols /= {}
+                   THEN  cc :: cols
+                   END;
+ 
+  change = cols :: (POW(COLOUR) - {cols});
+
+  cc <-- queryall = cc := cols
+
+END
+
+======================================================================
+
+For other things relating to the exercise sheet - see the solutions for that.
+
+======================================================================

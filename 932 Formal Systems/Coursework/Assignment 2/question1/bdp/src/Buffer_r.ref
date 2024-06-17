@@ -1,0 +1,77 @@
+﻿/* Buffer_r
+ * Author: 
+ * Creation date: 06/01/2024
+ */
+
+REFINEMENT
+    Buffer_r ( qlen , ELEM )
+REFINES
+    Buffer
+
+
+ABSTRACT_VARIABLES
+    aa , start , next
+    /* pointers, "start" marks the starting position of the queue, "next" marks the next available position in the array */
+INVARIANT
+    aa : 1 .. qlen --> ELEM & start : 0 .. qlen & next : 1 .. qlen
+    /* when "start" is 0, it means the queue/buffer is empty, this is to tell a full buffer from an empty one */
+    & ( ( start = 0 ) <=> ( buff = <> ) ) /* empty buffer, empty queue */
+    /* if queue/buffer is not empty, then... */
+    & ( ( start /= 0 ) => ( ( ( start < next ) => ( size ( buff ) = next - start & ! ( ii ) . ( ii : start .. ( next - 1 ) => buff ( ii - start + 1 ) = aa ( ii ) ) ) )
+            /* start < next, the queue is stored at start..next-1, array[start..(next-1)] maps to buff[1..size(buff)] */
+            & ( ( start >= next ) => ( size ( buff ) = qlen + next - start
+                    & ! ( ii ) . ( ii : start .. qlen => buff ( ii - start + 1 ) = aa ( ii ) )
+                    & ( next > 1 => ! ( ii ) . ( ii : 1 .. ( next - 1 ) => buff ( ii + qlen - start + 1 ) = aa ( ii ) ) ) ) ) ) )
+                    /* start >= next, array[start..qlen] concatenate array[1..(next-1)] maps to buff[1..size(buff)],
+    		   note that for next = 1 we only need array[start..qlen] = buff[1..size(buff)] and not the second part */
+        & ( ( start = next ) <=> ( size ( buff ) = qlen ) ) /* full buffer, full queue (this is to help reason with the prover) */
+INITIALISATION
+    aa :: 1 .. qlen --> ELEM || start := 0 || next := 1
+OPERATIONS
+    /* for all operations, assume the preconditions in "Buffer" are met, other cases treated later in the wrapper */
+
+    add ( xx ) =
+    IF start /= next THEN
+            IF start = 0 /* which indicates the array/buffer was empty */
+            THEN start := 1 /* otherwise just leave it be */
+            END ;
+            aa ( next ) := xx ; /* store xx in the next available position */
+            IF next = qlen /* the end of aa is reached */
+            THEN next := 1 /* wrap-around (for the next available position) */
+            ELSE next := next + 1
+            END
+    END ;
+
+    ee <-- remove =
+    IF start /= 0 THEN
+        ee := aa ( start ) ; /* retrieve from the start of queue */
+        IF start = qlen /*the end of aa is reached */
+        THEN start := 1 /* wrap-around */
+        ELSE start := start + 1 /* update the starting position */
+        END ;
+        IF start = next /* after this removal the array/buffer will be empty */
+        THEN BEGIN start := 0 ; next := 1 END /* back to initialisation state */
+        END
+    END ;
+
+    rr <-- emptyquery =
+    IF start = 0
+    THEN rr := yes
+    ELSE rr := no
+    END ;
+
+    rr <-- fullquery =
+    IF start = next /* no more positions available */
+    THEN rr := yes
+    ELSE rr := no
+    END ;
+
+    oo <-- contentsquery =
+    IF start = 0 /* empty queue/buffer */
+    THEN oo := 0
+    ELSE IF start < next
+        THEN oo := next - start
+        ELSE oo := qlen + next - start
+        END
+    END
+END

@@ -1,0 +1,111 @@
+/* Stats_i
+ * Author: Hanzhi Zhang
+ * Creation date: 06/01/2024
+ */
+
+IMPLEMENTATION
+    Stats_i
+REFINES
+    Stats
+VALUES
+    maxlen = 100
+CONCRETE_VARIABLES
+    marks, count /* we don't really need these but having them makes it more convenient */
+INVARIANT
+    marks : (0..10) --> NAT /* how many students have received each particular mark */
+    & count : NAT & count <= maxlen /* respect the limit */
+    & !(nn).(nn : 0..10 => marks(nn) = card(record |> {nn})) /* links it with the record */
+    & SIGMA(nn).(nn : 0..10 | marks(nn)) = count
+INITIALISATION
+    marks := (0..10) * {0}; count := 0
+OPERATIONS
+    tested(nn) =
+    IF count < maxlen
+    THEN
+        marks(nn) := marks(nn) + 1;
+        /* we have a maxlen = 100 so surely this should not exceed MAXINT */
+        count := count + 1 /* update count */
+    END;
+    
+    oo <-- querytot =
+    oo := count;
+    
+    oo <-- queryreg(nn) =
+    oo := marks(nn);
+    
+    oo <-- querypc(nn) =
+    IF count /= 0
+    THEN oo := marks(nn) * 100 / count
+    END;
+    
+    oo <-- querymean =
+    IF count /= 0
+    THEN
+        VAR tt, ii IN
+            tt := 0; /* to store the sum */
+            ii := 0; /* to traverse all the marks */
+            WHILE ii /= 11
+            DO
+                tt := tt + marks(ii) * ii;
+                ii := ii + 1
+            INVARIANT 0 <= ii & ii <= 11 & tt = SIGMA(nn).(nn : 0..(ii-1) | nn * marks(nn))
+            VARIANT 11 - ii
+            END;
+            oo := tt / count
+        END
+    END;
+    
+    oo <-- querymedian =
+    IF count /= 0
+    THEN
+        VAR rr IN
+            rr := count mod 2;
+            IF rr = 1
+            THEN
+                VAR ii, mm, tt IN
+                    ii := (count+1)/2; /* median index */
+                    mm := 0; /* current mark */
+                    tt := 0; /* number of students with a mark lower or equal to mm */
+                    WHILE tt < ii
+    	            DO
+        	            tt := tt + marks(mm);
+            	        mm := mm + 1
+                	INVARIANT tt = SIGMA(nn).(nn : 0..(mm-1) | marks(ii))
+                    	& tt < ii or tt - marks(mm-1) < ii
+	                VARIANT 10 - mm
+    	                /* the loops stops with tt >= ii and tt - marks(mm-1) < ii, so we may infer that
+        	               students with a mark strictly lower than mm-1 is less than ii,
+            	           while those with a mark lower or equal to mm-1 is more than or equal to ii */
+                	END;
+                	oo := mm-1
+                END
+        	ELSE
+            	VAR i1, i2, m1, m2, t1, t2 IN
+                	i1 := count/2; /* the smaller median index */
+	                m1 := 0;
+    	            t1 := 0;
+        	        WHILE t1 < i1
+            	    DO
+                	    t1 := t1 + marks(m1);
+                    	m1 := m1 + 1
+	                INVARIANT t1 = SIGMA(nn).(nn : 0..(m1-1) | marks(i1))
+    	                & t1 < i1 or t1 - marks(m1-1) < i1
+        	        VARIANT 10 - m1
+            	    END;
+                	i2 := count/2+1; /* the larger median index */
+                	m2 := 0;
+                	t2 := 0;
+                	WHILE t2 < i2
+                	DO
+                    	t2 := t2 + marks(m2);
+                    	m2 := m2 + 1
+                	INVARIANT t2 = SIGMA(nn).(nn : 0..(m2-1) | marks(i2))
+                    	& t2 < i2 or t2 - marks(m2-1) < i2
+                	VARIANT 10 - m2
+                	END;
+                	oo := (m1-1 + m2-1) / 2
+            	END
+            END
+        END
+    END
+END

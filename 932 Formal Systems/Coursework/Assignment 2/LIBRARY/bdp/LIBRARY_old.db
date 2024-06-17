@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/home/lbu/AB/LIBRARY/bdp/expand_src" old_decomp_dir="/home/lbu/AB/LIBRARY/bdp/src">
+        <!-- Definition directory list -->
+        <!-- Component file list -->
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="A_README" suffix="mch" user="lb">
+            <component name="A_README" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="BASIC_ARRAY_RGE" suffix="mch" user="lb">
+            <component name="BASIC_ARRAY_RGE" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="BASIC_ARRAY_VAR" suffix="mch" user="lb">
+            <component name="BASIC_ARRAY_VAR" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="BASIC_IO" suffix="mch" user="lb">
+            <component name="BASIC_IO" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARITHMETIC" suffix="mch" user="lb">
+            <component name="L_ARITHMETIC" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARITHMETIC1" suffix="mch" user="lb">
+            <component name="L_ARITHMETIC1" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARITHMETIC1_1" suffix="imp" user="lb">
+            <component name="L_ARITHMETIC1_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARITHMETIC_1" suffix="ref" user="lb">
+            <component name="L_ARITHMETIC_1" type="refinement" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARITHMETIC_2" suffix="imp" user="lb">
+            <component name="L_ARITHMETIC_2" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY1" suffix="mch" user="lb">
+            <component name="L_ARRAY1" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY1_1" suffix="imp" user="lb">
+            <component name="L_ARRAY1_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY1_COLLECTION" suffix="mch" user="lb">
+            <component name="L_ARRAY1_COLLECTION" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY1_COLLECTION_1" suffix="imp" user="lb">
+            <component name="L_ARRAY1_COLLECTION_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY1_RANGE" suffix="mch" user="lb">
+            <component name="L_ARRAY1_RANGE" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY1_RANGE_1" suffix="imp" user="lb">
+            <component name="L_ARRAY1_RANGE_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY2" suffix="mch" user="lb">
+            <component name="L_ARRAY2" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY2_1" suffix="imp" user="lb">
+            <component name="L_ARRAY2_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY2_RANGE" suffix="mch" user="lb">
+            <component name="L_ARRAY2_RANGE" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY2_RANGE_1" suffix="imp" user="lb">
+            <component name="L_ARRAY2_RANGE_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY3" suffix="mch" user="lb">
+            <component name="L_ARRAY3" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY3_1" suffix="imp" user="lb">
+            <component name="L_ARRAY3_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY3_RANGE" suffix="mch" user="lb">
+            <component name="L_ARRAY3_RANGE" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY3_RANGE_1" suffix="imp" user="lb">
+            <component name="L_ARRAY3_RANGE_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY4" suffix="mch" user="lb">
+            <component name="L_ARRAY4" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY4_1" suffix="imp" user="lb">
+            <component name="L_ARRAY4_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY4_RANGE" suffix="mch" user="lb">
+            <component name="L_ARRAY4_RANGE" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY4_RANGE_1" suffix="imp" user="lb">
+            <component name="L_ARRAY4_RANGE_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY5" suffix="mch" user="lb">
+            <component name="L_ARRAY5" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY5_1" suffix="imp" user="lb">
+            <component name="L_ARRAY5_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY5_RANGE" suffix="mch" user="lb">
+            <component name="L_ARRAY5_RANGE" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY5_RANGE_1" suffix="imp" user="lb">
+            <component name="L_ARRAY5_RANGE_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY_COLLECTION" suffix="mch" user="lb">
+            <component name="L_ARRAY_COLLECTION" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_ARRAY_COLLECTION_1" suffix="imp" user="lb">
+            <component name="L_ARRAY_COLLECTION_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_PFNC" suffix="mch" user="lb">
+            <component name="L_PFNC" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_PFNC_1" suffix="imp" user="lb">
+            <component name="L_PFNC_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_RELATION" suffix="mch" user="lb">
+            <component name="L_RELATION" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_RELATION_1" suffix="imp" user="lb">
+            <component name="L_RELATION_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_SEQUENCE" suffix="mch" user="lb">
+            <component name="L_SEQUENCE" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_SEQUENCE_1" suffix="imp" user="lb">
+            <component name="L_SEQUENCE_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_SEQUENCE_RANGE" suffix="mch" user="lb">
+            <component name="L_SEQUENCE_RANGE" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_SEQUENCE_RANGE_1" suffix="imp" user="lb">
+            <component name="L_SEQUENCE_RANGE_1" type="implementation" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_SET" suffix="mch" user="lb">
+            <component name="L_SET" type="specification" />
+        </component_file>
+        <component_file path="/home/lbu/AB/LIBRARY/spec" name="L_SET_1" suffix="imp" user="lb">
+            <component name="L_SET_1" type="implementation" />
+        </component_file>
+    </project>
+</db_xml>

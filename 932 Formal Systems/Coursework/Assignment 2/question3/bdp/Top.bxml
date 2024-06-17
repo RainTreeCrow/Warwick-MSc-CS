@@ -1,0 +1,21 @@
+<Machine name='Top' type='abstraction'>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<Operations>
+<Operation name='main'>
+<Attr>
+<Pos l='8' c='5' s='4'/>
+</Attr>
+<Body>
+<Skip>
+<Attr>
+<Pos l='8' c='12' s='4'/>
+</Attr>
+</Skip>
+</Body>
+</Operation>
+</Operations>
+<TypeInfos/>
+
+</Machine>

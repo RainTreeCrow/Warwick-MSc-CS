@@ -1,0 +1,136 @@
+IMPLEMENTATION
+  L_ARRAY2_1(LAD_VALUE,LAD_maxidx)
+
+REFINES
+  L_ARRAY2
+
+
+EXTENDS
+  L_ARRAY1(LAD_VALUE,LAD_maxidx)
+
+
+
+DEFINITIONS
+  LAD_INDEX == 0..LAD_maxidx
+
+
+
+OPERATIONS
+
+  SWAP_ARRAY(ii,jj) = 
+  VAR vv,ww IN
+    vv <-- VAL_ARRAY(ii);
+    ww <-- VAL_ARRAY(jj);
+    STR_ARRAY(ii,ww);
+    STR_ARRAY(jj,vv)
+  END;
+
+  RIGHT_SHIFT_ARRAY(ii,jj,nn) = 
+  VAR kk,ss IN
+    kk := jj;
+    ss := 0;
+    WHILE ss = 0 DO
+      VAR ll,vv IN
+        vv <-- VAL_ARRAY(kk);
+        ll := kk+nn;
+        STR_ARRAY(ll,vv);
+        IF kk = ii THEN
+          ss := 1
+        ELSE
+          kk := kk -1
+        END
+      END
+    INVARIANT
+      kk: ii..jj &
+      ss: NATURAL &
+      ss<=1 &
+      (ss = 0 => arr_vrb = arr_vrb$0<+%xx.(xx: kk+1+nn..jj+nn | arr_vrb$0(xx-nn))) &
+      (ss = 1 => arr_vrb = arr_vrb$0<+%xx.(xx: ii+nn..jj+nn | arr_vrb$0(xx-nn)))
+    VARIANT
+      kk+1-ss
+    END
+  END;
+
+  LEFT_SHIFT_ARRAY(ii,jj,nn) = 
+  VAR kk IN
+    kk := ii;
+    WHILE kk<=jj DO
+      VAR ll,vv IN
+        vv <-- VAL_ARRAY(kk);
+        ll := kk-nn;
+        STR_ARRAY(ll,vv);
+        kk := kk+1
+      END
+    INVARIANT
+      kk: ii..jj+1 &
+      arr_vrb = arr_vrb$0<+%xx.((xx: 0..LAD_maxidx & xx+nn: ii..kk-1) | arr_vrb$0(xx+nn))
+    VARIANT
+      jj+1-kk
+    END
+  END;
+
+  rr,bb <-- SEARCH_MAX_EQL_ARRAY(ii,jj,vv) =
+  VAR ss IN
+    rr := jj;
+    ss := 0;
+    bb := FALSE;
+    WHILE ss = 0 DO
+      VAR ww IN
+        ww <-- VAL_ARRAY(rr);
+        IF ww = vv THEN
+          ss := 1;
+          bb := TRUE
+        ELSIF rr=ii THEN
+          ss := 1
+        ELSE
+          rr := rr-1
+        END
+      END
+    INVARIANT
+      rr: NATURAL &
+      ii<=rr &
+      rr<=jj &
+      ss: NATURAL &
+      ss<=1 &
+      bb: BOOL &
+      (ss = 0 => (rr+1..jj<|arr_vrb)~[{vv}] = {} & not(rr+1=ii) & bb = FALSE) &
+      (ss = 1 => (rr+1..jj<|arr_vrb)~[{vv}] = {} & bb = bool(not((ii..jj<|arr_vrb)~[{vv}] = {}))) &
+      (ss = 1 & bb = TRUE => arr_vrb(rr) = vv)
+    VARIANT
+      1+rr-ss
+    END
+  END;
+
+  rr,bb <-- SEARCH_MIN_EQL_ARRAY(ii,jj,vv) = 
+  VAR ss IN
+    rr := ii;
+    ss := 0;
+    bb := FALSE;
+    WHILE ss = 0 DO
+      VAR ww IN
+        ww <-- VAL_ARRAY(rr);
+        IF ww = vv THEN
+          ss := 1;
+          bb := TRUE
+        ELSIF rr=jj THEN
+          ss := 1
+        ELSE
+          rr := rr+1
+        END
+      END
+    INVARIANT
+      rr: NATURAL &
+      ii<=rr &
+      rr<=jj &
+      ss: NATURAL &
+      ss<=1 &
+      bb: BOOL &
+      (ss = 0 => (ii..rr-1<|arr_vrb)~[{vv}] = {} & not(rr-1=jj) & bb = FALSE) &
+      (ss = 1 => (ii..rr-1<|arr_vrb)~[{vv}] = {} & bb = bool(not((ii..jj<|arr_vrb)~[{vv}] = {}))) &
+      (ss = 1 & bb = TRUE => arr_vrb(rr) = vv)
+    VARIANT
+      1+jj-rr-ss
+    END
+  END
+
+END

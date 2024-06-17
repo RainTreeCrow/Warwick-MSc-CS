@@ -1,0 +1,131 @@
+﻿THEORY BalanceX IS
+  Stats2,33,0,0,14,0,0,0;
+  Initialisation,2,0,0,2,0,0,0;
+  WellDefinednessInvariant,1,0,0,0,0,0,0;
+  WellDefinedness_Precondition_querymean,1,0,0,0,0,0,0;
+  WellDefinedness_Precondition_querymedian,1,0,0,0,0,0,0;
+  WellDefinedness_Precondition_querypc,1,0,0,0,0,0,0;
+  WellDefinedness_Precondition_tested,1,0,0,0,0,0,0;
+  WellDefinedness_querymean,4,0,0,3,0,0,0;
+  WellDefinedness_querymedian,14,0,0,6,0,0,0;
+  WellDefinedness_querypc,3,0,0,1,0,0,0;
+  WellDefinedness_queryreg,1,0,0,0,0,0,0;
+  WellDefinedness_querytot,1,0,0,0,0,0,0;
+  WellDefinedness_tested,1,0,0,0,0,0,0;
+  tested,2,0,0,2,0,0,0
+END
+&
+THEORY ProofState IS
+  Unproved;
+  Proved(0);
+  Unproved;
+  Proved(0);
+  Unproved;
+  Proved(0);
+  Unproved;
+  Proved(0);
+  Unproved;
+  Proved(0);
+  Proved(0);
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Proved(0);
+  Unproved;
+  Proved(0);
+  Proved(0);
+  Unproved;
+  Proved(0);
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0)
+END
+&
+THEORY MethodList IS
+  ?;
+  pr;
+  ?;
+  pr;
+  ?;
+  pr;
+  ?;
+  pr;
+  ?;
+  pr;
+  pr;
+  ?;
+  ?;
+  ?;
+  ?;
+  pr;
+  ?;
+  pr;
+  pr;
+  ?;
+  pr;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  pr;
+  pr;
+  pr;
+  pr
+END
+&
+THEORY PassList IS
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),?;
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),?;
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?
+END
+&
+THEORY ManForms 
+END
+&
+THEORY Version IS
+  PRVersion("svn")(CLT == "svn")
+END

@@ -1,0 +1,59 @@
+IMPLEMENTATION
+  L_ARRAY_COLLECTION_1 ( LACOLL_maxobj , LACOLL_INDEX , LACOLL_VALUE )
+
+REFINES
+  L_ARRAY_COLLECTION
+
+CONCRETE_VARIABLES
+cptr
+
+IMPORTS
+  mat_vrb.BASIC_ARRAY_RGE ( LACOLL_INDEX , LACOLL_VALUE , 1 .. LACOLL_maxobj ) ,
+  free_lst.L_SEQUENCE ( LACOLL_maxobj , 1 .. LACOLL_maxobj )
+
+INVARIANT
+  cptr : NAT1 &
+  cptr <= LACOLL_maxobj &
+  arr_col = ran ( free_lst.seq_vrb ) <<| ( cptr .. LACOLL_maxobj <<| mat_vrb.arr_rge ) &
+  ran ( free_lst.seq_vrb ) /\ cptr .. LACOLL_maxobj = {} &
+  free_lst.seq_vrb : iseq ( 1 .. LACOLL_maxobj )
+
+INITIALISATION
+  cptr := 1
+
+OPERATIONS
+
+  ii , bb <-- CRE_ARR_COL = VAR len_seq , mo IN
+     len_seq <-- free_lst.LEN_SEQ ;
+     mo := LACOLL_maxobj + 1 ;
+     IF len_seq /= 0 THEN
+       bb := TRUE ;
+       ii <-- free_lst.FIRST_SEQ ;
+       free_lst.TAIL_SEQ
+     ELSE
+       IF cptr /= mo THEN
+         bb := TRUE ;
+         ii := cptr ;
+         cptr := cptr + 1
+       ELSE
+         bb := FALSE ;
+     ii := 1
+       END
+     END
+  END ;
+
+  DEL_ARR_COL ( ii ) =
+     free_lst.PUSH_SEQ ( ii ) ;
+
+  vv <-- VAL_ARR_COL ( ii , jj ) =
+     vv <-- mat_vrb.VAL_ARR_RGE ( ii , jj ) ;
+
+  STR_ARR_COL ( ii , jj , vv ) =
+     mat_vrb.STR_ARR_RGE ( ii , jj , vv ) ;
+
+  COP_ARR_COL ( dest , src ) =
+     mat_vrb.COP_ARR_RGE ( dest , src ) ;
+
+  bb <-- CMP_ARR_COL ( range1 , range2 ) =
+     bb <-- mat_vrb.CMP_ARR_RGE ( range1 , range2 )
+END

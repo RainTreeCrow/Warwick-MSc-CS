@@ -1,0 +1,48 @@
+IMPLEMENTATION
+  L_ARITHMETIC1_1
+
+REFINES
+  L_ARITHMETIC1
+
+IMPORTS
+  L_ARITHMETIC
+
+PROMOTES
+  MIN,MAX,INC,DEC,EXP,SQRT
+
+OPERATIONS
+
+  uu,rr <-- LOG_BY_DEFAULT(vv,ww) = BEGIN
+    IF vv<=ww THEN
+      uu,rr <-- LOG_BY_DEFAULT1(vv,ww)
+    ELSE
+      uu :=0;
+      rr :=1
+    END
+  END;
+
+  uu,bb <-- LOG_BY_EXCESS(vv,ww) = BEGIN
+    IF vv<=ww THEN
+      VAR zz IN
+        uu,zz <-- LOG_BY_DEFAULT1(vv,ww);
+        IF zz/=ww THEN
+          uu :=uu+1;
+          bb :=FALSE
+        ELSE
+          bb :=TRUE
+        END
+      END
+    ELSE
+      IF ww = 1 THEN
+        uu :=0;
+        bb :=TRUE
+      ELSIF ww = 0 THEN
+        uu :=0;
+        bb :=FALSE
+      ELSE
+        uu :=1;
+        bb :=FALSE
+      END
+    END
+  END
+END

@@ -1,0 +1,125 @@
+IMPLEMENTATION 
+  L_ARRAY2_RANGE_1(LADR_minrge,LADR_maxrge,LADR_maxidx,LADR_VALUE)
+
+REFINES
+  L_ARRAY2_RANGE
+
+
+EXTENDS
+  L_ARRAY1_RANGE(LADR_minrge,LADR_maxrge,LADR_maxidx,LADR_VALUE)
+
+OPERATIONS
+
+  SWAP_RGE(rng,ii,jj) = VAR vv,ww IN
+	vv <-- VAL_ARR_RGE(rng,ii);
+	ww <-- VAL_ARR_RGE(rng,jj);
+	STR_ARR_RGE(rng,ii,ww);
+	STR_ARR_RGE(rng,jj,vv)
+  END;
+
+  RIGHT_SHIFT_RGE(rng,ii,jj,nn) = VAR kk,ss IN
+    kk :=jj;
+    ss :=0;
+    WHILE ss = 0 DO
+      VAR ll,vv IN
+        vv <-- VAL_ARR_RGE(rng,kk);
+        ll :=kk+nn;
+        STR_ARR_RGE(rng,ll,vv);
+        IF kk = ii THEN
+          ss :=1
+        ELSE
+          kk :=kk-1
+        END
+      END
+    INVARIANT
+      kk: ii..jj &
+      ss: NATURAL &
+      ss<=1 &
+	  (ss = 0 => arr_rge = arr_rge$0<+{rng|->(arr_rge$0(rng)<+%xx.(xx: kk+1+nn..jj+nn | arr_rge$0(rng)(xx-nn)))}) & 
+      (ss = 1 => arr_rge = arr_rge$0<+{rng|->(arr_rge$0(rng)<+%xx.(xx: ii+nn..jj+nn | arr_rge$0(rng)(xx-nn)))})
+    VARIANT
+      kk+1-ss
+    END
+  END;
+
+
+  LEFT_SHIFT_RGE(rng,ii,jj,nn) = VAR kk IN
+    kk :=ii;
+    WHILE kk<=jj DO
+      VAR ll,vv IN
+        vv <-- VAL_ARR_RGE(rng,kk);
+        ll :=kk-nn;
+        STR_ARR_RGE(rng,ll,vv);
+        kk :=kk+1
+      END
+    INVARIANT
+      kk: ii..jj+1 &
+	  arr_rge = arr_rge$0<+{rng|->(arr_rge$0(rng)<+%xx.((xx: 0..LADR_maxidx & xx+nn: ii..kk-1) | arr_rge$0(rng)(xx+nn)))}
+    VARIANT
+      jj+1-kk
+    END
+  END;
+
+  rr,bb <-- SEARCH_MIN_EQL_RGE(rng,ii,jj,vv) = VAR ss IN
+    rr :=ii;
+    ss :=0;
+    bb :=FALSE;
+    WHILE ss = 0 DO
+      VAR ww IN
+        ww <-- VAL_ARR_RGE(rng,rr);
+        IF ww = vv THEN
+          ss :=1;
+          bb :=TRUE
+        ELSIF rr=jj THEN
+          ss :=1
+        ELSE
+          rr :=rr+1
+        END
+      END
+    INVARIANT
+      rr: NATURAL &
+      ii<=rr &
+      rr<=jj &
+      ss: NATURAL &
+      ss<=1 &
+      bb: BOOL &
+      (ss = 0 => (ii..rr-1<|arr_rge(rng))~[{vv}] = {} & not(rr-1=jj) & bb = FALSE) &
+      (ss = 1 => (ii..rr-1<|arr_rge(rng))~[{vv}] = {} & bb = bool(not((ii..jj<|arr_rge(rng))~[{vv}] = {}))) &
+      (ss = 1 & bb = TRUE => arr_rge(rng)(rr) = vv)
+    VARIANT
+      1+jj-rr-ss
+    END
+  END;
+
+  rr,bb <-- SEARCH_MAX_EQL_RGE(rng,ii,jj,vv) = VAR ss IN
+    rr :=jj;
+    ss :=0;
+    bb :=FALSE;
+    WHILE ss = 0 DO
+      VAR ww IN
+        ww <-- VAL_ARR_RGE(rng,rr);
+        IF ww = vv THEN
+          ss :=1;
+          bb :=TRUE
+        ELSIF rr=ii THEN
+          ss :=1
+        ELSE
+          rr :=rr-1
+        END
+      END
+    INVARIANT
+      rr: NATURAL &
+      ii<=rr &
+      rr<=jj &
+      ss: NATURAL &
+      ss<=1 &
+      bb: BOOL &
+      (ss = 0 => (rr+1..jj<|arr_rge(rng))~[{vv}] = {} & not(rr+1=ii) & bb = FALSE) &
+      (ss = 1 => (rr+1..jj<|arr_rge(rng))~[{vv}] = {} & bb = bool(not((ii..jj<|arr_rge(rng))~[{vv}] = {}))) &
+      (ss = 1 & bb = TRUE => arr_rge(rng)(rr) = vv)
+    VARIANT
+      1+rr-ss
+    END
+  END
+
+END

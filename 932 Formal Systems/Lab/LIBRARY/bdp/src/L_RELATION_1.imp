@@ -1,0 +1,117 @@
+IMPLEMENTATION
+  L_RELATION_1 ( DOMAIN_SET , RANGE_SET , max_nb_2tupple )
+REFINES
+  L_RELATION
+IMPORTS
+  (theDomain.L_ARRAY1) ( DOMAIN_SET , max_nb_2tupple - 1 ) ,
+  (theCodomain.L_ARRAY1) ( RANGE_SET , max_nb_2tupple - 1 )
+CONCRETE_VARIABLES
+  nb_2tupple
+INVARIANT
+  nb_2tupple : NAT &
+  nb_2tupple = card ( theRelation ) &
+  theRelation = ran ( 0 .. nb_2tupple - 1 <| ( (theDomain.arr_vrb) >< (theCodomain.arr_vrb) ) )
+INITIALISATION
+  nb_2tupple := 0
+OPERATIONS
+  op_reset =
+  BEGIN
+    nb_2tupple := 0
+  END ;
+  r_bb <-- op_isFullRelation =
+  BEGIN
+    r_bb := bool ( nb_2tupple = max_nb_2tupple )
+  END ;
+  op_add ( a_elem1 , a_elem2 ) =
+  BEGIN
+    (theDomain.STR_ARRAY) ( nb_2tupple , a_elem1 ) ;
+    (theCodomain.STR_ARRAY) ( nb_2tupple , a_elem2 ) ;
+    nb_2tupple := nb_2tupple + 1
+  END ;
+  r_nn <-- op_cardinal =
+  BEGIN
+    r_nn := nb_2tupple
+  END ;
+  r_bb <-- op_belongsTo ( a_elem1 , a_elem2 ) =
+  VAR
+    index , theRightIndex
+  IN
+    index := 0 ;
+    theRightIndex := nb_2tupple ;
+    WHILE
+      index < nb_2tupple
+    DO
+      VAR element1 , element2 IN
+        element1 <-- (theDomain.VAL_ARRAY) ( index ) ;
+        element2 <-- (theCodomain.VAL_ARRAY) ( index ) ;
+        IF element1 = a_elem1 & element2 = a_elem2 THEN
+          theRightIndex := index ;
+          index := nb_2tupple
+        ELSE
+          index := index + 1
+        END
+      END
+    INVARIANT
+        index : 0 .. nb_2tupple &
+        theRightIndex : 0 .. nb_2tupple &
+        ( index /= nb_2tupple
+         => ( theRightIndex = nb_2tupple &
+             a_elem1 |-> a_elem2 /: ran ( 0 .. index - 1 <| ( (theDomain.arr_vrb) >< (theCodomain.arr_vrb) ) ) ) ) &
+        ( index = nb_2tupple & theRightIndex /= nb_2tupple
+         => a_elem1 |-> a_elem2 : theRelation ) &
+        ( index = nb_2tupple & theRightIndex = nb_2tupple
+         => a_elem1 |-> a_elem2 /: theRelation )
+    VARIANT
+      nb_2tupple - index
+    END ;
+    r_bb := bool ( theRightIndex /= nb_2tupple )
+  END ;
+  op_remove ( a_elem1 , a_elem2 ) =
+  VAR
+    index , theRightIndex
+  IN
+    index := 0 ;
+    theRightIndex := nb_2tupple ;
+    WHILE
+      index < nb_2tupple
+    DO
+      VAR element1 , element2 IN
+        element1 <-- (theDomain.VAL_ARRAY) ( index ) ;
+        element2 <-- (theCodomain.VAL_ARRAY) ( index ) ;
+        IF element1 = a_elem1 & element2 = a_elem2 THEN
+          theRightIndex := index ;
+          index := nb_2tupple
+        ELSE
+          index := index + 1
+        END
+      END
+    INVARIANT
+        index : 0 .. nb_2tupple &
+        theRightIndex : 0 .. nb_2tupple &
+        ( index /= nb_2tupple
+         => ( theRightIndex = nb_2tupple &
+             a_elem1 |-> a_elem2 /: ran ( 0 .. index - 1 <| ( (theDomain.arr_vrb) >< (theCodomain.arr_vrb) ) ) ) ) &
+        ( index = nb_2tupple & theRightIndex /= nb_2tupple
+         => a_elem1 |-> a_elem2 : theRelation ) &
+        ( index = nb_2tupple & theRightIndex /= nb_2tupple
+         => (theDomain.arr_vrb) ( theRightIndex ) = a_elem1 & (theCodomain.arr_vrb) ( theRightIndex ) = a_elem2 ) &
+        ( index = nb_2tupple & theRightIndex = nb_2tupple
+         => a_elem1 |-> a_elem2 /: theRelation )
+    VARIANT
+      nb_2tupple - index
+    END ;
+    IF
+      theRightIndex /= nb_2tupple
+    THEN
+      VAR
+        swap1 , swap2
+      IN
+        swap1 <-- (theDomain.VAL_ARRAY) ( nb_2tupple - 1 ) ;
+        swap2 <-- (theCodomain.VAL_ARRAY) ( nb_2tupple - 1 ) ;
+        (theDomain.STR_ARRAY) ( theRightIndex , swap1 ) ;
+        (theCodomain.STR_ARRAY) ( theRightIndex , swap2 )
+      END ;
+      nb_2tupple := nb_2tupple - 1
+    END
+  END
+END

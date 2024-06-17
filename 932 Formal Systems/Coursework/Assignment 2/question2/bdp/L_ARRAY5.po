@@ -1,0 +1,107 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(6) & _f(28) & WellDefinedness_SEARCH_MIN_GEQ_ARRAY.4,(_f(47) => _f(76));
+_f(1) & _f(2) & _f(6) & _f(28) & WellDefinedness_SEARCH_MIN_GEQ_ARRAY.3,(_f(47) => _f(75));
+_f(1) & _f(2) & _f(6) & _f(28) & WellDefinedness_SEARCH_MIN_GEQ_ARRAY.2,(_f(73) & _f(47) => _f(49));
+_f(1) & _f(2) & _f(6) & _f(28) & WellDefinedness_SEARCH_MIN_GEQ_ARRAY.1,(_f(73) & _f(47) => _f(74));
+_f(1) & _f(2) & _f(6) & _f(26) & WellDefinedness_REVERSE_ARRAY.2,(_f(68) & _f(47) => _f(49));
+_f(1) & _f(2) & _f(6) & _f(26) & WellDefinedness_REVERSE_ARRAY.1,(_f(68) & _f(47) => _f(69));
+_f(1) & _f(2) & _f(6) & _f(17) & WellDefinedness_LEFT_SHIFT_ARRAY.2,(_f(63) & _f(64) & _f(47) => _f(49));
+_f(1) & _f(2) & _f(6) & _f(17) & WellDefinedness_LEFT_SHIFT_ARRAY.1,(_f(63) & _f(64) & _f(47) => _f(65));
+_f(1) & _f(2) & _f(6) & _f(15) & WellDefinedness_RIGHT_SHIFT_ARRAY.2,(_f(58) & _f(47) => _f(49));
+_f(1) & _f(2) & _f(6) & _f(15) & WellDefinedness_RIGHT_SHIFT_ARRAY.1,(_f(58) & _f(47) => _f(59));
+_f(1) & _f(2) & _f(6) & _f(13) & WellDefinedness_SWAP_ARRAY.3,(_f(47) => _f(48));
+_f(1) & _f(2) & _f(6) & _f(13) & WellDefinedness_SWAP_ARRAY.2,(_f(47) => _f(49));
+_f(1) & _f(2) & _f(6) & _f(13) & WellDefinedness_SWAP_ARRAY.1,(_f(47) => _f(54));
+_f(1) & _f(2) & _f(6) & _f(7) & WellDefinedness_VAL_ARRAY.2,(_f(47) => _f(49));
+_f(1) & _f(2) & _f(6) & _f(7) & WellDefinedness_VAL_ARRAY.1,(_f(47) => _f(48));
+_f(1) & _f(2) & _f(6) & _f(30) & ASCENDING_SORT_ARRAY.1,(_f(31) & _f(32) & _f(33) & _f(34) & _f(35) & _f(36) & _f(37) & _f(38) & _f(39) & _f(40) & _f(41) & _f(9) => _f(42));
+_f(1) & _f(2) & _f(6) & _f(26) & REVERSE_ARRAY.1,(_f(9) => _f(27));
+_f(1) & _f(2) & _f(6) & _f(17) & LEFT_SHIFT_ARRAY.1,(_f(9) => _f(18));
+_f(1) & _f(2) & _f(6) & _f(15) & RIGHT_SHIFT_ARRAY.1,(_f(9) => _f(16));
+_f(1) & _f(2) & _f(6) & _f(13) & SWAP_ARRAY.1,(_f(9) => _f(14));
+_f(1) & _f(2) & _f(6) & _f(11) & SET_ARRAY.1,(_f(9) => _f(12));
+_f(1) & _f(2) & _f(6) & _f(8) & STR_ARRAY.1,(_f(9) => _f(10))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((LAC_minval) : (NAT)) & ((LAC_maxval) : (NAT)) & ((LAC_maxidx) : ((NAT-{0}))) & (LAC_minval <= LAC_maxval);
+arr_vrb$1 : ((0) .. (LAC_maxidx)) +-> ((LAC_minval) .. (LAC_maxval));
+dom(arr_vrb$1) = ((0) .. (LAC_maxidx));
+((arr_vrb$1) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+arr_vrb : ((0) .. (LAC_maxidx)) +-> ((LAC_minval) .. (LAC_maxval)) & dom(arr_vrb) = ((0) .. (LAC_maxidx)) & ((arr_vrb) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+((ii) : (((0) .. (LAC_maxidx))));
+((ii) : (((0) .. (LAC_maxidx)))) & ((vv) : (((LAC_minval) .. (LAC_maxval))));
+"Invariant is preserved";
+((((arr_vrb) <+ (({((ii) |-> (vv))})))) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+((ii) : (NAT)) & ((jj) : (NAT)) & not(jj = 2147483647) & ((ii) .. (jj)) : POW( ((0) .. (LAC_maxidx))) & ((vv) : (((LAC_minval) .. (LAC_maxval))));
+((((arr_vrb) <+ ((((ii) .. (jj)) * ({vv}))))) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+((ii) : (((0) .. (LAC_maxidx)))) & ((jj) : (((0) .. (LAC_maxidx))));
+((((arr_vrb) <+ (({((ii) |-> ((arr_vrb )(jj)))}\/{((jj) |-> ((arr_vrb )(ii)))})))) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+((jj) : (((0) .. (LAC_maxidx)))) & ((ii) : (((0) .. (LAC_maxidx)))) & ((nn) : (((0) .. (LAC_maxidx)))) & (((jj + nn)) : (((0) .. (LAC_maxidx)))) & (ii <= jj);
+((((arr_vrb) <+ (%(xx).(((xx) : ((((ii + nn)) .. ((jj + nn))))) | (arr_vrb )((xx - nn)))))) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+((jj) : (((0) .. (LAC_maxidx)))) & (jj <= (2147483647 - 1)) & ((ii) : (((0) .. (LAC_maxidx)))) & (ii <= jj) & ((nn) : (NAT)) & (nn <= ii);
+((((arr_vrb) <+ (%(xx).(((xx) : (((0) .. (LAC_maxidx)))) & (((xx + nn)) : (((ii) .. (jj)))) | (arr_vrb )((xx + nn)))))) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+((jj) : (((0) .. (LAC_maxidx)))) & ((ii) : (((0) .. (LAC_maxidx)))) & (ii <= jj) & ((vv) : (((LAC_minval) .. (LAC_maxval))));
+((nrr) : (NAT));
+((nbb) : (BOOL));
+((sol) = (((((((ii) .. (jj))) <| (arr_vrb)))~ )[({vv})]));
+((not(sol = {})) => (((nrr) = (max(sol)))));
+((nbb) = (bool(not(sol = {}))));
+((not(sol = {})) => (((nrr) = (min(sol)))));
+((jj) : (((0) .. (LAC_maxidx)))) & ((ii) : (((0) .. (LAC_maxidx))));
+((((arr_vrb) <+ (%(xx).(((xx) : (((ii) .. (jj)))) | (arr_vrb )(((jj + ii) - xx)))))) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+((kk) : (((0) .. (LAC_maxidx)))) & not(kk = 2147483647) & ((jj) : (((0) .. (LAC_maxidx)))) & ((vv) : (((LAC_minval) .. (LAC_maxval)))) & (jj <= kk);
+((res) = (min(((SET(xx).(((xx) : (((jj) .. (kk)))) & (vv <= (arr_vrb )(xx)))) \/ (({(kk + 1)}))))));
+((jj) : (((0) .. (LAC_maxidx)))) & (jj <= (2147483647 - 1)) & ((ii) : (((0) .. (LAC_maxidx)))) & (ii <= (2147483647 - 1));
+ff : ((ii) .. (jj)) +-> ((ii) .. (jj));
+ff : ((ii) .. (jj)) >+> ((ii) .. (jj));
+ff : ((ii) .. (jj)) +->> ((ii) .. (jj));
+ff : ((ii) .. (jj)) --> ((ii) .. (jj));
+dom(ff) = ((ii) .. (jj));
+ff~ : ((ii) .. (jj)) +-> ((ii) .. (jj));
+ran(ff) = ((ii) .. (jj));
+((ff) : (((((ii) .. (jj))) >->> (((ii) .. (jj))))));
+((bb) : (((((0) .. (LAC_maxidx))) +-> (((LAC_minval) .. (LAC_maxval))))));
+((bb) = (((ff) ; (arr_vrb))));
+!(uu).(((((uu) : (((ii) .. ((jj - 1)))))) => (((bb )(uu) <= (bb )((uu + 1))))));
+((((arr_vrb) <+ (bb))) : (((((0) .. (LAC_maxidx))) --> (((LAC_minval) .. (LAC_maxval))))));
+((LAC_maxidx) : ((NAT-{0})));
+((LAC_maxval) : (NAT));
+((LAC_minval) : (NAT));
+btrue;
+"Well definedness";
+((ii) : (dom(arr_vrb)));
+((arr_vrb) : (((dom(arr_vrb)) +-> (ran(arr_vrb)))));
+((ii) .. (jj)) : POW( ((0) .. (LAC_maxidx)));
+not(jj = 2147483647);
+((jj) : (NAT));
+((ii) : (NAT));
+((jj) : (dom(arr_vrb)));
+(((jj + nn)) : (((0) .. (LAC_maxidx))));
+((nn) : (((0) .. (LAC_maxidx))));
+((jj) : (((0) .. (LAC_maxidx))));
+((xx) : ((((ii + nn)) .. ((jj + nn)))));
+(((xx - nn)) : (dom(arr_vrb)));
+((nn) : (NAT));
+(ii <= jj);
+(jj <= (2147483647 - 1));
+((xx) : (((0) .. (LAC_maxidx))));
+(((xx + nn)) : (((ii) .. (jj))));
+(((xx + nn)) : (dom(arr_vrb)));
+((not(sol = {})) => (not(((sol) = ({}))) & ((((sol) /\ (NATURAL))) : (FIN(NATURAL)))));
+((not(sol = {})) => (not(((sol) = ({}))) & ((((sol) /\ ((INTEGER - NATURAL)))) : (FIN(INTEGER)))));
+((xx) : (((ii) .. (jj))));
+((((jj + ii) - xx)) : (dom(arr_vrb)));
+((vv) : (((LAC_minval) .. (LAC_maxval))));
+not(kk = 2147483647);
+((kk) : (((0) .. (LAC_maxidx))));
+((xx) : (((jj) .. (kk))));
+((xx) : (dom(arr_vrb)));
+not(((((SET(xx).(((xx) : (((jj) .. (kk)))) & (vv <= (arr_vrb )(xx)))) \/ (({(kk + 1)})))) = ({})));
+((((((SET(xx).(((xx) : (((jj) .. (kk)))) & (vv <= (arr_vrb )(xx)))) \/ (({(kk + 1)})))) /\ ((INTEGER - NATURAL)))) : (FIN(INTEGER)));
+((((uu) : (((ii) .. ((jj - 1)))))) => (((uu) : (dom(bb))) & ((bb) : (((dom(bb)) +-> (ran(bb))))) & (((uu + 1)) : (dom(bb))) & ((bb) : (((dom(bb)) +-> (ran(bb)))))))
+END
+&
+THEORY EnumerateX
+END

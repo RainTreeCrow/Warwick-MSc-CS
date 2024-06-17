@@ -1,0 +1,45 @@
+﻿/* Wrapper_r
+ * Author: 
+ * Creation date: 06/01/2024
+ */
+
+REFINEMENT
+    Wrapper_r ( qlen , ELEM )
+REFINES
+    Wrapper
+INCLUDES
+    Buffer ( qlen , ELEM )
+PROMOTES
+    add , remove , emptyquery , fullquery , contentsquery
+DEFINITIONS
+    scope_ELEM == 8
+OPERATIONS
+    mm <-- wrapadd ( xx ) =
+    PRE xx : ELEM
+    THEN VAR rr IN
+            rr <-- fullquery ;
+            IF rr = yes
+                THEN mm := fullbuffer
+                ELSE BEGIN add ( xx ) || mm := success END
+                END
+            END
+    END ;
+
+    mm , ee <-- wrapremove =
+    VAR rr IN
+            rr <-- emptyquery ;
+            IF rr = yes
+            THEN mm := emptybuffer
+            ELSE BEGIN ee <-- remove || mm := success END
+            END
+         END ;
+
+    rr <-- wrapemptyquery =
+    rr <-- emptyquery ;
+
+    rr <-- wrapfullquery =
+    rr <-- fullquery ;
+
+    oo <-- wrapcontentsquery =
+    oo <-- contentsquery
+END

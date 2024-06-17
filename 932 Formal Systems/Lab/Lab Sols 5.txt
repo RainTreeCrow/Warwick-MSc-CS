@@ -1,0 +1,80 @@
+                         Solutions Lab 5
+                         ===============
+
+MACHINE USING RECORDS
+=====================
+MACHINE
+    NewOrders
+    
+SETS 
+    OID; CID; PID
+    
+CONSTANTS 
+    maxorder
+    
+PROPERTIES
+    maxorder : NAT1
+    
+VARIABLES
+    orders
+    
+INVARIANT
+    orders: OID +-> struct(customer:CID, part:PID, howmany:NAT1, dispatched:BOOL) &
+    card(dom(orders)) <= maxorder
+    
+INITIALISATION
+    orders := {}
+    
+OPERATIONS
+    
+  rr <-- findorder(oo) = 
+      PRE  oo:dom(orders) THEN rr := orders(oo) END;
+  
+  bb <-- isvalidorder(oo) = 
+      PRE  oo:OID THEN bb := bool(oo:dom(orders)) END;
+      /* The bool function is a simple way of setting the value to T/F depending on
+         the truth or otherwise of the statement. Could use IF ... instead         */
+         
+  cancelorder(oo) = 
+      PRE  oo:OID & (orders(oo))'dispatched = FALSE THEN orders := {oo} <<| orders END;
+  
+  dispatchorder(oo) =
+      PRE  oo:OID & oo:dom(orders) & (orders(oo))'dispatched = FALSE 
+      THEN orders(oo) := rec(customer:(orders(oo))'customer, part:(orders(oo))'part, 
+                             howmany:(orders(oo))'howmany, dispatched:TRUE)
+      END;
+      /* It doesn't seem happy with an assignment to a single field as 
+         in (orders(oo))'dispatched := TRUE                                
+
+         We could simplify slightly because if the thing we're assigning to 
+         (in this case orders(oo)) is already known to be of record type then we 
+         can just write:
+           orders(oo) := rec((orders(oo))'customer, (orders(oo))'part, 
+                             (orders(oo))'howmany, TRUE)                         
+         The bad news is that proB can then get confused so maybe better to stick 
+         with the long-winded version.
+
+         Another possibility that looks promising initially is:
+           LET rr BE rr = orders(oo) IN rr'disp := TRUE END     
+         but although the syntax is accepted, the type-checker complains and 
+         again proB doesn't like it.                                             */     
+      
+  oo <-- addorder(cc,pp,nn) =
+      PRE  cc:CID & pp:PID & nn:NAT1 & card(dom(orders)) < maxorder
+      THEN ANY xx WHERE xx:OID & xx /: dom(orders)
+           THEN BEGIN orders := orders <+ 
+                       {xx |-> rec(cc, pp, nn, FALSE)}||
+                        oo := xx
+                END
+           END
+      END;
+              
+   oos <-- todispatch = oos := {oo | oo:dom(orders) & (orders(oo))'dispatched = FALSE};
+              
+   nn <-- numberneeded(pp) = 
+      PRE  pp:PID   
+      THEN nn := SIGMA(oo).(oo: dom(orders) & (orders(oo))'part = pp & 
+                            (orders(oo))'dispatched = FALSE | (orders(oo))'howmany)     
+      END            
+                  
+END

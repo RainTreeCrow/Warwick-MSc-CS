@@ -1,0 +1,31 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(11) & WellDefinedness_wrapcontentsquery.1,(_f(18) => _f(19));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(11) & WellDefinedness_wrapfullquery.1,(_f(18) => _f(19))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+ELEM: FIN(INTEGER) & not(ELEM = {}) & ((qlen) : ((NAT-{0})));
+((1..3)*{MSG}): FIN(NATURAL*{MSG}) & not(((1..3)*{MSG}) = {});
+((1..2)*{RESP}): FIN(NATURAL*{RESP}) & not(((1..2)*{RESP}) = {});
+buff : NATURAL-{0} +-> ELEM & ((buff) : (seq(ELEM))) & (size(buff) <= qlen);
+{} : NATURAL-{0} +-> ELEM;
+(({}) : (seq(ELEM)));
+(size({}) <= qlen);
+((xx) : (ELEM));
+((mm$1) : (((1..3)*{MSG})));
+btrue;
+((ee$1) : (ELEM));
+((buff) = ({}));
+not(((buff) = ({})));
+((size(buff)) = (qlen));
+not(((size(buff)) = (qlen)));
+ELEM: FIN(INTEGER) & not(ELEM = {});
+"Well definedness";
+((buff) : (seq(ran(buff))))
+END
+&
+THEORY EnumerateX IS
+MSG == {success,emptybuffer,fullbuffer};
+RESP == {yes,no}
+END

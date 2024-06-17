@@ -1,0 +1,72 @@
+IMPLEMENTATION
+  L_PFNC_1 ( LPF_minval , LPF_maxval , LPF_maxidx )
+
+REFINES
+  L_PFNC
+
+IMPORTS
+  pf_vrb.L_ARRAY5 ( 0 , MAXINT , LPF_maxidx )
+
+
+INVARIANT
+  pf_vrb.arr_vrb = ( 0 .. LPF_maxidx ) * { MAXINT } <+ pfnc_vrb
+
+INITIALISATION
+  pf_vrb.SET_ARRAY ( 0 , LPF_maxidx , MAXINT )
+
+OPERATIONS
+
+  vv <-- VAL_PFNC ( ii ) = BEGIN
+    vv <-- pf_vrb.VAL_ARRAY ( ii )
+  END ;
+
+  STR_PFNC ( ii , vv ) = BEGIN
+    pf_vrb.STR_ARRAY ( ii , vv )
+  END ;
+
+  bb <-- XST_PFNC ( ii ) = VAR zz IN
+    zz <-- pf_vrb.VAL_ARRAY ( ii ) ;
+    IF zz < MAXINT THEN
+      bb := TRUE
+    ELSE
+      bb := FALSE
+    END
+  END ;
+
+  RMV_PFNC ( ii ) = BEGIN
+    pf_vrb.STR_ARRAY ( ii , MAXINT )
+  END ;
+
+  SET_PFNC ( ii , jj , vv ) = BEGIN
+    pf_vrb.SET_ARRAY ( ii , jj , vv )
+  END ;
+
+  SWAP_PFNC ( ii , jj ) = BEGIN
+    pf_vrb.SWAP_ARRAY ( ii , jj )
+  END ;
+
+  RIGHT_SHIFT_PFNC ( ii , jj , nn ) = BEGIN
+    pf_vrb.RIGHT_SHIFT_ARRAY ( ii , jj , nn )
+  END ;
+
+  LEFT_SHIFT_PFNC ( ii , jj , nn ) = BEGIN
+    pf_vrb.LEFT_SHIFT_ARRAY ( ii , jj , nn )
+  END ;
+
+  rr , bb <-- SEARCH_MAX_EQL_PFNC ( ii , jj , vv ) = BEGIN
+    rr , bb <-- pf_vrb.SEARCH_MAX_EQL_ARRAY ( ii , jj , vv )
+  END ;
+
+  rr , bb <-- SEARCH_MIN_EQL_PFNC ( ii , jj , vv ) = BEGIN
+    rr , bb <-- pf_vrb.SEARCH_MIN_EQL_ARRAY ( ii , jj , vv )
+  END ;
+
+  REVERSE_PFNC ( ii , jj ) = BEGIN
+    pf_vrb.REVERSE_ARRAY ( ii , jj )
+  END ;
+
+  ASCENDING_SORT_PFNC ( ii , jj ) = BEGIN
+    pf_vrb.ASCENDING_SORT_ARRAY ( ii , jj )
+  END
+
+END

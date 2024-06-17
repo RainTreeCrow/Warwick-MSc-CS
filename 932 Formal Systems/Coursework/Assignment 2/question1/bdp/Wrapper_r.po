@@ -1,0 +1,79 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(38) & WellDefinedness_wrapcontentsquery.1,(_f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(38) & WellDefinedness_wrapfullquery.1,(_f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(38) & WellDefinedness_wrapremove.3,(_f(25) & _f(16) & _f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(38) & WellDefinedness_wrapremove.2,(_f(24) & _f(13) & _f(41) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(38) & WellDefinedness_wrapremove.1,(_f(24) & _f(13) & _f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(39) & WellDefinedness_wrapadd.5,(_f(17) & _f(16) & _f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(39) & WellDefinedness_wrapadd.4,(_f(17) & _f(16) & _f(40) & _f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(39) & WellDefinedness_wrapadd.3,(_f(14) & _f(13) & _f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(39) & WellDefinedness_wrapadd.2,(_f(14) & _f(13) & _f(40) & _f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(39) & WellDefinedness_wrapadd.1,(_f(41) => _f(42));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(36) & wrapcontentsquery.1,(_f(20) => _f(37));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(30) & wrapfullquery.2,(_f(17) & _f(34) & _f(20) => _f(33));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(30) & wrapfullquery.1,(_f(14) & _f(35) & _f(20) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(30) & wrapemptyquery.2,(_f(25) & _f(31) & _f(20) => _f(33));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(30) & wrapemptyquery.1,(_f(24) & _f(32) & _f(20) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(23) & wrapremove.8,(_f(25) & _f(16) & _f(20) & _f(21) => _f(29));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(23) & wrapremove.7,(_f(25) & _f(16) & _f(20) => _f(28));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(23) & wrapremove.6,(_f(25) & _f(16) & _f(18) => _f(27));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(23) & wrapremove.5,(_f(25) & _f(15) & _f(20) => _f(26));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(23) & wrapremove.4,(_f(24) & _f(13) & _f(20) & _f(21) => _f(29));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(23) & wrapremove.3,(_f(24) & _f(13) & _f(20) => _f(28));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(23) & wrapremove.2,(_f(24) & _f(13) & _f(18) => _f(27));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(23) & wrapremove.1,(_f(24) & _f(12) & _f(20) => _f(26));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(11) & wrapadd.4,(_f(17) & _f(16) & _f(20) & _f(21) => _f(22));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(11) & wrapadd.3,(_f(17) & _f(16) & _f(18) => _f(19));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(11) & wrapadd.2,(_f(14) & _f(13) & _f(20) & _f(21) => _f(22));
+_f(1) & _f(2) & _f(3) & _f(4) & _f(5) & _f(9) & _f(10) & _f(11) & wrapadd.1,(_f(14) & _f(13) & _f(18) => _f(19))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+ELEM: FIN(INTEGER) & not(ELEM = {}) & ((qlen) : ((NAT-{0})));
+((1..3)*{MSG}): FIN(NATURAL*{MSG}) & not(((1..3)*{MSG}) = {}) & ((1..2)*{RESP}): FIN(NATURAL*{RESP}) & not(((1..2)*{RESP}) = {});
+((1..2)*{RESP}): FIN(NATURAL*{RESP}) & not(((1..2)*{RESP}) = {});
+buff$1 : NATURAL-{0} +-> ELEM & ((buff$1) : (seq(ELEM))) & (size(buff$1) <= qlen);
+{} : NATURAL-{0} +-> ELEM;
+(({}) : (seq(ELEM)));
+(size({}) <= qlen);
+buff : NATURAL-{0} +-> ELEM & ((buff) : (seq(ELEM))) & (size(buff) <= qlen);
+((buff) = (buff$1));
+((xx) : (ELEM)) & ((mm) = (mm$1));
+(((1|->RESP)) = ((1|->RESP)));
+not((((1|->RESP)) = ((1|->RESP))));
+((size(buff$1)) = (qlen));
+(((2|->RESP)) = ((1|->RESP)));
+not((((2|->RESP)) = ((1|->RESP))));
+not(((size(buff$1)) = (qlen)));
+"Precondition predicate";
+(size(buff$1) +1 <= qlen);
+"Refinement is correct";
+"Check invariant ((buff) = (buff$1))";
+((buff) = (((buff$1) <- (xx))));
+((mm) = (mm$1)) & ((ee) = (ee$1));
+((buff$1) = ({}));
+not(((buff$1) = ({})));
+((ee$1) : (ELEM));
+not(buff$1 = {});
+((first(buff$1)) : (ELEM));
+((buff) = (tail(buff$1)));
+((rr) = (rr$1));
+((buff) = ({}));
+not(((buff) = ({})));
+(((1|->RESP)) = ((2|->RESP)));
+((size(buff)) = (qlen));
+not(((size(buff)) = (qlen)));
+((oo) = (oo$1));
+((size(buff)) = (size(buff$1)));
+btrue;
+((xx) : (ELEM)) & ((xx) : (ELEM));
+((xx) : (ELEM));
+"Well definedness";
+((buff$1) : (seq(ran(buff$1))))
+END
+&
+THEORY EnumerateX IS
+MSG == {success,emptybuffer,fullbuffer};
+RESP == {yes,no}
+END

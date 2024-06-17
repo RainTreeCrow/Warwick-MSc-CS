@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/question3.dir/BASIC_IO.o CMakeFiles/question3.dir/Numbers_i.o CMakeFiles/question3.dir/Top_i.o CMakeFiles/question3.dir/b_main.o -o question3 

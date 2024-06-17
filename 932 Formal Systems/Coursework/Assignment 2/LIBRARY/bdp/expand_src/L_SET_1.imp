@@ -1,0 +1,59 @@
+IMPLEMENTATION
+  L_SET_1 ( LSET_maxsize , LSET_VALUE )
+
+REFINES
+  L_SET
+
+IMPORTS
+  set.L_SEQUENCE ( LSET_maxsize , LSET_VALUE )
+
+INVARIANT
+  set_vrb = set.seq_vrb
+
+OPERATIONS
+
+  vv <-- CARD_SET =
+  BEGIN
+    vv <-- set.LEN_SEQ
+  END ;
+
+  vv <-- IS_FULL_SET =
+  BEGIN
+    vv <-- set.IS_FULL_SEQ
+  END ;
+
+  vv <-- IS_INDEX_SET ( ii ) =
+  BEGIN
+    vv <-- set.IS_INDEX_SEQ ( ii )
+  END ;
+
+  vv <-- VAL_SET ( ii ) =
+  BEGIN
+    vv <-- set.VAL_SEQ ( ii )
+  END ;
+
+  rr , ind <-- FIND_SET ( ii ) =
+  BEGIN
+    rr , ind <-- set.FIND_FIRST_SEQ ( ii )
+  END ;
+
+  RMV_SET ( ii ) = VAR res , ind IN
+    res , ind <-- set.FIND_FIRST_SEQ ( ii ) ;
+    IF res = TRUE THEN
+      set.RMV_SEQ ( ind )
+    END
+  END ;
+
+  INS_SET ( ii ) = VAR res , ind IN
+    res , ind <-- set.FIND_FIRST_SEQ ( ii ) ;
+    IF res = FALSE THEN
+      set.PUSH_SEQ ( ii )
+    END
+  END ;
+
+  CLR_SET =
+  BEGIN
+    set.CLR_SEQ
+  END
+
+END

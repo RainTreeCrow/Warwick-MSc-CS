@@ -1,0 +1,58 @@
+/* Numbers_i
+ * Author: Hanzhi Zhang
+ * Creation date: 06/01/2024
+ */
+
+IMPLEMENTATION
+    Numbers_i
+REFINES
+    Numbers
+CONCRETE_VARIABLES
+    lastchecked
+INITIALISATION
+    lastchecked := 0
+OPERATIONS
+    /* checks if nn is prime (has no divisors between 2 and nn-1) */
+    oo <-- checknumber(nn) = BEGIN
+        lastchecked := nn;
+        IF nn = 1 /* the abstract machine would output TRUE for 1 so we do too */
+        THEN oo := TRUE
+        ELSE
+            VAR xx, ff, rr IN
+                xx := 2; /* counting up from 2 */
+                ff := FALSE; /* indicates whether a divisor has been found */
+                
+                /* Precondition: nn should be a natural number larger than 2, 
+                   otherwise it would be meaningless, we don't say 1 is a prime number or not! */
+                /* If so, the invariant will be true as the loop starts: xx = 2, ff = FALSE,
+                   since 2..1 is an empty set, !yy.(yy : 2..1 => nn mod yy /= 0) must be true */
+                
+                WHILE xx /= nn & ff = FALSE /* stops when nn is reached or a divisor is found */
+                DO rr := nn mod xx; /* calculate the remainder */
+                    IF rr = 0 /* a divisor is found */
+                    THEN ff := TRUE
+                    END;
+                    xx := xx + 1 /* count up */
+                INVARIANT 2 <= xx & xx <= nn
+                    & (ff = FALSE => !yy.(yy : 2..xx-1 => nn mod yy /= 0))
+                    /* if ff is still false, a divisor has not been found yet,
+                       so we know for each yy between 2 and xx-1, the remainder is not zero */
+                    & (ff = TRUE => nn mod (xx-1) = 0)
+                VARIANT nn - xx
+                END;
+            
+                /* Postcondition: ff = TRUE if and only if there exists some xx between 2 and n-1,
+                   such that nn mod xx = 0, in other words, xx is a divisor of nn */
+                /* The postcondition can be derived from the invariant and the negation of the guard,
+                   when the loop ends we have xx = nn or ff = TRUE,
+                   if ff = FALSE, we know xx = nn, and !yy.(yy : 2..nn-1 => nn mod yy /= 0),
+                   which means no divisor is found between 2 and nn-1;
+                   if ff = TRUE, well, xx-1 in the invariant is the divisor we found */
+                
+                IF ff = TRUE THEN oo := FALSE ELSE oo := TRUE END
+            END
+        END
+    END;
+    
+    oo <-- showprevious = oo := lastchecked
+END

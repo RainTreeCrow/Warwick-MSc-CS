@@ -1,0 +1,48 @@
+REFINEMENT
+  L_ARITHMETIC_1
+
+REFINES
+  L_ARITHMETIC
+
+OPERATIONS
+
+  uu <-- MIN ( vv , ww ) = BEGIN
+    uu := min ( { vv , ww } )
+  END ;
+
+  uu <-- MAX ( vv , ww ) = BEGIN
+    uu := max ( { vv , ww } )
+  END ;
+
+  uu <-- INC ( vv ) = BEGIN
+    uu := vv + 1
+  END ;
+
+  uu <-- DEC ( vv ) = BEGIN
+    uu := vv - 1
+  END ;
+
+  rr <-- EXP ( xx , nn ) = PRE
+    xx ** nn = PI ( uu ) . ( uu : NATURAL & nn / ( 2 ** uu ) mod 2 = 1 | xx ** ( 2 ** uu ) )
+  THEN
+    rr := PI ( uu ) . ( uu : NATURAL & nn / ( 2 ** uu ) mod 2 = 1 | xx ** ( 2 ** uu ) )
+  END ;
+
+  uu , rr <-- LOG_BY_DEFAULT1 ( vv , ww ) = ANY zz WHERE
+    zz : NAT &
+    vv ** zz <= ww &
+    vv ** ( zz + 1 ) > ww
+  THEN
+    uu := zz ||
+    rr := vv ** zz
+  END ;
+
+  nn <-- SQRT ( pp ) = ANY zz WHERE
+    zz : NAT &
+    zz * zz <= pp &
+    ( zz + 1 ) * ( zz + 1 ) > pp
+  THEN
+    nn := zz
+  END
+
+END

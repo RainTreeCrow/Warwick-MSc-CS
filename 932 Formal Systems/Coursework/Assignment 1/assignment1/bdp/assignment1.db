@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="D:\Atelier B free 4.7.1\lab\assignment1\bdp\expand_src" old_decomp_dir="D:\Atelier B free 4.7.1\lab\assignment1\bdp\src">
+        <!-- Definition directory list -->
+        <!-- Proof mechanisms -->
+        <!-- Component file list -->
+        <component_file path="D:/Atelier B free 4.7.1/lab/assignment1" name="Bag" suffix="mch" user="Chen_">
+            <component name="Bag" type="specification" />
+        </component_file>
+        <component_file path="D:/Atelier B free 4.7.1/lab/assignment1" name="Orders" suffix="mch" user="Chen_">
+            <component name="Orders" type="specification" />
+        </component_file>
+        <component_file path="D:/Atelier B free 4.7.1/lab/assignment1" name="sub_sequence" suffix="mch" user="Chen_">
+            <component name="sub_sequence" type="specification" />
+        </component_file>
+    </project>
+</db_xml>

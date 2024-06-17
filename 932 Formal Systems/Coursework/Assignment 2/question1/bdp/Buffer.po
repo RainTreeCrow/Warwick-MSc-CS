@@ -1,0 +1,48 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(3) & _f(9) & _f(16) & WellDefinedness_contentsquery.1,(_f(24) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(16) & WellDefinedness_fullquery.1,(_f(24) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(13) & WellDefinedness_remove.2,(_f(24) => _f(18));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(13) & WellDefinedness_remove.1,(_f(24) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & WellDefinedness_add.1,(_f(24) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(9) & WellDefinedness_Precondition_add.1,(_f(26) & _f(24) => _f(25));
+_f(1) & _f(2) & _f(3) & WellDefinednessInvariant.1,(_f(22) & _f(23) & _f(24) => _f(25));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(13) & remove.2,(_f(4) & _f(7) => _f(15));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(13) & remove.1,(_f(4) & _f(5) => _f(14));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & add.2,(_f(4) & _f(7) => _f(12));
+_f(1) & _f(2) & _f(3) & _f(9) & _f(10) & add.1,(_f(4) & _f(5) => _f(11));
+_f(1) & _f(2) & _f(3) & Initialisation.2,(_f(4) & _f(7) => _f(8));
+_f(1) & _f(2) & _f(3) & Initialisation.1,(_f(4) & _f(5) => _f(6))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+ELEM: FIN(INTEGER) & not(ELEM = {}) & ((qlen) : ((NAT-{0})));
+((1..2)*{RESP}): FIN(NATURAL*{RESP}) & not(((1..2)*{RESP}) = {});
+"Invariant is preserved";
+"Check invariant ((buff) : (seq(ELEM)))";
+(({}) : (seq(ELEM)));
+"Check invariant (size(buff) <= qlen)";
+(size({}) <= qlen);
+buff : NATURAL-{0} +-> ELEM & ((buff) : (seq(ELEM))) & (size(buff) <= qlen);
+((xx) : (ELEM)) & (size(buff) +1 <= qlen);
+((((buff) <- (xx))) : (seq(ELEM)));
+(size(((buff) <- (xx))) <= qlen);
+not(buff = {});
+((tail(buff)) : (seq(ELEM)));
+(size(tail(buff)) <= qlen);
+btrue;
+((buff) = ({}));
+not(((buff) = ({})));
+((size(buff)) = (qlen));
+not(((size(buff)) = (qlen)));
+ELEM: FIN(INTEGER) & not(ELEM = {});
+buff : NATURAL-{0} +-> ELEM;
+((buff) : (seq(ELEM)));
+"Well definedness";
+((buff) : (seq(ran(buff))));
+((xx) : (ELEM))
+END
+&
+THEORY EnumerateX IS
+RESP == {yes,no}
+END

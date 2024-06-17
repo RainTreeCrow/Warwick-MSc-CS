@@ -1,0 +1,115 @@
+﻿/* Stats2_i
+ * Author: Hanzhi Zhang
+ * Creation date: 06/01/2024
+ */
+
+IMPLEMENTATION
+    Stats2_i
+REFINES
+    Stats2
+VALUES
+    maxlen = 10
+IMPORTS
+    L_ARRAY5 ( 0 , 11 , maxlen - 1 ) /* array with ordered values and sort operation */
+    /* here we only use 11 as place holders */
+INVARIANT
+    ! nn . ( nn : 0 .. 10 => card ( arr_vrb |> { nn } ) = card ( record |> { nn } ) )
+    & ! ( ii , jj ) . ( ( ii : 0 .. maxlen - 1 & jj : 0 .. maxlen - 1 & ii <= jj ) => arr_vrb ( ii ) <= arr_vrb ( jj ) )
+    /* we want to make sure they do contain the same elements, but we also want arr_vrb to be ordered,
+       the place holder 11's are all at the end of the array so no need to worry about that */
+INITIALISATION
+    SET_ARRAY ( 0 , maxlen - 1 , 11 ) /* fill the array with place holder 11 */
+OPERATIONS
+    tested ( nn ) =
+    VAR rr , bb IN
+        rr , bb <-- SEARCH_MIN_EQL_ARRAY ( 0 , maxlen - 1 , 11 ) ; /* find the smallest available position */
+        IF bb = TRUE /* which indicates that the array is not full */
+        THEN STR_ARRAY ( rr , nn ) ; /* store nn at that position */
+            ASCENDING_SORT_ARRAY ( 0 , rr ) /* sort arr_vrb[0..rr] */
+        END
+    END ;
+
+    oo <-- querytot =
+    VAR rr , bb IN
+        rr , bb <-- SEARCH_MIN_EQL_ARRAY ( 0 , maxlen - 1 , 11 ) ; /* find the smallest available position */
+        IF bb = FALSE /* which indicates that the array is full */
+        THEN oo := maxlen
+        ELSE oo := rr /* arr_vrb[0..rr-1] is currently in use, size = rr */
+        END
+    END ;
+
+    oo <-- queryreg ( nn ) =
+    VAR rs , bs , rh , bh IN
+        rs , bs <-- SEARCH_MIN_EQL_ARRAY ( 0 , maxlen - 1 , nn ) ; /* find the smallest index with value nn */
+        rh , bh <-- SEARCH_MAX_EQL_ARRAY ( 0 , maxlen - 1 , nn ) ; /* find the highest index with value nn */
+        IF bs = FALSE /* which indicates nn is not in the array */
+        THEN oo := 0
+        ELSE oo := rh - rs + 1 /* arr_vrb[rs..rh] all stores value nn, length = rh - rs + 1 */
+            /* we can do this because the array is guaranteed to be sorted */
+        END
+    END ;
+
+    oo <-- querypc ( nn ) =
+    VAR rr , bb IN
+        rr , bb <-- SEARCH_MIN_EQL_ARRAY ( 0 , maxlen - 1 , 11 ) ; /* find the smallest available position */
+        IF bb = FALSE /* which indicates that the array is full */
+        THEN rr := maxlen /* make sure rr represents the count */
+        END ;
+        IF rr /= 0 /* which indicates that the array is not empty */
+        THEN
+            VAR rs , bs , rh , bh IN
+                rs , bs <-- SEARCH_MIN_EQL_ARRAY ( 0 , maxlen - 1 , nn ) ;
+                IF bs = FALSE /* which indicates nn is not in the array */
+                THEN oo := 0
+                ELSE rh , bh <-- SEARCH_MAX_EQL_ARRAY ( 0 , maxlen - 1 , nn ) ;
+                    oo := ( rh - rs + 1 ) * 100 / rr
+                END
+            END
+        END
+    END ;
+
+    oo <-- querymean =
+    VAR rr , bb IN
+        rr , bb <-- SEARCH_MIN_EQL_ARRAY ( 0 , maxlen - 1 , 11 ) ; /* find the smallest available position */
+        IF bb = FALSE /* which indicates that the array is full */
+        THEN rr := maxlen /* make sure rr represents the count */
+        END ;
+        IF rr /= 0 /* which indicates that the array is not empty */
+        THEN
+            VAR tt , ii , mm IN
+                tt := 0 ; /* to store the sum */
+                ii := 0 ; /* to traverse all the valid positions from 0 to rr-1 */
+                WHILE ii /= rr
+                DO
+                    mm <-- VAL_ARRAY ( ii ) ; /* retrieve the mark */
+                    tt := tt + mm ;
+                    ii := ii + 1
+                INVARIANT 0 <= ii & ii <= rr & tt = SIGMA ( xx ) . ( xx : 0 .. ( ii - 1 ) | arr_vrb ( xx ) )
+                VARIANT rr - ii
+                END ;
+                oo := tt / rr
+            END
+        END
+    END ;
+
+    oo <-- querymedian =
+    VAR rr , bb , dd IN
+        rr , bb <-- SEARCH_MIN_EQL_ARRAY ( 0 , maxlen - 1 , 11 ) ; /* find the smallest available position */
+        IF bb = FALSE /* which indicates that the array is full */
+        THEN rr := maxlen /* make sure rr represents the count */
+        END ;
+        IF rr /= 0 /* which indicates that the array is not empty */
+        THEN
+            dd := rr mod 2 ;
+            IF dd = 1
+            THEN oo <-- VAL_ARRAY ( ( rr - 1 ) / 2 )
+            ELSE
+                VAR o1 , o2 IN
+                    o1 <-- VAL_ARRAY ( rr / 2 - 1 ) ;
+                    o2 <-- VAL_ARRAY ( rr / 2 ) ;
+                    oo := ( o1 + o2 ) / 2
+                END
+            END
+        END
+    END
+END

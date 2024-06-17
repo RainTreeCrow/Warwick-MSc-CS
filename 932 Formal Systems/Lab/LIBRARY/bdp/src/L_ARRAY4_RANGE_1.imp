@@ -1,0 +1,39 @@
+IMPLEMENTATION
+  L_ARRAY4_RANGE_1 ( LAQR_minrge , LAQR_maxrge , LAQR_maxidx , LAQR_minval , LAQR_maxval )
+
+REFINES
+  L_ARRAY4_RANGE
+
+
+EXTENDS
+  L_ARRAY3_RANGE ( LAQR_minrge , LAQR_maxrge , LAQR_maxidx , LAQR_minval .. LAQR_maxval )
+
+OPERATIONS
+
+  ii , bb <-- SEARCH_MIN_GEQ_RGE ( rng , jj , kk , vv ) = VAR ll IN
+    ii := jj ;
+    ll := kk + 1 ;
+    bb := FALSE ;
+    WHILE ii < ll & bb = FALSE DO
+      VAR ww IN
+        ww <-- VAL_ARR_RGE ( rng , ii ) ;
+        IF ww >= vv THEN
+          bb := TRUE
+        END ;
+        ii := ii + 1
+      END
+    INVARIANT
+      ll = kk + 1 &
+      ii : jj .. ll &
+      bb = bool ( not ( ii = jj ) & arr_rge ( rng ) ( ii - 1 ) >= vv ) &
+      ( bb = FALSE => ! uu . ( uu : jj .. ii - 1 => arr_rge ( rng ) ( uu ) < vv ) ) &
+      ( bb = TRUE => ! uu . ( uu : jj .. ii - 2 => arr_rge ( rng ) ( uu ) < vv ) )
+    VARIANT
+      ll - ii
+    END ;
+    IF bb = TRUE THEN
+      ii := ii - 1
+    END
+  END
+
+END

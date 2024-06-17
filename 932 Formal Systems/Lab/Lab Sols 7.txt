@@ -1,0 +1,76 @@
+                         Solutions Lab 7
+                         ===============
+
+Refinement
+==========
+
+See the solutions to the exercise sheet.
+
+
+Adding rules
+============
+Q0. The rule is that to derive $a \mod b <= c$ we need to know that $b <= c$. But in 
+    our case the b value, 3, is one greater than the c value. But this should be ok
+    because a mod b is always in the range 0..b-1. 
+    So, to derive $a \mod b <= c$ it should be sufficient to know that $b-1 <= c$.
+    But that's not what the rule says. The rule isn't incorect (in the sense that it's
+    not unsound) but it's not allowing a perfectly legitimate case. So maybe it
+    isn't quite what the authors meant...
+
+Q1. There will be different variants that work, but one way is to add the 
+    following rule:
+  
+        y > 1 &
+        y-1 <= z
+        =>
+        x mod y : 0..z
+
+    We're going to need a "-1" or a "+1" somewhere and it's better to use a format 
+    of the rule which puts this in the antecedent rather than the goal, otherwise it
+    can get in the way of pattern matching. 
+
+    Don't forget that rules are semi-colon separated. Save and reload the pmm.
+    You should find that you can apply this rule and then
+    you have 3-1<=2 as a goal. This can be simply finished off by clicking on pr.
+   
+    You can check this rule also applies in exactly the same way if your specification 
+    invariant is mm:0..100
+
+
+Q2. One way of expressing the rule about an injective function:
+
+         binhyp(r : a >+> b) & 
+         binhyp(n : a) & 
+         binhyp(m : b) 
+         => 
+         r - {n |-> m} : a >+> b
+
+
+Q3. Without appropriate checks, a quantified goal can capture variables in substituted
+    expressions.  
+
+    Example:
+         xx <: NAT &
+         yy <: NAT &
+         xx <: yy &
+         yy = {}
+         =>
+         !(xx).(xx<:NAT => xx={}) 
+
+    Applying the unsound rule allows us to match and replace the final use of
+    xx in the goal giving  !(xx).(xx:<NAT => {}={}) which is true. This would 
+    "prove" the false conclusion.
+
+    Corrected version of rule: 
+     
+       binhyp(s <: t) &
+       blvar(Q) &
+       Q\(s)  & 
+       t = {}
+       =>
+       s == {}
+
+    Here, blvar(Q) instantiates Q with the currently quantified variables 
+    (just xx in the example).
+    The rule then checks that these are not free in whatever value s is
+    matched to (so fails in the example as s is matched to xx).

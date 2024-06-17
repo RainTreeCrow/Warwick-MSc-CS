@@ -1,0 +1,3106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Proof_Obligations xmlns="https://www.atelierb.eu/Formats/pog" version="1.0">
+    <Define name="B definitions" hash="4145786887">
+        <Exp_Comparison op="=">
+            <Id value="NAT" typref="0"/>
+            <Binary_Exp op=".." typref="0">
+                <Integer_Literal value="0" typref="1"/>
+                <Id value="MAXINT" typref="1"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op="=">
+            <Id value="INT" typref="0"/>
+            <Binary_Exp op=".." typref="0">
+                <Id value="MININT" typref="1"/>
+                <Id value="MAXINT" typref="1"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+    </Define>
+    <Define name="ctx" hash="0"/>
+    <Define name="seext" hash="0"/>
+    <Define name="lprp" hash="0"/>
+    <Define name="inprp" hash="0"/>
+    <Define name="inext" hash="0"/>
+    <Define name="inv" hash="4139332299">
+        <Exp_Comparison op=":">
+            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:1"/>
+            <Binary_Exp op="+-&gt;" typref="3">
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:1"/>
+                <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:2"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Quantified_Pred type="!">
+            <Variables>
+                <Id value="ee" typref="1"/>
+            </Variables>
+            <Body>
+                <Binary_Pred op="=&gt;">
+                    <Exp_Comparison op=":">
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1"/>
+                        </Unary_Exp>
+                    </Exp_Comparison>
+                    <Exp_Comparison op="&lt;=i">
+                        <Binary_Exp op="(" typref="1">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1"/>
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:2"/>
+                        </Binary_Exp>
+                        <Binary_Exp op="(" typref="1">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                        </Binary_Exp>
+                    </Exp_Comparison>
+                </Binary_Pred>
+            </Body>
+        </Quantified_Pred>
+    </Define>
+    <Define name="ass" hash="0"/>
+    <Define name="cst" hash="720077960">
+        <Exp_Comparison op=":">
+            <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:1:1"/>
+            <Unary_Exp op="FIN" typref="4">
+                <Id value="INTEGER" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:1:2:1"/>
+            </Unary_Exp>
+        </Exp_Comparison>
+        <Unary_Pred op="not">
+            <Exp_Comparison op="=">
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:2:1"/>
+                <EmptySet typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:2:2"/>
+            </Exp_Comparison>
+        </Unary_Pred>
+        <Exp_Comparison op=":">
+            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:3:1"/>
+            <Binary_Exp op="--&gt;" typref="3">
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:3:2:1"/>
+                <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:3:2:2"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+        <Exp_Comparison op=":">
+            <Id value="cost" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:4:1"/>
+            <Binary_Exp op="--&gt;" typref="3">
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:4:2:1"/>
+                <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:2:1:4:2:2"/>
+            </Binary_Exp>
+        </Exp_Comparison>
+    </Define>
+    <Define name="sets" hash="0"/>
+    <Proof_Obligation goalHash="3451308597">
+        <Tag>Initialisation</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <EmptySet typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1,D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:5:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <EmptySet typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:1,D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:5:1:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:1"/>
+                        <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Binary_Exp op="(" typref="1">
+                        <EmptySet typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1,D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:5:1:2:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="4129168242">
+        <Tag>Operation_addbag</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:1:1"/>
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Binary_Pred op="=&gt;">
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:1:1"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:1:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+                <Exp_Comparison op="&lt;i">
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:1:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Binary_Pred>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Unary_Pred op="not">
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:1:1:1"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:1:1:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="5">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:2:1:1"/>
+                                <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:2:1:2"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Exp_Comparison op=":">
+                <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="5">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:1"/>
+                                <Binary_Exp op="+i" typref="1">
+                                    <Binary_Exp op="(" typref="1">
+                                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:1"/>
+                                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:2"/>
+                                    </Binary_Exp>
+                                    <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="5">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:2:1:1"/>
+                                <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:2:1:2"/>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:1"/>
+                        <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Binary_Exp op="(" typref="1">
+                        <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="5">
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:2:1:1"/>
+                                    <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:2:1:2:1:2:1:2"/>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="5">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:1"/>
+                                <Binary_Exp op="+i" typref="1">
+                                    <Binary_Exp op="(" typref="1">
+                                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:1"/>
+                                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:2"/>
+                                    </Binary_Exp>
+                                    <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:1"/>
+                        <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Binary_Exp op="(" typref="1">
+                        <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="5">
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:1"/>
+                                    <Binary_Exp op="+i" typref="1">
+                                        <Binary_Exp op="(" typref="1">
+                                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:1"/>
+                                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:2"/>
+                                        </Binary_Exp>
+                                        <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:2"/>
+                                    </Binary_Exp>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="879207457">
+        <Tag>Operation_rembag</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:2:1:1:1"/>
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:2:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:2:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op="=">
+                <Binary_Exp op="(" typref="1">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:1"/>
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:2"/>
+                </Binary_Exp>
+                <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Binary_Exp op="&lt;&lt;|" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1">
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:2:1:2:1:1:1"/>
+                        </Nary_Exp>
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:2:1:2:1:2"/>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Unary_Pred op="not">
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:2"/>
+                    </Binary_Exp>
+                    <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Exp_Comparison op=":">
+                <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="5">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:1"/>
+                                <Binary_Exp op="-i" typref="1">
+                                    <Binary_Exp op="(" typref="1">
+                                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:1"/>
+                                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:2"/>
+                                    </Binary_Exp>
+                                    <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;&lt;|" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:1">
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:2:1:2:1:1:1"/>
+                        </Nary_Exp>
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:2:1:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:1"/>
+                        <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Binary_Exp op="(" typref="1">
+                        <Binary_Exp op="&lt;&lt;|" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1">
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:2:1:2:1:1:1"/>
+                            </Nary_Exp>
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:2:1:2:1:2"/>
+                        </Binary_Exp>
+                        <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="2">
+                            <Binary_Exp op="|-&gt;" typref="5">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:1"/>
+                                <Binary_Exp op="-i" typref="1">
+                                    <Binary_Exp op="(" typref="1">
+                                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:1"/>
+                                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:2"/>
+                                    </Binary_Exp>
+                                    <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:1"/>
+                        <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Binary_Exp op="(" typref="1">
+                        <Binary_Exp op="&lt;+" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="2">
+                                <Binary_Exp op="|-&gt;" typref="5">
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:1"/>
+                                    <Binary_Exp op="-i" typref="1">
+                                        <Binary_Exp op="(" typref="1">
+                                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:1"/>
+                                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:2"/>
+                                        </Binary_Exp>
+                                        <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:2"/>
+                                    </Binary_Exp>
+                                </Binary_Exp>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                        <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        <Id value="ee" suffix="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="2697352755">
+        <Tag>Operation_bagunion</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:2:1"/>
+                    <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:2"/>
+                                </Binary_Exp>
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:1"/>
+                            <Binary_Exp op="-s" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:1:2:1"/>
+                    <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op="=">
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:2:1:1"/>
+                </Unary_Exp>
+                <Binary_Exp op="\/" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:2:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:2:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:2"/>
+                                </Binary_Exp>
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:1"/>
+                            <Binary_Exp op="-s" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="5">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:1:1"/>
+                            <Binary_Exp op="-s" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="6">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1,D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:3:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1,D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:3:1:2:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="2328180965">
+        <Tag>Operation_addinseq</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:1:1"/>
+                <Unary_Exp op="seq" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="ran" typref="0">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:2"/>
+                                </Binary_Exp>
+                                <Unary_Exp op="card" typref="1">
+                                    <Binary_Exp op="|&gt;" typref="2">
+                                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:1"/>
+                                        <Nary_Exp op="{" typref="0">
+                                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:2:1"/>
+                                        </Nary_Exp>
+                                    </Binary_Exp>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:1:1"/>
+                            <Unary_Exp op="ran" typref="0">
+                                <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:1:2:1"/>
+                            </Unary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Unary_Exp op="card" typref="1">
+                                <Binary_Exp op="|&gt;" typref="2">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:1:1:1"/>
+                                    <Nary_Exp op="{" typref="0">
+                                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:1:1:2:1"/>
+                                    </Nary_Exp>
+                                </Binary_Exp>
+                            </Unary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:1:2:1"/>
+                    <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op="=">
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:2:1:1"/>
+                </Unary_Exp>
+                <Binary_Exp op="\/" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:2:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="ran" typref="0">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:2:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="ran" typref="0">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:2"/>
+                                </Binary_Exp>
+                                <Unary_Exp op="card" typref="1">
+                                    <Binary_Exp op="|&gt;" typref="2">
+                                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:2:1:1"/>
+                                        <Nary_Exp op="{" typref="0">
+                                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:2:1:2:1"/>
+                                        </Nary_Exp>
+                                    </Binary_Exp>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:1"/>
+                            <Binary_Exp op="-s" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="ran" typref="0">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="5">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:1:1"/>
+                            <Binary_Exp op="-s" typref="0">
+                                <Unary_Exp op="ran" typref="0">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Unary_Exp op="card" typref="1">
+                                <Binary_Exp op="|&gt;" typref="2">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:2:1:1"/>
+                                    <Nary_Exp op="{" typref="0">
+                                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:2:1:2:1"/>
+                                    </Nary_Exp>
+                                </Binary_Exp>
+                            </Unary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="6">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1,D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:3:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is preserved</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Ref_Hyp num="6"/>
+            <Goal>
+                <Exp_Comparison op="&lt;=i">
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1,D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:3:1:2:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="4139332299">
+        <Tag>WellDefinednessInvariant</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:1"/>
+                    <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Invariant is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Invariant is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:4:1:2:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="1752700443">
+        <Tag>WellDefinednessPrecondition_addbag</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:1:1"/>
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:1:2"/>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="3262682274">
+        <Tag>WellDefinedness_addbag</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:1:1"/>
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Binary_Pred op="=&gt;">
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:1:1"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:1:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+                <Exp_Comparison op="&lt;i">
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:1:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:1:2"/>
+                    </Binary_Exp>
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:2:1:2:2:2:2"/>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Binary_Pred>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:1:3:1:3:1:2:1:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="200870621">
+        <Tag>WellDefinedness_rembag</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:2:1:1:1"/>
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:2:1:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:2:1:2:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:2:1:2:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Unary_Pred op="not">
+                <Exp_Comparison op="=">
+                    <Binary_Exp op="(" typref="1">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:1"/>
+                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:2"/>
+                    </Binary_Exp>
+                    <Integer_Literal value="1" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:2"/>
+                </Exp_Comparison>
+            </Unary_Pred>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:1:1:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:2:3:1:3:1:2:1:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="651953017">
+        <Tag>WellDefinedness_countelm</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:3:3:1:1"/>
+                <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:3:3:1:2"/>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:3:4:1:1:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:3:4:1:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:3:4:1:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:3:4:1:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:3:4:1:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="4254952146">
+        <Tag>WellDefinedness_totelms</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:2:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:2:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Quantified_Set typref="0">
+                        <Variables>
+                            <Id value="ee" typref="1"/>
+                        </Variables>
+                        <Body>
+                            <Exp_Comparison op=":">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:2:1:1"/>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:2:1:2:1"/>
+                                </Unary_Exp>
+                            </Exp_Comparison>
+                        </Body>
+                    </Quantified_Set>
+                    <Unary_Exp op="FIN" typref="4">
+                        <Quantified_Set typref="0">
+                            <Variables>
+                                <Id value="ee" typref="1"/>
+                            </Variables>
+                            <Body>
+                                <Exp_Comparison op=":">
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:2:1:1"/>
+                                    <Unary_Exp op="dom" typref="0">
+                                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:2:1:2:1"/>
+                                    </Unary_Exp>
+                                </Exp_Comparison>
+                            </Body>
+                        </Quantified_Set>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:3:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:3:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:4:2:1:2:1:3:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="4294355097">
+        <Tag>WellDefinednessPrecondition_bagunion</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:2:1"/>
+                    <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:1"/>
+                <Binary_Exp op="/\" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:2"/>
+                                </Binary_Exp>
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:1"/>
+                <Binary_Exp op="-s" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="260304226">
+        <Tag>WellDefinedness_bagunion</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:2:1"/>
+                    <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:1:2"/>
+                                </Binary_Exp>
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:1:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:2:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:1"/>
+                            <Binary_Exp op="-s" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:2:1:3:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:1:2:1"/>
+                    <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op="=">
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:2:1:1"/>
+                </Unary_Exp>
+                <Binary_Exp op="\/" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:2:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:2:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:1"/>
+                <Binary_Exp op="/\" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:2"/>
+                                </Binary_Exp>
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:2"/>
+                                </Binary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="5">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:1"/>
+                <Binary_Exp op="-s" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="6">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:1"/>
+                            <Binary_Exp op="-s" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="7">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:1:1"/>
+                <Binary_Exp op="-s" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:3:2:1:2:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:6:3:1:2:1:5:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="741354217">
+        <Tag>WellDefinedness_outputseq</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="sq" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:1:1"/>
+                <Unary_Exp op="seq" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:2:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:2:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Exp_Comparison op="=">
+                <Unary_Exp op="card" typref="1">
+                    <Id value="sq" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:1:1"/>
+                </Unary_Exp>
+                <Quantified_Exp type="iSIGMA" typref="1">
+                    <Variables>
+                        <Id value="ee" typref="1"/>
+                    </Variables>
+                    <Pred>
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:2:1:1"/>
+                            <Unary_Exp op="dom" typref="0">
+                                <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:2:1:2:1"/>
+                            </Unary_Exp>
+                        </Exp_Comparison>
+                    </Pred>
+                    <Body>
+                        <Binary_Exp op="(" typref="1">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:3:1:1"/>
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:3:1:2"/>
+                        </Binary_Exp>
+                    </Body>
+                </Quantified_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="sq" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:1:1"/>
+                    <Unary_Exp op="FIN" typref="3">
+                        <Id value="sq" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Quantified_Set typref="0">
+                        <Variables>
+                            <Id value="ee" typref="1"/>
+                        </Variables>
+                        <Body>
+                            <Exp_Comparison op=":">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:2:1:1"/>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:2:1:2:1"/>
+                                </Unary_Exp>
+                            </Exp_Comparison>
+                        </Body>
+                    </Quantified_Set>
+                    <Unary_Exp op="FIN" typref="4">
+                        <Quantified_Set typref="0">
+                            <Variables>
+                                <Id value="ee" typref="1"/>
+                            </Variables>
+                            <Body>
+                                <Exp_Comparison op=":">
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:2:1:1"/>
+                                    <Unary_Exp op="dom" typref="0">
+                                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:2:1:2:1"/>
+                                    </Unary_Exp>
+                                </Exp_Comparison>
+                            </Body>
+                        </Quantified_Set>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:3:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:3:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:2:2:3:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="|&gt;" typref="2">
+                        <Id value="sq" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:3:2:1:2:1:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:3:2:1:2:1:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Unary_Exp op="FIN" typref="3">
+                        <Binary_Exp op="|&gt;" typref="2">
+                            <Id value="sq" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:3:2:1:2:1:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:3:2:1:2:1:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:3:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:3:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:7:2:1:2:1:3:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="2939166788">
+        <Tag>WellDefinednessPrecondition_addinseq</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:1:1"/>
+                <Unary_Exp op="seq" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:1"/>
+                <Binary_Exp op="/\" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="ran" typref="0">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="ran" typref="0">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:2"/>
+                                </Binary_Exp>
+                                <Unary_Exp op="card" typref="1">
+                                    <Binary_Exp op="|&gt;" typref="2">
+                                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:1"/>
+                                        <Nary_Exp op="{" typref="0">
+                                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:2:1"/>
+                                        </Nary_Exp>
+                                    </Binary_Exp>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:1:1"/>
+                <Unary_Exp op="ran" typref="0">
+                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="|&gt;" typref="2">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Unary_Exp op="FIN" typref="3">
+                        <Binary_Exp op="|&gt;" typref="2">
+                            <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="|&gt;" typref="2">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:1:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:1:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Unary_Exp op="FIN" typref="3">
+                        <Binary_Exp op="|&gt;" typref="2">
+                            <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:1:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:1:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation precondition is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="3"/>
+            <Ref_Hyp num="4"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="1290330225">
+        <Tag>WellDefinedness_addinseq</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Hypothesis>
+            <Exp_Comparison op=":">
+                <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:1:1"/>
+                <Unary_Exp op="seq" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Hypothesis>
+        <Hypothesis>
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="ran" typref="0">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:1:2"/>
+                                </Binary_Exp>
+                                <Unary_Exp op="card" typref="1">
+                                    <Binary_Exp op="|&gt;" typref="2">
+                                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:1"/>
+                                        <Nary_Exp op="{" typref="0">
+                                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:1:2:1:2:1"/>
+                                        </Nary_Exp>
+                                    </Binary_Exp>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:2:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Hypothesis>
+        <Hypothesis>
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:1:1"/>
+                            <Unary_Exp op="ran" typref="0">
+                                <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:1:2:1"/>
+                            </Unary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="&lt;=i">
+                            <Unary_Exp op="card" typref="1">
+                                <Binary_Exp op="|&gt;" typref="2">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:1:1:1"/>
+                                    <Nary_Exp op="{" typref="0">
+                                        <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:1:1:2:1"/>
+                                    </Nary_Exp>
+                                </Binary_Exp>
+                            </Unary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="cap" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:2:1:3:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Hypothesis>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:1:1"/>
+                <Binary_Exp op="+-&gt;" typref="3">
+                    <Id value="ELEM" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:1:2:1"/>
+                    <Id value="NAT1" typref="0" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:1:2:2"/>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="2">
+            <Exp_Comparison op="=">
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:2:1:1"/>
+                </Unary_Exp>
+                <Binary_Exp op="\/" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:2:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="ran" typref="0">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:2:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="3">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:1"/>
+                <Binary_Exp op="/\" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="ran" typref="0">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="4">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:1"/>
+                            <Binary_Exp op="/\" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="ran" typref="0">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="+i" typref="1">
+                                <Binary_Exp op="(" typref="1">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:1"/>
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:2"/>
+                                </Binary_Exp>
+                                <Unary_Exp op="card" typref="1">
+                                    <Binary_Exp op="|&gt;" typref="2">
+                                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:2:1:1"/>
+                                        <Nary_Exp op="{" typref="0">
+                                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:2:1:2:1"/>
+                                        </Nary_Exp>
+                                    </Binary_Exp>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="5">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:1"/>
+                <Binary_Exp op="-s" typref="0">
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="ran" typref="0">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Local_Hyp num="6">
+            <Quantified_Pred type="!">
+                <Variables>
+                    <Id value="ee" typref="1"/>
+                </Variables>
+                <Body>
+                    <Binary_Pred op="=&gt;">
+                        <Exp_Comparison op=":">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:1"/>
+                            <Binary_Exp op="-s" typref="0">
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:2:1:1"/>
+                                </Unary_Exp>
+                                <Unary_Exp op="ran" typref="0">
+                                    <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:1:2:2:1"/>
+                                </Unary_Exp>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                        <Exp_Comparison op="=">
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:2"/>
+                            </Binary_Exp>
+                            <Binary_Exp op="(" typref="1">
+                                <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:1"/>
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:2"/>
+                            </Binary_Exp>
+                        </Exp_Comparison>
+                    </Binary_Pred>
+                </Body>
+            </Quantified_Pred>
+        </Local_Hyp>
+        <Local_Hyp num="7">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:1:1"/>
+                <Binary_Exp op="-s" typref="0">
+                    <Unary_Exp op="ran" typref="0">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:1:2:1:1"/>
+                    </Unary_Exp>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:1:2:2:1"/>
+                    </Unary_Exp>
+                </Binary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="3"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="|&gt;" typref="2">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Unary_Exp op="FIN" typref="3">
+                        <Binary_Exp op="|&gt;" typref="2">
+                            <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:3:2:1:2:2:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="5"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:4:2:1:2:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:1:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:1:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="nb" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Ref_Hyp num="2"/>
+            <Ref_Hyp num="4"/>
+            <Ref_Hyp num="6"/>
+            <Ref_Hyp num="7"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Binary_Exp op="|&gt;" typref="2">
+                        <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:2:1:1"/>
+                        <Nary_Exp op="{" typref="0">
+                            <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:2:1:2:1"/>
+                        </Nary_Exp>
+                    </Binary_Exp>
+                    <Unary_Exp op="FIN" typref="3">
+                        <Binary_Exp op="|&gt;" typref="2">
+                            <Id value="ss" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:2:1:1"/>
+                            <Nary_Exp op="{" typref="0">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:8:3:1:2:1:5:2:1:2:2:1:2:1"/>
+                            </Nary_Exp>
+                        </Binary_Exp>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <Proof_Obligation goalHash="1412019816">
+        <Tag>WellDefinedness_totalcost</Tag>
+        <Definition name="B definitions"/>
+        <Definition name="ctx"/>
+        <Definition name="cst"/>
+        <Definition name="lprp"/>
+        <Definition name="inprp"/>
+        <Definition name="inext"/>
+        <Definition name="seext"/>
+        <Definition name="inv"/>
+        <Definition name="ass"/>
+        <Local_Hyp num="1">
+            <Exp_Comparison op=":">
+                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:2:1:1"/>
+                <Unary_Exp op="dom" typref="0">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:2:1:2:1"/>
+                </Unary_Exp>
+            </Exp_Comparison>
+        </Local_Hyp>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Quantified_Set typref="0">
+                        <Variables>
+                            <Id value="ee" typref="1"/>
+                        </Variables>
+                        <Body>
+                            <Exp_Comparison op=":">
+                                <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:2:1:1"/>
+                                <Unary_Exp op="dom" typref="0">
+                                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:2:1:2:1"/>
+                                </Unary_Exp>
+                            </Exp_Comparison>
+                        </Body>
+                    </Quantified_Set>
+                    <Unary_Exp op="FIN" typref="4">
+                        <Quantified_Set typref="0">
+                            <Variables>
+                                <Id value="ee" typref="1"/>
+                            </Variables>
+                            <Body>
+                                <Exp_Comparison op=":">
+                                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:2:1:1"/>
+                                    <Unary_Exp op="dom" typref="0">
+                                        <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:2:1:2:1"/>
+                                    </Unary_Exp>
+                                </Exp_Comparison>
+                            </Body>
+                        </Quantified_Set>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:3:1:1:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:3:1:1:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="bag" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:3:1:1:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="ee" typref="1" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:3:1:2:2"/>
+                    <Unary_Exp op="dom" typref="0">
+                        <Id value="cost" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:3:1:2:1"/>
+                    </Unary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+        <Simple_Goal>
+            <Tag>Operation is well defined</Tag>
+            <Ref_Hyp num="1"/>
+            <Goal>
+                <Exp_Comparison op=":">
+                    <Id value="cost" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:3:1:2:1"/>
+                    <Binary_Exp op="+-&gt;" typref="3">
+                        <Unary_Exp op="dom" typref="0">
+                            <Id value="cost" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:3:1:2:1"/>
+                        </Unary_Exp>
+                        <Unary_Exp op="ran" typref="0">
+                            <Id value="cost" typref="2" tag="D:\Atelier B free 4.7.1\lab\assignment1\bdp\Bag.bxml:1:6:9:2:1:2:1:3:1:2:1"/>
+                        </Unary_Exp>
+                    </Binary_Exp>
+                </Exp_Comparison>
+            </Goal>
+        </Simple_Goal>
+    </Proof_Obligation>
+    <TypeInfos>
+        <Type id="0">
+            <Unary_Exp op="POW">
+                <Id value="INTEGER"/>
+            </Unary_Exp>
+        </Type>
+        <Type id="1">
+            <Id value="INTEGER"/>
+        </Type>
+        <Type id="2">
+            <Unary_Exp op="POW">
+                <Binary_Exp op="*">
+                    <Id value="INTEGER"/>
+                    <Id value="INTEGER"/>
+                </Binary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="3">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Binary_Exp op="*">
+                        <Id value="INTEGER"/>
+                        <Id value="INTEGER"/>
+                    </Binary_Exp>
+                </Unary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="4">
+            <Unary_Exp op="POW">
+                <Unary_Exp op="POW">
+                    <Id value="INTEGER"/>
+                </Unary_Exp>
+            </Unary_Exp>
+        </Type>
+        <Type id="5">
+            <Binary_Exp op="*">
+                <Id value="INTEGER"/>
+                <Id value="INTEGER"/>
+            </Binary_Exp>
+        </Type>
+    </TypeInfos>
+</Proof_Obligations>

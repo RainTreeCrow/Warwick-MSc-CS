@@ -1,0 +1,64 @@
+CS412 Advanced Specification Methods: Assignment 1
+==================================================
+
+
+Identifiers:  5525549   5554035
+
+
+====================================================================
+
+
+Question 1
+----------
+a) Good.
+5/5
+
+b) Yes that's right. You might note that it's the sort of situation that could occur within a loop when a sequence is being summed.
+4/5
+
+c) Don't forget that the proof conditions have properties and constraints on the LHS of the implication. In this case, constraints are present.
+It's not true that {} : 0..mmax --> NAT. Remember that the --> arrow denotes total functions so the empty set can't be used to initialise.
+Your op correction is good. But it should also check that record(mm) is not already equal to MAXINT before you add 1 to it. It's a bit nasty, but NAT is a finite type! 
+2/5
+
+d) All good.
+5/5
+
+
+Marks: 16/20
+
+====================================================================
+
+
+Question 2
+----------
+Good spec.
+
+Would be a nice touch to have a constraint in the invariant ruling out empty orders (and your receiving operation does check for that).
+
+receivestock - worth checking with things like this that MAXINT doesn't end up exceeded when you increase stock levels.
+
+whereisitem - your 2nd version is what's needed. 
+
+totordered - you need your sum to check  over dom rather than ran her too otherwise similar orders aren't properly accounted for. Eg: we both place orders for 2 widgets. 
+
+oneoflowest - you have stock as a partial function so you need to check that the set you define is non-empty before being able to pick an element from it.
+
+Marks: 16/20
+
+====================================================================
+
+
+Question 3
+----------
+Again, spec fine in general. 
+
+Small point, but cost is supposed to be a variable not a machine parameter. It doesn't make a great deal of difference to how you write the specification but obviously it would affect the way it gets implemented.
+
+It might also make sense to allow costs to be 0 for lines not currently stocked. As the function is total the 0 could indicate no assigned price.
+
+Marks: 18/20
+
+====================================================================
+
+Total: 50/60

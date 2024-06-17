@@ -1,0 +1,21 @@
+THEORY ProofList IS
+_f(1) & _f(4) & _f(5) & checknumber.2,(_f(7) & _f(2) => _f(8));
+_f(1) & _f(4) & _f(5) & checknumber.1,(_f(6) & _f(2) => _f(8));
+_f(1) & Initialisation.1,(_f(2) => _f(3))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+"Invariant is preserved";
+((0) : (NAT));
+((lastchecked) : (NAT));
+((nn) : ((NAT-{0})));
+!(xx).(((((xx) : (((2) .. ((nn - 1)))))) => (not(((nn) mod (xx)) = 0))));
+not(!(xx).(((((xx) : (((2) .. ((nn - 1)))))) => (not(((nn) mod (xx)) = 0)))));
+((nn) : (NAT));
+btrue;
+((((xx) : (((2) .. ((nn - 1)))))) => ((0 <= nn) & (1 <= xx)))
+END
+&
+THEORY EnumerateX
+END

@@ -1,0 +1,129 @@
+/*   Solution for example1 machine       */
+
+MACHINE           example1
+
+SETS              RESP={yes,no}
+
+CONSTANTS         max_val
+
+PROPERTIES	  max_val = 99999
+
+VARIABLES         numset
+
+INVARIANT         numset <: NAT1
+
+INITIALISATION    numset := {}
+
+OPERATIONS
+
+  enter(new) =
+    PRE
+      new : NAT1 & new <= max_val
+    THEN
+      numset := numset \/ {new}
+    END;
+
+  mx  <-- maximum =
+    PRE
+      numset /= {}
+    THEN 
+      mx := max(numset)
+    END;
+
+  remove(new) =
+    PRE
+      new : NAT
+    THEN
+      numset := numset - {new}
+    END;
+
+  nm  <-- howmany =
+      nm := card(numset);
+
+   mn  <-- minimum =
+    PRE
+      numset /= {}
+    THEN 
+      mn := min(numset)
+    END;
+
+rr <-- findnum(nn) =
+    PRE
+      nn : NAT1 
+    THEN 
+      IF   nn : numset
+      THEN rr := yes
+      ELSE rr := no
+      END
+    END;
+
+  ave <-- meancalc =
+    PRE 
+      numset /= {}
+    THEN
+      ave := ( SIGMA (elm).(elm : numset | elm)) / card(numset)
+    END
+
+END
+
+
+
+/*   Solution for entrysys machine       */
+
+MACHINE           entrysys
+
+SETS              PID; RESP = {yes,no}
+    
+CONSTANTS         maxin
+    
+PROPERTIES        maxin : NAT1 & maxin = 500
+    
+VARIABLES         inside, banned
+
+INVARIANT         inside <: PID & banned <: PID &
+                  card(inside) <= maxin &
+                  banned /\ inside = {}
+
+INITIALISATION    inside := {} || banned := {}
+
+OPERATIONS
+    
+  oo <-- enter(pp) =     
+    PRE
+        pp : PID & pp /: inside & card(inside) < maxin & pp /: banned
+    THEN
+        inside := inside \/ {pp} ||
+        oo := maxin - (card(inside) + 1) 
+    END;
+    /* Or use simultaneous assignment */
+    
+  exit(pp) =
+    PRE 
+      pp : PID & pp:inside
+    THEN
+      inside := inside - {pp}
+    END;
+
+  empty = inside := {};
+
+  oo <-- check(pp) =
+    PRE pp:PID
+    THEN 
+        IF 
+            pp : inside
+        THEN 
+            oo := yes
+        ELSE
+            oo := no
+        END
+    END;
+    
+  ban(pp) =
+    PRE 
+        pp:PID & pp /: banned
+    THEN 
+        banned := banned \/ {pp}  ||
+        inside := inside - {pp}
+        
+    END
+END

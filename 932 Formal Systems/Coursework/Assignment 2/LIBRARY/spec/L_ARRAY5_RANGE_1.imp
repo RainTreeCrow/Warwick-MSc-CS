@@ -1,0 +1,38 @@
+IMPLEMENTATION
+  L_ARRAY5_RANGE_1(LACR_minrge,LACR_maxrge,LACR_maxidx,LACR_minval,LACR_maxval)
+
+REFINES
+  L_ARRAY5_RANGE
+
+
+EXTENDS
+  L_ARRAY4_RANGE(LACR_minrge,LACR_maxrge,LACR_maxidx,LACR_minval,LACR_maxval)
+
+OPERATIONS
+
+  ASCENDING_SORT_RGE(rng,ii,jj) = VAR kk IN
+    kk :=ii+1;
+    WHILE kk<=jj DO
+      VAR vv,nn,ll,bb IN
+        vv <-- VAL_ARR_RGE(rng,kk);
+        ll :=kk-1;
+        nn,bb <-- SEARCH_MIN_GEQ_RGE(rng,ii,ll,vv);
+        IF bb = TRUE THEN
+          RIGHT_SHIFT_RGE(rng,nn,ll,1);
+          STR_ARR_RGE(rng,nn,vv)
+        END;
+        kk :=kk+1
+      END
+    INVARIANT
+      kk: NATURAL &
+      ii+1<=kk &
+      (not(kk = ii+1) => kk<=jj+1) &
+      !xx.(xx: NATURAL & xx>=ii & xx+1<kk => arr_rge(rng)(xx)<=arr_rge(rng)(xx+1)) &
+      #tt.(tt: ii..kk-1 >->> ii..kk-1 & arr_rge$0(rng)<+(tt;arr_rge$0(rng)) = arr_rge(rng))
+    VARIANT
+      ii+jj+2-kk
+    END
+  END
+
+
+END

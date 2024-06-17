@@ -1,0 +1,93 @@
+IMPLEMENTATION
+  L_ARRAY1_RANGE_1 ( LAUR_minrge , LAUR_maxrge , LAUR_maxidx , LAUR_VALUE )
+
+REFINES
+  L_ARRAY1_RANGE
+
+
+EXTENDS
+  BASIC_ARRAY_RGE ( 0 .. LAUR_maxidx , LAUR_VALUE , LAUR_minrge .. LAUR_maxrge )
+
+OPERATIONS
+
+  DUP_ARR_RGE ( dest1 , dest2 , src ) = VAR zz IN
+    zz := dest1 ;
+    WHILE zz <= dest2 DO
+      COP_ARR_RGE ( zz , src ) ;
+      zz := zz + 1
+    INVARIANT
+      zz : NAT &
+      zz : dest1 .. dest2 + 1 \/ { dest1 } &
+      arr_rge = arr_rge$0 <+ ( dest1 .. zz - 1 ) * { arr_rge$0 ( src ) }
+    VARIANT
+      dest1 + dest2 + 1 - zz
+    END
+  END ;
+
+
+  SET_ARR_RGE ( range , ii , jj , vv ) = VAR zz IN
+    zz := ii ;
+    WHILE zz <= jj DO
+      STR_ARR_RGE ( range , zz , vv ) ;
+      zz := zz + 1
+    INVARIANT
+      zz : NAT &
+      zz : ii .. jj + 1 \/ { ii } &
+      arr_rge = arr_rge$0 <+ { range |-> ( arr_rge$0 ( range ) <+ ( ii .. zz - 1 ) * { vv } ) }
+    VARIANT
+      ii + jj + 1 - zz
+    END
+  END ;
+
+
+  PCOP_ARR_RGE ( dest , idx_dst , src , ii , jj ) = VAR zz IN
+    zz := ii ;
+    WHILE zz <= jj DO
+      VAR vv IN
+        vv <-- VAL_ARR_RGE ( src , zz ) ;
+        STR_ARR_RGE ( dest , idx_dst + ( zz - ii ) , vv ) ;
+        zz := zz + 1
+      END
+    INVARIANT
+      zz : NAT &
+      zz : ii .. jj + 1 &
+      arr_rge = arr_rge$0 <+ { dest |-> ( arr_rge$0 ( dest ) <+ % xx . ( xx : idx_dst .. idx_dst + zz - ii - 1 | arr_rge$0 ( src ) ( xx + ii - idx_dst ) ) ) }
+    VARIANT
+    jj + 1 - zz
+    END
+  END ;
+
+
+  idx , bb <-- PCMP_ARR_RGE ( rng2 , idx2 , rng1 , ii , jj ) = VAR ss IN
+    idx := ii ;
+    bb := FALSE ;
+    ss := 0 ;
+    WHILE ss = 0 DO
+      VAR vv , ww IN
+        vv <-- VAL_ARR_RGE ( rng1 , idx ) ;
+        ww <-- VAL_ARR_RGE ( rng2 , idx + ( idx2 - ii ) ) ;
+        IF vv /= ww THEN
+          bb := TRUE ;
+          ss := 1
+        ELSIF idx = jj THEN
+          ss := 1
+        ELSE
+          idx := idx + 1
+        END
+      END
+    INVARIANT
+      idx : NATURAL &
+      ii <= idx &
+      idx <= jj &
+      bb : BOOL &
+      ss : NATURAL &
+      ss <= 1 &
+      ( ss = 0 => ( { xx | xx : ii .. idx - 1 & arr_rge ( rng1 ) ( xx ) /= arr_rge ( rng2 ) ( xx + idx2 - ii ) } = {} & bb = FALSE ) ) &
+      ( ss = 1 => ( { xx | xx : ii .. idx - 1 & arr_rge ( rng1 ) ( xx ) /= arr_rge ( rng2 ) ( xx + idx2 - ii ) } = {} & bb = bool ( not ( { xx | xx : ii .. jj & arr_rge ( rng1 ) ( xx ) /= arr_rge ( rng2 ) ( xx + idx2 - ii ) } = {} ) ) ) ) &
+      ( ss = 1 & bb = TRUE => arr_rge ( rng1 ) ( idx ) /= arr_rge ( rng2 ) ( idx + idx2 - ii ) )
+    VARIANT
+      1 + jj - idx - ss
+    END
+  END
+
+END

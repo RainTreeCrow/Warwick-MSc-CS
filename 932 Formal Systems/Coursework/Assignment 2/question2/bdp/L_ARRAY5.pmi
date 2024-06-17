@@ -1,0 +1,98 @@
+﻿THEORY BalanceX IS
+  L_ARRAY5,22,0,0,21,0,0,0;
+  ASCENDING_SORT_ARRAY,1,0,0,1,0,0,0;
+  LEFT_SHIFT_ARRAY,1,0,0,1,0,0,0;
+  REVERSE_ARRAY,1,0,0,1,0,0,0;
+  RIGHT_SHIFT_ARRAY,1,0,0,1,0,0,0;
+  SET_ARRAY,1,0,0,1,0,0,0;
+  STR_ARRAY,1,0,0,1,0,0,0;
+  SWAP_ARRAY,1,0,0,1,0,0,0;
+  WellDefinedness_LEFT_SHIFT_ARRAY,2,0,0,2,0,0,0;
+  WellDefinedness_REVERSE_ARRAY,2,0,0,2,0,0,0;
+  WellDefinedness_RIGHT_SHIFT_ARRAY,2,0,0,2,0,0,0;
+  WellDefinedness_SEARCH_MIN_GEQ_ARRAY,4,0,0,3,0,0,0;
+  WellDefinedness_SWAP_ARRAY,3,0,0,3,0,0,0;
+  WellDefinedness_VAL_ARRAY,2,0,0,2,0,0,0
+END
+&
+THEORY ProofState IS
+  Unproved;
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0)
+END
+&
+THEORY MethodList IS
+  ?;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr
+END
+&
+THEORY PassList IS
+  Force(0),(?;0);
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?
+END
+&
+THEORY ManForms 
+END
+&
+THEORY Version IS
+  PRVersion("svn")(CLT == "svn")
+END

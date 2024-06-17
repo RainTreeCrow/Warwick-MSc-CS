@@ -1,0 +1,20 @@
+THEORY ProofList IS
+  _f(1) & _f(2) & _f(3) & STR_ARRAY.2,(_f(4) => _f(6));
+  _f(1) & _f(2) & _f(3) & STR_ARRAY.1,(_f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+  ("`Component constraints'" & BAV_INDEX: FIN(INTEGER) & not(BAV_INDEX = {}) & BAV_VALUE: FIN(INTEGER) & not(BAV_VALUE = {}));
+  ("`Component invariant'" & arr_vrb: BAV_INDEX +-> BAV_VALUE & dom(arr_vrb) = BAV_INDEX);
+  ("`STR_ARRAY preconditions in this component'" & ii: BAV_INDEX & vv: BAV_VALUE);
+  "`Check that the invariant (arr_vrb: BAV_INDEX --> BAV_VALUE) is preserved by the operation - ref 3.4'";
+  (arr_vrb<+{ii|->vv}: BAV_INDEX +-> BAV_VALUE);
+  (dom(arr_vrb<+{ii|->vv}) = BAV_INDEX)
+END
+&
+THEORY EnumerateX 
+END
+&
+THEORY Version IS
+  POVersion(V3.8.3)(CLT == "V3.7.6")(genOPO == KO, genDivergencePO == KO, local_op == OK)
+END

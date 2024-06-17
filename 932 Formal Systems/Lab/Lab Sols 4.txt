@@ -1,0 +1,149 @@
+         A possible solution for the Checkout machine
+         ============================================
+
+
+MACHINE           Checkout
+
+SETS              CUSTOMER
+
+CONSTANTS         COUNTERS
+
+PROPERTIES        COUNTERS = 1 .. 10
+
+VARIABLES         checkouts,opened,closed
+
+INVARIANT         checkouts : COUNTERS +-> iseq(CUSTOMER) &
+                  opened : POW(COUNTERS) & 
+                  closed : POW(COUNTERS) & 
+                  opened \/ closed = COUNTERS &
+                  opened /\ closed = {} &
+                  dom(checkouts) = opened &
+                  !(xx,yy).(xx:opened & yy:opened & xx /= yy =>
+                            ran(checkouts(xx)) /\ ran(checkouts(yy)) = {})
+                  
+
+INITIALISATION    checkouts := {} || opened := {} || closed := COUNTERS
+
+OPERATIONS
+
+    join(pp, cc) =
+       PRE pp:CUSTOMER & cc:COUNTERS &
+           !(xx).(xx:opened => pp /: ran(checkouts(xx))) &
+           cc : opened 
+       THEN checkouts(cc) := checkouts(cc) <- pp
+       END;
+    /* First condition in PRE could also be stated:
+                       cc /: ran(union(ran(checkouts)))  
+    */
+
+    oo <-- is_served(cc)  =
+       PRE cc : COUNTERS & cc : opened & checkouts(cc) /= {}  
+       THEN oo := first(checkouts(cc)) || 
+            checkouts(cc) := tail(checkouts(cc))
+       END;
+
+    opentill(cc) =
+       PRE cc : COUNTERS & cc : closed 
+       THEN closed := closed - {cc} || opened := opened \/ {cc} ||
+            checkouts := checkouts \/ {cc |-> []}
+       END;
+
+    closetill(cc) =
+       PRE cc : COUNTERS & cc : opened 
+       THEN opened := opened - {cc} || closed := closed \/ {cc} ||
+            checkouts := {cc} <<| checkouts
+       END;
+    /* We have to decide what to do if cc has a queue. We could
+       make it part of the precondition and not allow the till to close
+       if there is a queue. Here however the customers are simply thrown
+       out of the queue!                                                 
+    */
+
+    co <-- query_queue(pp) = 
+       PRE pp:CUSTOMER & pp:ran(union(ran(checkouts)))
+       THEN co :: {cc | cc:COUNTERS & pp:ran(checkouts(cc))}
+       END;
+    /* There are always loys of different ways of saying things. For example,
+       the 2nd conjunct in the PRE could be expressed:   
+         #(cc).(cc:opened & pp : ran(checkouts(cc)))   
+
+       You could also use ANY as we did with the sequence ordering in
+       lectures.     
+
+       You might also choose to do something different with the operation, 
+       say, use an IF and output 0 if not in a queue.             
+     */
+                       
+     qo <-- query_shortest = 
+        PRE opened /: {}
+        THEN qo :: {cc | cc:COUNTERS & cc:opened &
+                         !(dd).(dd:opened =>
+                                  size(checkouts(cc)) <= size(checkouts(dd)))}
+        END               
+     /* Again, there are  various other ways of going about this. 
+     */
+
+END
+
+
+===================================================================
+
+A possible solution for the Calculator machine
+
+MACHINE
+    Calculator
+    
+CONSTANTS nmax
+    
+PROPERTIES nmax:NAT1
+
+VARIABLES nseq, tot
+    
+INVARIANT nseq : seq(NAT) & tot : NAT & 
+          tot = card(nseq)
+    
+INITIALISATION
+    nseq, tot := [], 0
+    
+OPERATIONS
+
+num_in(nn) = 
+  PRE  nn:NAT & tot < nmax 
+  THEN nseq, tot := nseq <- nn, tot+1
+  END;
+  
+oo <-- sum_all = 
+  oo := SIGMA xx.(xx:dom(nseq) | nseq(xx));
+  
+clear_last= 
+  PRE  tot /= 0
+  THEN nseq,tot := front(nseq), tot-1
+  END;
+  
+clear_all = nseq, tot := [],0;
+
+oo <-- how_many(ii) =
+  PRE  ii:NAT
+  THEN oo := card(nseq |> {ii})
+  END;
+
+ss <-- order_seq =
+  ANY  xx WHERE 
+       xx:seq(NAT) &
+       !nn.(nn:NAT => card(xx|>{nn}) = card(nseq|>{nn})) &
+       !(ii,jj).(ii:1..card(xx) & jj:1..card(xx) & ii <= jj                
+                      => xx(ii) <= xx(jj))
+  THEN ss:=xx
+  END;
+
+oo <-- find_num(ii) = 
+  PRE  ii:NAT
+  THEN IF   ii:ran(nseq)
+       THEN oo :: dom(nseq |> {ii})
+       ELSE oo := 0
+       END
+  END
+  
+END
+
+

@@ -1,0 +1,323 @@
+
+IMPLEMENTATION
+   bounds_i
+REFINES
+   bounds
+
+CONCRETE_VARIABLES
+   minb ,
+   maxb
+
+INITIALISATION
+   minb := 1;
+   maxb := 1000
+   
+   /* As this is the same as the previous level, if we'd simply noted that 
+      the variable was already concrete in the specification by using the
+      CONCRETE_VARIABLES construct there, we wouldn't have to repeat here. */
+   
+OPERATIONS
+   oo <-- querymin = oo := minb;
+  
+   oo <-- querymax = oo := maxb;
+
+   resetmin ( bb ) = IF   bb < maxb
+                     THEN minb := bb
+                     END;
+
+   /* We can assume PREs from the spec if we like. Here, I've just
+      used IF so it just skips outside the PRE.
+   */
+
+   resetmax ( bb ) = IF   bb > minb
+                     THEN maxb := bb
+                     END;
+
+   nn <-- length = nn := maxb - (minb - 1);
+   /* The prover is quite sensitive to how you express this. This 
+      way round, it should autoprove, writing maxb - minb + 1 doesn't
+   */ 
+
+   nn <-- findone = nn := minb 
+   /*or other suitable resolution of nondet */
+
+END
+
+
+========================================================================
+
+
+IMPLEMENTATION  Courses_i
+
+REFINES         Courses
+
+VALUES          maxcls = 30
+                /* Or whatever you like */
+
+END
+
+========================================================================
+
+IMPLEMENTATION
+   CS400Reg_i
+   
+REFINES
+   CS400Reg
+
+SEES
+    Courses
+    
+VALUES
+    STUDENT = NAT
+
+CONCRETE_VARIABLES regarr, nextpos 
+    
+INVARIANT regarr:(0..maxcls) --> STUDENT  & nextpos:0..maxcls &
+          classreg = regarr[0..nextpos-1] & card(classreg) = nextpos
+/* I allowed one extra space at the end of regarr which is in fact useful 
+   later ... but you don't have to do this.
+   The final conjunct is perhaps not logically necessary but helps the 
+   autoprover.
+*/    
+    
+INITIALISATION  nextpos := 0; regarr := (0..maxcls) * {1}
+/* The initialisation of regarr is pretty meaningless as we only consider 
+   positions below nextpos. But it is unhappy if we don't initialise.
+*/
+    
+OPERATIONS
+        register(ss) = BEGIN regarr(nextpos) := ss;
+                           nextpos := nextpos + 1
+                       END;
+
+        oo <-- regquery(ss) = 
+               VAR xx, yy IN
+                   xx := 0;
+                   regarr(nextpos) := ss;
+                   yy := regarr(0);
+                   WHILE yy /= ss
+                   DO    xx := xx + 1;
+                         yy := regarr(xx)
+                   INVARIANT 
+                         0 <= xx & xx <= nextpos & 
+                         ss /: ran(0..xx-1 <|regarr) & ss : ran(xx..maxcls <|regarr) 
+                   VARIANT nextpos - xx
+                   END;
+                   IF  xx = nextpos
+                   THEN  oo := no
+                   ELSE  oo:= yes
+                   END
+               END;
+/*  We can't simply check whether ss : ran(regarr) because that is not considered 
+    B0 - and so we have to write a loop.
+    I've chosen to put the value we're looking for at the end - but you could
+    just check in the guard for reaching the end.
+    We have to introduce yy in the above as it won't allow reference to regarr(xx) 
+    directly in the loop guard.
+*/
+          nn <-- spacesleft = nn := maxcls-nextpos
+END
+
+=======================================================================
+
+If we wanted to add error conditions we can add a wrapper.
+
+MACHINE
+    TotCS400Reg
+
+SEES        Courses
+    
+INCLUDES    CS400Reg
+    
+PROMOTES 
+    regquery, spacesleft
+
+SETS        MSG = {ok, alreadyinclass, classfull}
+
+
+OPERATIONS
+
+  mm <-- totregister(ss) =
+     PRE  ss:STUDENT THEN
+        IF   ss /: classreg & card(classreg) < maxcls
+        THEN BEGIN register(ss) || mm := ok END
+        ELSE IF   ss : classreg
+             THEN mm := alreadyinclass
+             ELSE mm := classfull
+             END
+        END
+     END
+END
+
+=======================================================================
+
+/* A second version of an implementation for CS400Reg (I made a second
+   copy of the basic abstract machine and called it  CS400Reg2 to make
+   a separate development). The approach in this development
+   uses a set library machine to take care of the state. This version
+   assumes preconditions will be met.
+*/
+
+IMPLEMENTATION  
+    CS400Reg2_i
+
+REFINES         
+    CS400Reg2
+
+IMPORTS
+    L_SET(maxcls,STUDENT)
+    
+SEES
+    Courses
+    
+VALUES
+    STUDENT = NAT
+    
+INVARIANT 
+   classreg = ran(set_vrb)
+   
+OPERATIONS
+    
+register(ss) = INS_SET(ss);
+
+oo <-- regquery(ss) = 
+     VAR xx,ii IN 
+         xx,ii <-- FIND_SET(ss);
+         IF xx = TRUE THEN oo := yes ELSE oo := no END
+     END;
+     
+nn <-- spacesleft = 
+     VAR vv IN
+         vv <-- CARD_SET; 
+         nn := maxcls - vv         
+     END
+
+END
+
+
+
+
+=======================================================================
+
+
+IMPLEMENTATION
+    numlist_i
+    
+REFINES
+   numlist
+
+IMPORTS 
+    L_SEQUENCE(maxlen,NAT)
+    
+VALUES
+    maxlen = 100
+    
+INVARIANT
+    seq_vrb = nums
+
+INITIALISATION
+   CLR_SEQ
+
+OPERATIONS
+   addnum(nn) = PUSH_SEQ(nn);
+
+   removefirst = 
+     VAR nn IN 
+          nn <-- LEN_SEQ;
+          IF nn >0 THEN TAIL_SEQ END
+     END;
+
+   removeall = CLR_SEQ;
+  
+   removefirstn(nn) = CUT_SEQ(nn);
+
+   removefromposition(ii) =  RMV_SEQ(ii);
+
+   ii <-- isinnums(nn) =
+      VAR bb IN 
+          bb,ii <-- FIND_FIRST_SEQ(nn);
+          IF bb = FALSE THEN ii:= 0 END
+      END;
+
+   nn <-- sumnums = 
+      VAR xx,tot,listlen, val IN
+          xx := 0;
+          tot := 0;
+          listlen <-- LEN_SEQ;
+          WHILE xx /= listlen
+          DO    xx := xx + 1;
+                val <-- VAL_SEQ(xx);
+                tot := tot + val
+          INVARIANT tot = SIGMA(ii).(ii:1..xx|seq_vrb(ii)) & 0 <= xx & xx <= listlen
+          VARIANT   listlen - xx
+          END;
+          nn := tot
+       END;
+      
+   nn <-- howmany(ii) = 
+      VAR xx, count, listlen, val IN
+          xx := 0;
+          count := 0;
+          listlen <-- LEN_SEQ;
+          WHILE xx /= listlen
+          DO    xx := xx + 1;
+                val <-- VAL_SEQ(xx);
+                IF val = ii THEN count := count + 1 END
+          INVARIANT count = card(1..xx <| seq_vrb |> {ii}) & 0 <= xx & xx <= listlen
+          VARIANT   listlen - xx
+          END;
+          nn := count
+       END
+      
+
+
+
+END
+
+
+========================================================================
+
+The Top abstract machine
+------------------------
+MACHINE Top
+
+OPERATIONS
+
+  main = skip
+
+END
+
+
+We can implement this with an interface that's a s simple or as complicated 
+as we like. eg: 
+
+IMPLEMENTATION Top_i
+REFINES Top
+IMPORTS bounds
+
+OPERATIONS
+  
+main = VAR xx IN xx <-- length END
+
+END
+
+or
+
+IMPLEMENTATION Top_i
+REFINES Top
+IMPORTS bounds
+
+OPERATIONS
+
+  main = VAR xx IN 
+              xx <-- length;
+              STRING_WRITE("The length is ");
+              INT_WRITE(xx);
+              STRING_WRITE("\n")
+           END
+END
+
+... or introduce a loop to build a dialogue with the user to allow operation
+selection.
+
+========================================================================

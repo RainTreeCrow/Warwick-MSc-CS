@@ -1,0 +1,84 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.14,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(17) & _f(25) => _f(43));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.13,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(17) & _f(25) => _f(41));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.12,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(17) & _f(25) => _f(42));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.11,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(17) & _f(25) => _f(39));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.10,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(17) & _f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.9,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(16) & _f(25) => _f(41));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.8,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(16) & _f(25) => _f(40));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.7,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(16) & _f(25) => _f(39));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.6,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(16) & _f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.5,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(25) => _f(38));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.4,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(25) => _f(37));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.3,(_f(18) & _f(19) & _f(20) & _f(21) & _f(22) & _f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.2,(_f(18) & _f(19) & _f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymedian.1,(_f(18) & _f(19) & _f(25) => _f(36));
+_f(1) & _f(2) & _f(8) & WellDefinedness_Precondition_querymedian.1,(_f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymean.4,(_f(25) => _f(28));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymean.3,(_f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymean.2,(_f(29) & _f(25) => _f(31));
+_f(1) & _f(2) & _f(8) & _f(15) & WellDefinedness_querymean.1,(_f(25) => _f(30));
+_f(1) & _f(2) & _f(8) & WellDefinedness_Precondition_querymean.1,(_f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(14) & WellDefinedness_querypc.3,(_f(25) => _f(28));
+_f(1) & _f(2) & _f(8) & _f(14) & WellDefinedness_querypc.2,(_f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(14) & WellDefinedness_querypc.1,(_f(25) => _f(27));
+_f(1) & _f(2) & _f(8) & WellDefinedness_Precondition_querypc.1,(_f(13) & _f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(13) & WellDefinedness_queryreg.1,(_f(25) => _f(27));
+_f(1) & _f(2) & _f(8) & _f(12) & WellDefinedness_querytot.1,(_f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(9) & WellDefinedness_tested.1,(_f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & WellDefinedness_Precondition_tested.1,(_f(13) & _f(25) => _f(26));
+_f(1) & _f(2) & WellDefinednessInvariant.1,(_f(23) & _f(24) & _f(25) => _f(26));
+_f(1) & _f(2) & _f(8) & _f(9) & tested.2,(_f(3) & _f(6) => _f(11));
+_f(1) & _f(2) & _f(8) & _f(9) & tested.1,(_f(3) & _f(4) => _f(10));
+_f(1) & _f(2) & Initialisation.2,(_f(3) & _f(6) => _f(7));
+_f(1) & _f(2) & Initialisation.1,(_f(3) & _f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+((maxlen) : ((NAT-{0})));
+"Invariant is preserved";
+"Check invariant ((record) : (seq(((0) .. (10)))))";
+(({}) : (seq(((0) .. (10)))));
+"Check invariant (size(record) <= maxlen)";
+(size({}) <= maxlen);
+record : NATURAL-{0} +-> ((0) .. (10)) & ((record) : (seq(((0) .. (10))))) & (size(record) <= maxlen);
+((nn) : (((0) .. (10)))) & (size(record) +1 <= maxlen);
+((((record) <- (nn))) : (seq(((0) .. (10)))));
+(size(((record) <- (nn))) <= maxlen);
+btrue;
+((nn) : (((0) .. (10))));
+((nn) : (((0) .. (10)))) & not(size(record) = 0);
+not(size(record) = 0);
+((((size(record)) mod (2))) = (1));
+not(((((size(record)) mod (2))) = (1)));
+rr : NATURAL-{0} +-> ((0) .. (10));
+((rr) : (seq(((0) .. (10)))));
+((size(rr)) = (size(record)));
+!(nn).(((((nn) : (((0) .. (10))))) => (((card(((rr) |> (({nn}))))) = (card(((record) |> (({nn})))))))));
+!(ii,jj).(((((ii) : (((1) .. (card(rr))))) & ((jj) : (((1) .. (card(rr))))) & (ii <= jj)) => (((rr )(ii) <= (rr )(jj)))));
+record : NATURAL-{0} +-> ((0) .. (10));
+((record) : (seq(((0) .. (10)))));
+"Well definedness";
+((record) : (seq(ran(record))));
+((((record) |> (({nn})))) : (FIN(((record) |> (({nn}))))));
+not(((size(record)) = (0)));
+((ii) : (dom(record)));
+((SET(ii).(((ii) : (dom(record))))) : (FIN(SET(ii).(((ii) : (dom(record)))))));
+((record) : (((dom(record)) +-> (ran(record)))));
+((((nn) : (((0) .. (10))))) => (((((rr) |> (({nn})))) : (FIN(((rr) |> (({nn})))))) & ((((record) |> (({nn})))) : (FIN(((record) |> (({nn}))))))));
+((rr) : (FIN(rr)));
+((((ii) : (((1) .. (card(rr)))))) => (((rr) : (FIN(rr))) & ((((jj) : (((1) .. (card(rr)))))) => (btrue))));
+((((ii) : (((1) .. (card(rr))))) & ((jj) : (((1) .. (card(rr))))) & (ii <= jj)) => (((ii) : (dom(rr))) & ((rr) : (((dom(rr)) +-> (ran(rr))))) & ((jj) : (dom(rr))) & ((rr) : (((dom(rr)) +-> (ran(rr)))))));
+((rr) : (seq(ran(rr))));
+(0 <= size(record));
+(1 <= 2);
+not(((2) = (0)));
+((((size(record) + 1) / 2)) : (dom(rr)));
+((rr) : (((dom(rr)) +-> (ran(rr)))));
+(((size(record) / 2)) : (dom(rr)));
+((((size(record) / 2) + 1)) : (dom(rr)))
+END
+&
+THEORY EnumerateX
+END

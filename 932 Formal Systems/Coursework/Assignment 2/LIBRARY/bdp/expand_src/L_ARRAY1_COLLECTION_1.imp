@@ -1,0 +1,87 @@
+IMPLEMENTATION
+  L_ARRAY1_COLLECTION_1 ( LAUC_maxobj , LAUC_maxidx , LAUC_minval , LAUC_maxval )
+
+REFINES
+  L_ARRAY1_COLLECTION
+
+DEFINITIONS
+  LAUC_VALUE == LAUC_minval .. LAUC_maxval ;
+  LAUC_INDEX == 0 .. LAUC_maxidx
+
+EXTENDS
+  L_ARRAY_COLLECTION ( LAUC_maxobj , LAUC_INDEX , LAUC_VALUE )
+
+OPERATIONS
+
+  SET_ARR_COL ( rr , ii , jj , vv ) =
+    VAR zz IN
+      zz := ii ;
+      WHILE  zz <= jj DO
+        STR_ARR_COL ( rr , zz , vv ) ;
+        zz := zz + 1
+      INVARIANT
+        zz : NAT &
+        zz : ii .. jj + 1 \/ { ii } &
+        arr_col = arr_col$0 <+ { rr |-> ( arr_col$0 ( rr ) <+ ( ii .. zz - 1 ) * { vv } ) }
+      VARIANT
+        ii + jj + 1 - zz
+      END
+    END ;
+
+  PCOP_ARR_COL ( dest , idx_dst , src , ii , jj ) =
+    VAR zz IN
+      zz := ii ;
+      WHILE  zz <= jj DO
+        VAR vv IN
+      vv <-- VAL_ARR_COL ( src , zz ) ;
+          STR_ARR_COL ( dest , idx_dst + ( zz - ii ) , vv ) ;
+          zz := zz + 1
+        END
+      INVARIANT
+        zz : NAT &
+        zz : ii .. jj + 1 &
+        arr_col = arr_col$0 <+ { dest |-> ( arr_col$0 ( dest ) <+
+                  % xx . ( xx : idx_dst .. idx_dst + zz - ii - 1 |
+                  arr_col$0 ( src ) ( xx + ii - idx_dst ) ) ) }
+      VARIANT
+        jj + 1 - zz
+      END
+    END ;
+
+  idx , bb <-- PCMP_ARR_COL ( rr2 , idx2 , rr1 , ii , jj ) =
+    VAR ss IN
+      idx := ii ;
+      bb := FALSE ;
+      ss := 0 ;
+      WHILE ss = 0 DO
+    VAR vv , ww IN
+      vv <-- VAL_ARR_COL ( rr1 , idx ) ;
+      ww <-- VAL_ARR_COL ( rr2 , idx + ( idx2 - ii ) ) ;
+      IF vv /= ww THEN
+        bb := TRUE ;
+        ss := 1
+      ELSIF idx = jj THEN
+        ss := 1
+      ELSE
+        idx := idx + 1
+      END
+    END
+      INVARIANT
+        idx : ii .. jj &
+        bb : BOOL &
+        ss : NATURAL &
+        ss <= 1 &
+        ( ss = 0 => ( { xx | xx : ii .. idx - 1 &
+                          arr_col ( rr1 ) ( xx ) /= arr_col ( rr2 ) ( xx + idx2 - ii ) } = {}
+                    & bb = FALSE ) ) &
+    ( ss = 1 => ( { xx | xx : ii .. idx - 1 &
+                          arr_col ( rr1 ) ( xx ) /= arr_col ( rr2 ) ( xx + idx2 - ii ) } = {}
+                    & bb = bool ( not ( { xx | xx : ii .. jj &
+                           arr_col ( rr1 ) ( xx ) /= arr_col ( rr2 ) ( xx + idx2 - ii ) } = {}
+                   ) ) ) ) &
+    ( ss = 1 & bb = TRUE => arr_col ( rr1 ) ( idx ) /= arr_col ( rr2 ) ( idx + idx2 - ii ) )
+      VARIANT
+        jj + 1 - idx - ss
+      END
+    END
+END

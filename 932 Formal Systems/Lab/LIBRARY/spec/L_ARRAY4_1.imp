@@ -1,0 +1,43 @@
+IMPLEMENTATION
+  L_ARRAY4_1(LAQ_minval,LAQ_maxval,LAQ_maxidx)
+
+REFINES
+  L_ARRAY4
+
+
+EXTENDS
+  L_ARRAY3(LAQ_minval..LAQ_maxval,LAQ_maxidx)
+
+DEFINITIONS
+  LAQ_INDEX == 0..LAQ_maxidx
+
+
+OPERATIONS
+
+  ii,bb <-- SEARCH_MIN_GEQ_ARRAY(jj,kk,vv) = VAR ll IN
+    ii := jj;
+    ll := kk+1;
+    bb := FALSE;
+    WHILE ii<ll & bb = FALSE DO
+      VAR ww IN
+        ww <-- VAL_ARRAY(ii);
+        IF ww>=vv THEN
+          bb := TRUE
+        END;
+        ii := ii+1
+      END
+    INVARIANT
+      ll = kk+1 &
+      ii: jj..ll &
+      bb = bool(not(ii = jj) & arr_vrb(ii-1)>=vv) &
+      (bb = FALSE => !uu.(uu: jj..ii-1 => arr_vrb(uu)<vv)) &
+      (bb = TRUE => !uu.(uu: jj..ii-2 => arr_vrb(uu)<vv))
+    VARIANT
+      ll-ii
+    END;
+    IF bb = TRUE THEN
+      ii := ii-1
+    END
+  END
+
+END

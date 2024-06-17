@@ -1,0 +1,108 @@
+THEORY ProofList IS
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.15,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(59) & _f(42) => _f(69));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.14,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(59) & _f(22) & _f(38) => _f(68));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.13,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(59) & _f(21) & _f(57) & _f(38) => _f(35));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.12,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(59) & _f(38) & _f(33) => _f(67));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.11,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(59) & _f(38) & _f(31) => _f(66));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.10,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(58) & _f(42) => _f(69));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.9,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(58) & _f(19) & _f(38) => _f(68));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.8,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(58) & _f(38) & _f(33) => _f(67));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.7,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(60) & _f(21) & _f(58) & _f(38) & _f(31) => _f(66));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.6,(_f(27) & _f(53) & _f(54) & _f(55) & _f(56) & _f(36) => _f(65));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.5,(_f(27) & _f(11) & _f(10) & _f(30) => _f(35));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.4,(_f(27) & _f(30) & _f(33) => _f(34));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.3,(_f(27) & _f(30) & _f(31) => _f(32));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.2,(_f(27) & _f(32) & _f(34) & _f(49) & _f(50) & _f(62) => _f(64));
+_f(1) & _f(3) & _f(4) & _f(28) & WellDefinedness_checknumber.1,(_f(27) & _f(32) & _f(34) & _f(49) & _f(50) & _f(62) => _f(63));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.16,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(26) & _f(25) & _f(8) & _f(44) => _f(18));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.15,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(26) & _f(22) & _f(7) & _f(44) => _f(12));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.14,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(23) & _f(42) => _f(43));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.13,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(23) & _f(22) & _f(38) => _f(41));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.12,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(23) & _f(21) & _f(17) & _f(38) => _f(35));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.11,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(23) & _f(38) & _f(33) => _f(40));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.10,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(23) & _f(38) & _f(31) => _f(39));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.9,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(20) & _f(42) => _f(43));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.8,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(20) & _f(19) & _f(38) => _f(41));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.7,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(20) & _f(38) & _f(33) => _f(40));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.6,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(24) & _f(21) & _f(20) & _f(38) & _f(31) => _f(39));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.5,(_f(28) & _f(27) & _f(13) & _f(14) & _f(15) & _f(16) & _f(36) => _f(37));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.4,(_f(28) & _f(27) & _f(11) & _f(10) & _f(30) => _f(35));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.3,(_f(28) & _f(27) & _f(30) & _f(33) => _f(34));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.2,(_f(28) & _f(27) & _f(30) & _f(31) => _f(32));
+_f(1) & _f(3) & _f(4) & _f(6) & checknumber.1,(_f(28) & _f(9) & _f(8) & _f(29) => _f(18))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+btrue;
+((lastchecked) : (NAT));
+((lastchecked) = (lastchecked$1));
+((nn) : ((NAT-{0}))) & ((oo) = (oo));
+((oo$1) = (oo));
+!(xx).(((((xx) : (((2) .. ((nn - 1)))))) => (not(((nn) mod (xx)) = 0))));
+not(!(xx).(((((xx) : (((2) .. ((nn - 1)))))) => (not(((nn) mod (xx)) = 0)))));
+((nn) = (1));
+((yy) : (((2) .. ((2 - 1)))));
+((FALSE) = (FALSE));
+((FALSE) = (TRUE));
+(2 <= xx$2);
+(xx$2 <= nn);
+((((ff$1) = (FALSE))) => (!(yy).(((((yy) : (((2) .. ((xx$2 - 1)))))) => (not(((nn) mod (yy)) = 0))))));
+((((ff$1) = (TRUE))) => (((((nn) mod ((xx$2 - 1)))) = (0))));
+((yy) : (((2) .. (((xx$2 + 1) - 1)))));
+((TRUE) = (FALSE));
+((TRUE) = (TRUE));
+((((nn) mod (xx$2))) = (0));
+((ff$1) = (FALSE));
+((ff$1) = (TRUE));
+not(((((nn) mod (xx$2))) = (0)));
+not(xx$2 = nn);
+not(((ff$1) = (TRUE)));
+not(not(xx$2 = nn) & ((ff$1) = (FALSE)));
+not(((nn) = (1)));
+((nn) : ((NAT-{0})));
+"Refinement is correct";
+"Loop initialisation";
+"Check invariant (2 <= xx)";
+(2 <= 2);
+"Check invariant (xx <= nn)";
+(2 <= nn);
+not(((nn) mod (yy)) = 0);
+"Loop variant is positive";
+(0 <= (nn - xx$2));
+"Loop invariant is preserved";
+(2 <= (xx$2 + 1));
+((xx$2 + 1) <= nn);
+((((nn) mod (((xx$2 + 1) - 1)))) = (0));
+"Variant is decreasing";
+((nn - (xx$2 + 1)) +1 <= (nn - xx$2));
+"End of loop";
+((oo) = (oo));
+not(2 = nn);
+((((FALSE) = (FALSE))) => (!(yy).(((((((yy) : (((2) .. ((2 - 1)))))) => ((0 <= nn) & (1 <= yy)))) => (btrue)))));
+((((FALSE) = (TRUE))) => ((0 <= nn) & (1 <= (2 - 1))));
+((((FALSE) = (FALSE))) => (!(yy).(((((yy) : (((2) .. ((2 - 1)))))) => (not(((nn) mod (yy)) = 0))))));
+((((FALSE) = (TRUE))) => (((((nn) mod ((2 - 1)))) = (0))));
+((((nn) mod (2))) = (0));
+not(((((nn) mod (2))) = (0)));
+(2 <= xx$1);
+(xx$1 <= nn);
+((((ff$1) = (FALSE))) => (!(yy).(((((yy) : (((2) .. ((xx$1 - 1)))))) => (not(((nn) mod (yy)) = 0))))));
+((((ff$1) = (TRUE))) => (((((nn) mod ((xx$1 - 1)))) = (0))));
+((yy) : (((2) .. (((xx$1 + 1) - 1)))));
+((((nn) mod (xx$1))) = (0));
+not(((((nn) mod (xx$1))) = (0)));
+not(xx$1 = nn);
+not(not(xx$1 = nn) & ((ff$1) = (FALSE)));
+"Well definedness";
+(0 <= nn);
+(1 <= 2);
+(0 <= (nn - xx$1));
+(2 <= (xx$1 + 1));
+((xx$1 + 1) <= nn);
+((((nn) mod (((xx$1 + 1) - 1)))) = (0));
+((nn - (xx$1 + 1)) +1 <= (nn - xx$1))
+END
+&
+THEORY EnumerateX
+END

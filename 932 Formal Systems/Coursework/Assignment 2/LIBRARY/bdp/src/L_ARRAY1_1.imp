@@ -1,0 +1,26 @@
+IMPLEMENTATION
+  L_ARRAY1_1 ( LAU_VALUE , LAU_maxidx )
+
+REFINES
+  L_ARRAY1
+
+EXTENDS
+  BASIC_ARRAY_VAR ( 0 .. LAU_maxidx , LAU_VALUE )
+
+OPERATIONS
+
+  SET_ARRAY ( ii , jj , vv ) = VAR zz IN
+    zz := ii ;
+    WHILE zz <= jj DO
+      STR_ARRAY ( zz , vv ) ;
+      zz := zz + 1
+    INVARIANT
+      zz : NAT &
+      zz : ii .. jj + 1 \/ { ii } &
+      arr_vrb = arr_vrb$0 <+ ( ii .. zz - 1 ) * { vv }
+    VARIANT
+      jj + ii + 1 - zz
+    END
+  END
+
+END

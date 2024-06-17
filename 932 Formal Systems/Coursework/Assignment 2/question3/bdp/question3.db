@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/dcs/pg23/u5525549/AtelierB/question3/bdp/expand_src" old_decomp_dir="/dcs/pg23/u5525549/AtelierB/question3/bdp/src">
+        <!-- Definition directory list -->
+        <definition_dir path="/dcs/pg23/u5525549/AtelierB/LIBRARY/spec" />
+        <!-- Component file list -->
+        <component_file path="/dcs/pg23/u5525549/AtelierB/LIBRARY/spec" name="BASIC_IO" suffix="mch" user="u5525549">
+            <component name="BASIC_IO" type="specification" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question3" name="Numbers" suffix="mch" user="u5525549">
+            <component name="Numbers" type="specification" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question3" name="Numbers_i" suffix="imp" user="u5525549">
+            <component name="Numbers_i" type="implementation" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question3" name="Top" suffix="mch" user="u5525549">
+            <component name="Top" type="specification" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question3" name="Top_i" suffix="imp" user="u5525549">
+            <component name="Top_i" type="implementation" />
+        </component_file>
+    </project>
+</db_xml>

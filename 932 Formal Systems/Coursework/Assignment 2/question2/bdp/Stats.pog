@@ -1,0 +1,3244 @@
+<Proof_Obligations>
+<Define name="B definitions">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op="=">
+<Id value="NAT"/>
+<Binary_Exp op="..">
+<Integer_Literal value="0"/>
+<Id value="MAXINT"/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Id value="INT"/>
+<Binary_Exp op="..">
+<Id value="MININT"/>
+<Id value="MAXINT"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Define>
+<Define name="ctx"/>
+<Define name="seext"/>
+<Define name="lprp">
+<Attr>
+<Pos c="1" s="10" l="9"/>
+</Attr>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="10"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:3:1:1" typref="2701647786" value="maxlen">
+<Attr>
+<Pos c="5" s="6" l="10"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:3:1:2" typref="3603043417" value="NAT1">
+<Attr>
+<Pos c="14" s="4" l="10"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Define>
+<Define name="inprp"/>
+<Define name="inext"/>
+<Define name="inv">
+<Attr>
+<Pos c="1" s="9" l="13"/>
+</Attr>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":" initialTag="((record) : (seq(((0) .. (10)))))">
+<Attr>
+<Pos c="12" s="1" l="14"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="5" s="6" l="14"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq" typref="3083833907">
+<Attr>
+<Pos c="14" s="3" l="14"/>
+</Attr>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="19" s="2" l="14"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:2:1:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="18" s="1" l="14"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:2:1:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="21" s="2" l="14"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;=" initialTag="(size(record) &lt;= maxlen)">
+<Attr>
+<Pos c="40" s="2" l="14"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="27" s="4" l="14"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="32" s="6" l="14"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:2:2" typref="2701647786" value="maxlen">
+<Attr>
+<Pos c="43" s="6" l="14"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Define>
+<Define name="ass"/>
+<Define name="cst"/>
+<Proof_Obligation>
+<Comment>Initialisation dans une machine abstraite</Comment>
+<Tag>Initialisation</Tag>
+<Tag>Invariant</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((record) : (seq(((0) .. (10)))))" goalTag="Invariant is preserved">
+<Attr>
+<Pos c="12" s="1" l="14"/>
+</Attr>
+<EmptySeq tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:5:1:2:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:5:1:1:1" typref="103245008">
+<Attr>
+<Pos c="5" s="6" l="16"/>
+</Attr>
+</EmptySeq>
+<Unary_Exp op="seq" typref="3083833907">
+<Attr>
+<Pos c="14" s="3" l="14"/>
+</Attr>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="19" s="2" l="14"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:2:1:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="18" s="1" l="14"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:2:1:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="21" s="2" l="14"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;=" initialTag="(size(record) &lt;= maxlen)" goalTag="Invariant is preserved">
+<Attr>
+<Pos c="40" s="2" l="14"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="27" s="4" l="14"/>
+</Attr>
+<EmptySeq tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:5:1:2:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:2:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:5:1:1:1" typref="103245008">
+<Attr>
+<Pos c="5" s="6" l="16"/>
+</Attr>
+</EmptySeq>
+</Unary_Exp>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:2:2" typref="2701647786" value="maxlen">
+<Attr>
+<Pos c="43" s="6" l="14"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>tested</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="19"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="9" s="2" l="19"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="15" s="2" l="19"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="14" s="1" l="19"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="17" s="2" l="19"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;">
+<Attr>
+<Pos c="35" s="1" l="19"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="22" s="4" l="19"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="27" s="6" l="19"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:2:2" typref="2701647786" value="maxlen">
+<Attr>
+<Pos c="37" s="6" l="19"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((record) : (seq(((0) .. (10)))))" goalTag="Invariant is preserved">
+<Attr>
+<Pos c="12" s="1" l="14"/>
+</Attr>
+<Binary_Exp op="&lt;-" tag=",/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:3:1:1:1" typref="103245008">
+<Attr>
+<Pos c="10" s="6" l="20"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:3:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="20" s="6" l="20"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:3:1:2:1:2" typref="2701647786" value="nn">
+<Attr>
+<Pos c="30" s="2" l="20"/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Unary_Exp op="seq" typref="3083833907">
+<Attr>
+<Pos c="14" s="3" l="14"/>
+</Attr>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="19" s="2" l="14"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:2:1:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="18" s="1" l="14"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:2:1:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="21" s="2" l="14"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;=" initialTag="(size(record) &lt;= maxlen)" goalTag="Invariant is preserved">
+<Attr>
+<Pos c="40" s="2" l="14"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="27" s="4" l="14"/>
+</Attr>
+<Binary_Exp op="&lt;-" tag=",/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:2:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:3:1:1:1" typref="103245008">
+<Attr>
+<Pos c="10" s="6" l="20"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:3:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="20" s="6" l="20"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:3:1:2:1:2" typref="2701647786" value="nn">
+<Attr>
+<Pos c="30" s="2" l="20"/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Unary_Exp>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:2:2" typref="2701647786" value="maxlen">
+<Attr>
+<Pos c="43" s="6" l="14"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>querytot</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis/>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>queryreg</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="27"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:3:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="9" s="2" l="27"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="15" s="2" l="27"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:3:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="14" s="1" l="27"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:3:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="17" s="2" l="27"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>querypc</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="32"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="9" s="2" l="32"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="15" s="2" l="32"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="14" s="1" l="32"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="17" s="2" l="32"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="/=">
+<Attr>
+<Pos c="35" s="2" l="32"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="22" s="4" l="32"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="27" s="6" l="32"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:2:2" typref="2701647786" value="0">
+<Attr>
+<Pos c="38" s="1" l="32"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>querymean</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Exp_Comparison op="/=">
+<Attr>
+<Pos c="22" s="2" l="37"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="9" s="4" l="37"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="14" s="6" l="37"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:2:1:2" typref="2701647786" value="0">
+<Attr>
+<Pos c="25" s="1" l="37"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>querymedian</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Exp_Comparison op="/=">
+<Attr>
+<Pos c="22" s="2" l="42"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="9" s="4" l="42"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="14" s="6" l="42"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:2:1:2" typref="2701647786" value="0">
+<Attr>
+<Pos c="25" s="1" l="42"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+<Local_Hyp num="2">
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="36" s="1" l="48"/>
+</Attr>
+<Binary_Exp op="mod" typref="2701647786">
+<Attr>
+<Pos c="30" s="3" l="48"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="17" s="4" l="48"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="22" s="6" l="48"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="34" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:2" typref="2701647786" value="1">
+<Attr>
+<Pos c="38" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="3">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+<Local_Hyp num="4">
+<Unary_Pred op="not">
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="36" s="1" l="48"/>
+</Attr>
+<Binary_Exp op="mod" typref="2701647786">
+<Attr>
+<Pos c="30" s="3" l="48"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="17" s="4" l="48"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="22" s="6" l="48"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="34" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:2" typref="2701647786" value="1">
+<Attr>
+<Pos c="38" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Unary_Pred>
+</Local_Hyp>
+<Local_Hyp num="5">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="18" s="1" l="45"/>
+</Attr>
+<Id suffix="" tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="13" s="2" l="44"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq" typref="3083833907">
+<Attr>
+<Pos c="20" s="3" l="45"/>
+</Attr>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="25" s="2" l="45"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:2:1:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="24" s="1" l="45"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:2:1:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="27" s="2" l="45"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="42" s="1" l="45"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="33" s="4" l="45"/>
+</Attr>
+<Id suffix="" tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="13" s="2" l="44"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="44" s="4" l="45"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="49" s="6" l="45"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+<Quantified_Pred type="!">
+<Attr>
+<Pos c="18" s="1" l="46"/>
+</Attr>
+<Variables>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="16" s="2" l="46"/>
+</Attr>
+</Id>
+</Variables>
+<Body>
+<Binary_Pred op="=>">
+<Attr>
+<Pos c="31" s="2" l="46"/>
+</Attr>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="23" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="20" s="2" l="46"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="26" s="2" l="46"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="25" s="1" l="46"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="28" s="2" l="46"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="51" s="1" l="46"/>
+</Attr>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="34" s="4" l="46"/>
+</Attr>
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="42" s="2" l="46"/>
+</Attr>
+<Id suffix="" tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="13" s="2" l="44"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="45" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="46" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="53" s="4" l="46"/>
+</Attr>
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="65" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="58" s="6" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="68" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="69" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Body>
+</Quantified_Pred>
+<Quantified_Pred type="!">
+<Attr>
+<Pos c="24" s="1" l="47"/>
+</Attr>
+<Variables>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="17" s="2" l="47"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:1:2" typref="2701647786" value="jj">
+<Attr>
+<Pos c="21" s="2" l="47"/>
+</Attr>
+</Id>
+</Variables>
+<Body>
+<Binary_Pred op="=>">
+<Attr>
+<Pos c="75" s="2" l="47"/>
+</Attr>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="30" s="1" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="27" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="33" s="2" l="47"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:1" typref="2701647786" value="1">
+<Attr>
+<Pos c="32" s="1" l="47"/>
+</Attr>
+</Integer_Literal>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="35" s="4" l="47"/>
+</Attr>
+<Id suffix="" tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:2:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="13" s="2" l="44"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="49" s="1" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:1" typref="2701647786" value="jj">
+<Attr>
+<Pos c="46" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="52" s="2" l="47"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:1" typref="2701647786" value="1">
+<Attr>
+<Pos c="51" s="1" l="47"/>
+</Attr>
+</Integer_Literal>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="54" s="4" l="47"/>
+</Attr>
+<Id suffix="" tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:2:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="13" s="2" l="44"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;=">
+<Attr>
+<Pos c="68" s="2" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:3:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="65" s="2" l="47"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:3:2" typref="2701647786" value="jj">
+<Attr>
+<Pos c="71" s="2" l="47"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+<Exp_Comparison op="&lt;=">
+<Attr>
+<Pos c="85" s="2" l="47"/>
+</Attr>
+<Binary_Exp op="(" typref="2701647786">
+<Attr>
+<Pos c="80" s="0" l="47"/>
+</Attr>
+<Id suffix="" tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="13" s="2" l="44"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:2" typref="2701647786" value="ii">
+<Attr>
+<Pos c="81" s="2" l="47"/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Binary_Exp op="(" typref="2701647786">
+<Attr>
+<Pos c="90" s="0" l="47"/>
+</Attr>
+<Id suffix="" tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1,/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="13" s="2" l="44"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:2" typref="2701647786" value="jj">
+<Attr>
+<Pos c="91" s="2" l="47"/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Body>
+</Quantified_Pred>
+</Nary_Pred>
+</Local_Hyp>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessConstraints</Tag>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessProperties</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Hypothesis/>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessInvariant</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Local_Hyp num="1">
+<Exp_Comparison op=":" initialTag="((record) : (seq(((0) .. (10)))))">
+<Attr>
+<Pos c="12" s="1" l="14"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="5" s="6" l="14"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq" typref="3083833907">
+<Attr>
+<Pos c="14" s="3" l="14"/>
+</Attr>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="19" s="2" l="14"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:2:1:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="18" s="1" l="14"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:1:2:1:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="21" s="2" l="14"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="32" s="6" l="14"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:4:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="32" s="6" l="14"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessInitialisation</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_tested</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Local_Hyp num="1">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="19"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="9" s="2" l="19"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="15" s="2" l="19"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="14" s="1" l="19"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="17" s="2" l="19"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="27" s="6" l="19"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="27" s="6" l="19"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_tested</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="19"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="9" s="2" l="19"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="15" s="2" l="19"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="14" s="1" l="19"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="17" s="2" l="19"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;">
+<Attr>
+<Pos c="35" s="1" l="19"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="22" s="4" l="19"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="27" s="6" l="19"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:2:1:2:2" typref="2701647786" value="maxlen">
+<Attr>
+<Pos c="37" s="6" l="19"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:3:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="20" s="6" l="20"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:1:3:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="20" s="6" l="20"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_querytot</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_querytot</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis/>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:2:2:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="16" s="6" l="24"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:2:2:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="16" s="6" l="24"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_queryreg</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_queryreg</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="27"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:3:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="9" s="2" l="27"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="15" s="2" l="27"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:3:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="14" s="1" l="27"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:3:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="17" s="2" l="27"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+</Hypothesis>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="28" s="2" l="28"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:4:1:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="21" s="6" l="28"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="31" s="1" l="28"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:4:1:2:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="32" s="2" l="28"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+<Unary_Exp op="FIN">
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="28" s="2" l="28"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:4:1:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="21" s="6" l="28"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="31" s="1" l="28"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:3:4:1:2:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="32" s="2" l="28"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_querypc</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Local_Hyp num="1">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="32"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="9" s="2" l="32"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="15" s="2" l="32"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="14" s="1" l="32"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="17" s="2" l="32"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="27" s="6" l="32"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="27" s="6" l="32"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_querypc</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="12" s="1" l="32"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="9" s="2" l="32"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="15" s="2" l="32"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="14" s="1" l="32"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="17" s="2" l="32"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="/=">
+<Attr>
+<Pos c="35" s="2" l="32"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="22" s="4" l="32"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="27" s="6" l="32"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:3:1:2:2" typref="2701647786" value="0">
+<Attr>
+<Pos c="38" s="1" l="32"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="28" s="2" l="33"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:4:1:2:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="21" s="6" l="33"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="31" s="1" l="33"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:4:1:2:1:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="32" s="2" l="33"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+<Unary_Exp op="FIN">
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="28" s="2" l="33"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:4:1:2:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="21" s="6" l="33"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="31" s="1" l="33"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:4:1:2:1:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="32" s="2" l="33"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:4:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="44" s="6" l="33"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:4:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="44" s="6" l="33"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Unary_Pred op="not">
+<Exp_Comparison op="=">
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="39" s="4" l="33"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:4:4:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="44" s="6" l="33"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal value="0"/>
+</Exp_Comparison>
+</Unary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_querymean</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="14" s="6" l="37"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="14" s="6" l="37"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_querymean</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Exp_Comparison op="/=">
+<Attr>
+<Pos c="22" s="2" l="37"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="9" s="4" l="37"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="14" s="6" l="37"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:2:1:2" typref="2701647786" value="0">
+<Attr>
+<Pos c="25" s="1" l="37"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Hypothesis>
+<Local_Hyp num="1">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="30" s="1" l="38"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:2:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="27" s="2" l="38"/>
+</Attr>
+</Id>
+<Unary_Exp op="dom" typref="3603043417">
+<Attr>
+<Pos c="32" s="3" l="38"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="36" s="6" l="38"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Quantified_Set>
+<Variables>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="22" s="2" l="38"/>
+</Attr>
+</Id>
+</Variables>
+<Body>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="30" s="1" l="38"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:2:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="27" s="2" l="38"/>
+</Attr>
+</Id>
+<Unary_Exp op="dom" typref="3603043417">
+<Attr>
+<Pos c="32" s="3" l="38"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="36" s="6" l="38"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Body>
+</Quantified_Set>
+<Unary_Exp op="FIN">
+<Quantified_Set>
+<Variables>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="22" s="2" l="38"/>
+</Attr>
+</Id>
+</Variables>
+<Body>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="30" s="1" l="38"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:2:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="27" s="2" l="38"/>
+</Attr>
+</Id>
+<Unary_Exp op="dom" typref="3603043417">
+<Attr>
+<Pos c="32" s="3" l="38"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="36" s="6" l="38"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Body>
+</Quantified_Set>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:3:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="46" s="6" l="38"/>
+</Attr>
+</Id>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:3:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="46" s="6" l="38"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:1:3:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="46" s="6" l="38"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="65" s="6" l="38"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="65" s="6" l="38"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Unary_Pred op="not">
+<Exp_Comparison op="=">
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="60" s="4" l="38"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:5:3:1:2:1:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="65" s="6" l="38"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal value="0"/>
+</Exp_Comparison>
+</Unary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_querymedian</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="14" s="6" l="42"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="14" s="6" l="42"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_querymedian</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Exp_Comparison op="/=">
+<Attr>
+<Pos c="22" s="2" l="42"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="9" s="4" l="42"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="14" s="6" l="42"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:2:1:2" typref="2701647786" value="0">
+<Attr>
+<Pos c="25" s="1" l="42"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+</Binary_Pred>
+<Binary_Pred op="=>">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="23" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="20" s="2" l="46"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="26" s="2" l="46"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="25" s="1" l="46"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="28" s="2" l="46"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+<Exp_Comparison op=":">
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="42" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="39" s="2" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="45" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="46" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+<Unary_Exp op="FIN">
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="42" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="39" s="2" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="45" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="46" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+<Exp_Comparison op=":">
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="65" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="58" s="6" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="68" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="69" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+<Unary_Exp op="FIN">
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="65" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="58" s="6" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="68" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="69" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Binary_Pred>
+</Nary_Pred>
+</Binary_Pred>
+</Nary_Pred>
+</Local_Hyp>
+<Local_Hyp num="2">
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="40" s="2" l="47"/>
+</Attr>
+</Id>
+<Unary_Exp op="FIN">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="40" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Binary_Pred>
+</Binary_Pred>
+<Binary_Pred op="=>">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="30" s="1" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="27" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="33" s="2" l="47"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:1" typref="2701647786" value="1">
+<Attr>
+<Pos c="32" s="1" l="47"/>
+</Attr>
+</Integer_Literal>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="35" s="4" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="40" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="59" s="2" l="47"/>
+</Attr>
+</Id>
+<Unary_Exp op="FIN">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="59" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Binary_Pred>
+</Binary_Pred>
+<Binary_Pred op="=>">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="49" s="1" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:1" typref="2701647786" value="jj">
+<Attr>
+<Pos c="46" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="52" s="2" l="47"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:1" typref="2701647786" value="1">
+<Attr>
+<Pos c="51" s="1" l="47"/>
+</Attr>
+</Integer_Literal>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="54" s="4" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="59" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+</Binary_Pred>
+</Nary_Pred>
+</Binary_Pred>
+</Nary_Pred>
+</Binary_Pred>
+</Nary_Pred>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="30" s="1" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="27" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="33" s="2" l="47"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:1" typref="2701647786" value="1">
+<Attr>
+<Pos c="32" s="1" l="47"/>
+</Attr>
+</Integer_Literal>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="35" s="4" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="40" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="49" s="1" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:1" typref="2701647786" value="jj">
+<Attr>
+<Pos c="46" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="52" s="2" l="47"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:1" typref="2701647786" value="1">
+<Attr>
+<Pos c="51" s="1" l="47"/>
+</Attr>
+</Integer_Literal>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="54" s="4" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="59" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;=">
+<Attr>
+<Pos c="68" s="2" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:3:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="65" s="2" l="47"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:3:2" typref="2701647786" value="jj">
+<Attr>
+<Pos c="71" s="2" l="47"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+<Nary_Pred op="&amp;">
+<Binary_Pred op="&amp;">
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:2" typref="2701647786" value="ii">
+<Attr>
+<Pos c="81" s="2" l="47"/>
+</Attr>
+</Id>
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="78" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="78" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="78" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="78" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+<Nary_Pred op="&amp;">
+<Nary_Pred op="&amp;"/>
+<Nary_Pred op="&amp;"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:2" typref="2701647786" value="jj">
+<Attr>
+<Pos c="91" s="2" l="47"/>
+</Attr>
+</Id>
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="88" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="88" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="88" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="88" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Binary_Pred>
+</Nary_Pred>
+</Binary_Pred>
+</Nary_Pred>
+</Local_Hyp>
+<Local_Hyp num="3">
+<Quantified_Pred type="!">
+<Attr>
+<Pos c="18" s="1" l="46"/>
+</Attr>
+<Variables>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="16" s="2" l="46"/>
+</Attr>
+</Id>
+</Variables>
+<Body>
+<Binary_Pred op="=>">
+<Attr>
+<Pos c="31" s="2" l="46"/>
+</Attr>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="23" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="20" s="2" l="46"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="26" s="2" l="46"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="25" s="1" l="46"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="28" s="2" l="46"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="51" s="1" l="46"/>
+</Attr>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="34" s="4" l="46"/>
+</Attr>
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="42" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="39" s="2" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="45" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="46" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="53" s="4" l="46"/>
+</Attr>
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="65" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="58" s="6" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="68" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="69" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Body>
+</Quantified_Pred>
+</Local_Hyp>
+<Local_Hyp num="4">
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="42" s="1" l="45"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="33" s="4" l="45"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="38" s="2" l="45"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="44" s="4" l="45"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="49" s="6" l="45"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="5">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="18" s="1" l="45"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="15" s="2" l="45"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq" typref="3083833907">
+<Attr>
+<Pos c="20" s="3" l="45"/>
+</Attr>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="25" s="2" l="45"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:2:1:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="24" s="1" l="45"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:2:1:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="27" s="2" l="45"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="6">
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="36" s="1" l="48"/>
+</Attr>
+<Binary_Exp op="mod" typref="2701647786">
+<Attr>
+<Pos c="30" s="3" l="48"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="17" s="4" l="48"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="22" s="6" l="48"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="34" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:2" typref="2701647786" value="1">
+<Attr>
+<Pos c="38" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="7">
+<Unary_Pred op="not">
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="36" s="1" l="48"/>
+</Attr>
+<Binary_Exp op="mod" typref="2701647786">
+<Attr>
+<Pos c="30" s="3" l="48"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="17" s="4" l="48"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="22" s="6" l="48"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="34" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:2" typref="2701647786" value="1">
+<Attr>
+<Pos c="38" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Unary_Pred>
+</Local_Hyp>
+<Local_Hyp num="8">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="18" s="1" l="45"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="15" s="2" l="45"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq" typref="3083833907">
+<Attr>
+<Pos c="20" s="3" l="45"/>
+</Attr>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="25" s="2" l="45"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:2:1:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="24" s="1" l="45"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:1:2:1:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="27" s="2" l="45"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="42" s="1" l="45"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="33" s="4" l="45"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="38" s="2" l="45"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="44" s="4" l="45"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="49" s="6" l="45"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+<Quantified_Pred type="!">
+<Attr>
+<Pos c="18" s="1" l="46"/>
+</Attr>
+<Variables>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="16" s="2" l="46"/>
+</Attr>
+</Id>
+</Variables>
+<Body>
+<Binary_Pred op="=>">
+<Attr>
+<Pos c="31" s="2" l="46"/>
+</Attr>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="23" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="20" s="2" l="46"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="26" s="2" l="46"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:2:1" typref="2701647786" value="0">
+<Attr>
+<Pos c="25" s="1" l="46"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:1:2:2" typref="2701647786" value="10">
+<Attr>
+<Pos c="28" s="2" l="46"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Attr>
+<Pos c="51" s="1" l="46"/>
+</Attr>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="34" s="4" l="46"/>
+</Attr>
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="42" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="39" s="2" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="45" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:1:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="46" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="53" s="4" l="46"/>
+</Attr>
+<Binary_Exp op="|>" typref="103245008">
+<Attr>
+<Pos c="65" s="2" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="58" s="6" l="46"/>
+</Attr>
+</Id>
+<Nary_Exp op="{" typref="3603043417">
+<Attr>
+<Pos c="68" s="1" l="46"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:3:2:1:2:2:1:2:1" typref="2701647786" value="nn">
+<Attr>
+<Pos c="69" s="2" l="46"/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Body>
+</Quantified_Pred>
+<Quantified_Pred type="!">
+<Attr>
+<Pos c="24" s="1" l="47"/>
+</Attr>
+<Variables>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="17" s="2" l="47"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:1:2" typref="2701647786" value="jj">
+<Attr>
+<Pos c="21" s="2" l="47"/>
+</Attr>
+</Id>
+</Variables>
+<Body>
+<Binary_Pred op="=>">
+<Attr>
+<Pos c="75" s="2" l="47"/>
+</Attr>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="30" s="1" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="27" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="33" s="2" l="47"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:1" typref="2701647786" value="1">
+<Attr>
+<Pos c="32" s="1" l="47"/>
+</Attr>
+</Integer_Literal>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="35" s="4" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="40" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Attr>
+<Pos c="49" s="1" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:1" typref="2701647786" value="jj">
+<Attr>
+<Pos c="46" s="2" l="47"/>
+</Attr>
+</Id>
+<Binary_Exp op=".." typref="3603043417">
+<Attr>
+<Pos c="52" s="2" l="47"/>
+</Attr>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:1" typref="2701647786" value="1">
+<Attr>
+<Pos c="51" s="1" l="47"/>
+</Attr>
+</Integer_Literal>
+<Unary_Exp op="card" typref="2701647786">
+<Attr>
+<Pos c="54" s="4" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:2:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="59" s="2" l="47"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;=">
+<Attr>
+<Pos c="68" s="2" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:3:1" typref="2701647786" value="ii">
+<Attr>
+<Pos c="65" s="2" l="47"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:1:3:2" typref="2701647786" value="jj">
+<Attr>
+<Pos c="71" s="2" l="47"/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+<Exp_Comparison op="&lt;=">
+<Attr>
+<Pos c="85" s="2" l="47"/>
+</Attr>
+<Binary_Exp op="(" typref="2701647786">
+<Attr>
+<Pos c="80" s="0" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="78" s="2" l="47"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:1:2" typref="2701647786" value="ii">
+<Attr>
+<Pos c="81" s="2" l="47"/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Binary_Exp op="(" typref="2701647786">
+<Attr>
+<Pos c="90" s="0" l="47"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="88" s="2" l="47"/>
+</Attr>
+</Id>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:4:2:1:2:2:2" typref="2701647786" value="jj">
+<Attr>
+<Pos c="91" s="2" l="47"/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Body>
+</Quantified_Pred>
+</Nary_Pred>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="5"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="38" s="2" l="45"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="38" s="2" l="45"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="5"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="49" s="6" l="45"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:2:1:2:2:1" typref="103245008" value="record">
+<Attr>
+<Pos c="49" s="6" l="45"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="8"/>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="22" s="6" l="48"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="22" s="6" l="48"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="8"/>
+<Exp_Comparison op=">=">
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="17" s="4" l="48"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="22" s="6" l="48"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal value="0"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="8"/>
+<Exp_Comparison op=">=">
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:1:1:1:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="34" s="1" l="48"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value="1"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="6"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="33" s="6" l="49"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="33" s="6" l="49"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="6"/>
+</Nary_Pred>
+<Unary_Pred op="not">
+<Exp_Comparison op="=">
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:2:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="44" s="1" l="49"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value="0"/>
+</Exp_Comparison>
+</Unary_Pred>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="6"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Binary_Exp op="/" typref="2701647786">
+<Attr>
+<Pos c="43" s="1" l="49"/>
+</Attr>
+<Binary_Exp op="+" typref="2701647786">
+<Attr>
+<Pos c="40" s="1" l="49"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="28" s="4" l="49"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="33" s="6" l="49"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:2:1:2" typref="2701647786" value="1">
+<Attr>
+<Pos c="41" s="1" l="49"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:2:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="44" s="1" l="49"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="24" s="2" l="49"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="6"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="24" s="2" l="49"/>
+</Attr>
+</Id>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="24" s="2" l="49"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:2:1:2:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="24" s="2" l="49"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="7"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="33" s="6" l="50"/>
+</Attr>
+</Id>
+<Unary_Exp op="seq">
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="33" s="6" l="50"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="7"/>
+</Nary_Pred>
+<Unary_Pred op="not">
+<Exp_Comparison op="=">
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:2:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="41" s="1" l="50"/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value="0"/>
+</Exp_Comparison>
+</Unary_Pred>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="7"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Binary_Exp op="/" typref="2701647786">
+<Attr>
+<Pos c="40" s="1" l="50"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="28" s="4" l="50"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:2:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="33" s="6" l="50"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:2:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="41" s="1" l="50"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="25" s="2" l="50"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="7"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="25" s="2" l="50"/>
+</Attr>
+</Id>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="25" s="2" l="50"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:1:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="25" s="2" l="50"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="7"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Binary_Exp op="+" typref="2701647786">
+<Attr>
+<Pos c="63" s="1" l="50"/>
+</Attr>
+<Binary_Exp op="/" typref="2701647786">
+<Attr>
+<Pos c="61" s="1" l="50"/>
+</Attr>
+<Unary_Exp op="size" typref="2701647786">
+<Attr>
+<Pos c="49" s="4" l="50"/>
+</Attr>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:2:2:1:1:1" typref="103245008" value="record">
+<Attr>
+<Pos c="54" s="6" l="50"/>
+</Attr>
+</Id>
+</Unary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:2:2:1:2" typref="2701647786" value="2">
+<Attr>
+<Pos c="62" s="1" l="50"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Integer_Literal tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:2:2:2" typref="2701647786" value="1">
+<Attr>
+<Pos c="64" s="1" l="50"/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Unary_Exp op="dom">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:6:6:3:1:3:1:3:1:2:1:1:2:1" typref="103245008" value="rr">
+<Attr>
+<Pos c="46" s="2" l="50"/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<TypeInfos>
+<Type id="2701647786">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:7:1:1" value="INTEGER"/>
+</Type>
+<Type id="103245008">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:7:2:1:1:1" value="INTEGER"/>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:7:2:1:1:2" value="INTEGER"/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="3603043417">
+<Unary_Exp op="POW">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:7:3:1:1" value="INTEGER"/>
+</Unary_Exp>
+</Type>
+<Type id="3083833907">
+<Unary_Exp op="POW">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:7:4:1:1:1:1" value="INTEGER"/>
+<Id tag="/dcs/pg23/u5525549/AtelierB/question2/bdp/Stats.bxml:1:7:4:1:1:1:2" value="INTEGER"/>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+</TypeInfos>
+</Proof_Obligations>

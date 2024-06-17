@@ -1,0 +1,42 @@
+IMPLEMENTATION
+  L_ARRAY5_1(LAC_minval,LAC_maxval,LAC_maxidx)
+
+REFINES
+  L_ARRAY5
+
+
+EXTENDS
+  L_ARRAY4(LAC_minval,LAC_maxval,LAC_maxidx)
+
+
+DEFINITIONS
+  LAC_INDEX == 0..LAC_maxidx
+
+
+OPERATIONS
+
+  ASCENDING_SORT_ARRAY(ii,jj) = VAR kk IN
+    kk := ii+1;
+    WHILE kk<=jj DO
+      VAR vv,nn,ll,bb IN
+        vv <-- VAL_ARRAY(kk);
+        ll := kk-1;
+        nn,bb <-- SEARCH_MIN_GEQ_ARRAY(ii,ll,vv);
+        IF bb = TRUE THEN
+          RIGHT_SHIFT_ARRAY(nn,ll,1);
+          STR_ARRAY(nn,vv)
+        END;
+        kk :=kk+1
+      END
+    INVARIANT
+      kk: NATURAL &
+      ii+1<=kk &
+      (not(kk = ii+1) => kk<=jj+1) &
+      !xx.(xx: NATURAL & xx>=ii & xx+1<kk => arr_vrb(xx)<=arr_vrb(xx+1)) &
+	#tt.( (tt: ii..(kk-1) >->> ii..(kk-1) ) & (arr_vrb$0<+(tt;arr_vrb$0) = arr_vrb))
+    VARIANT
+      ii+jj+2-kk
+    END
+  END
+
+END

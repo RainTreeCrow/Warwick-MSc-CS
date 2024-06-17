@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/dcs/pg23/u5525549/AtelierB/question2/bdp/expand_src" old_decomp_dir="/dcs/pg23/u5525549/AtelierB/question2/bdp/src">
+        <!-- Definition directory list -->
+        <definition_dir path="/dcs/pg23/u5525549/AtelierB/LIBRARY/spec" />
+        <!-- Component file list -->
+        <component_file path="/dcs/pg23/u5525549/AtelierB/LIBRARY/spec" name="L_ARRAY5" suffix="mch" user="u5525549">
+            <component name="L_ARRAY5" type="specification" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question2" name="Stats" suffix="mch" user="u5525549">
+            <component name="Stats" type="specification" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question2" name="Stats2" suffix="mch" user="u5525549">
+            <component name="Stats2" type="specification" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question2" name="Stats2_i" suffix="imp" user="u5525549">
+            <component name="Stats2_i" type="implementation" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question2" name="Stats_i" suffix="imp" user="u5525549">
+            <component name="Stats_i" type="implementation" />
+        </component_file>
+    </project>
+</db_xml>

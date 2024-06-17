@@ -1,0 +1,171 @@
+IMPLEMENTATION
+  L_SEQUENCE_1 ( LS_maxsize , LS_VALUE )
+
+REFINES
+  L_SEQUENCE
+
+CONCRETE_VARIABLES
+
+ se_siz
+
+
+IMPORTS
+  (se_vrb.L_ARRAY3) ( LS_VALUE , LS_maxsize )
+
+INVARIANT
+  seq_vrb = 1 .. size ( seq_vrb ) <| (se_vrb.arr_vrb) &
+  se_siz : 0 .. MAXINT &
+  se_siz = size ( seq_vrb ) &
+  se_siz <= LS_maxsize
+
+INITIALISATION
+  se_siz := 0
+
+OPERATIONS
+
+  nn <-- LEN_SEQ = BEGIN
+    nn := se_siz
+  END ;
+
+  bb <-- IS_FULL_SEQ = VAR zz IN
+    zz := se_siz ;
+    IF zz = LS_maxsize THEN
+      bb := TRUE
+    ELSE
+      bb := FALSE
+    END
+  END ;
+
+  bb <-- IS_INDEX_SEQ ( ii ) = VAR zz IN
+    zz := se_siz ;
+    IF 1 <= ii & ii <= zz THEN
+      bb := TRUE
+    ELSE
+      bb := FALSE
+    END
+  END ;
+
+  vv <-- VAL_SEQ ( ii ) = BEGIN
+    vv <-- (se_vrb.VAL_ARRAY) ( ii )
+  END ;
+
+  vv <-- FIRST_SEQ = BEGIN
+    vv <-- (se_vrb.VAL_ARRAY) ( 1 )
+  END ;
+
+  vv <-- LAST_SEQ = VAR zz IN
+    zz := se_siz ;
+    vv <-- (se_vrb.VAL_ARRAY) ( zz )
+  END ;
+
+  PUSH_SEQ ( vv ) = VAR zz IN
+    zz := se_siz ;
+    zz := zz + 1 ;
+    se_siz := zz ;
+    (se_vrb.STR_ARRAY) ( zz , vv )
+  END ;
+
+  POP_SEQ = VAR zz IN
+    zz := se_siz ;
+    zz := zz - 1 ;
+    se_siz := zz
+  END ;
+
+  STR_SEQ ( ii , vv ) = BEGIN
+    (se_vrb.STR_ARRAY) ( ii , vv )
+  END ;
+
+  RMV_SEQ ( ii ) = VAR zz IN
+    zz := se_siz ;
+    IF ii < zz THEN
+      (se_vrb.LEFT_SHIFT_ARRAY) ( ii + 1 , zz , 1 )
+    END ;
+    zz := zz - 1 ;
+    se_siz := zz
+  END ;
+
+  INS_AFT_SEQ ( ii , vv ) = VAR zz IN
+    zz := se_siz ;
+    IF ii < zz THEN
+      (se_vrb.RIGHT_SHIFT_ARRAY) ( ii + 1 , zz , 1 )
+    END ;
+    (se_vrb.STR_ARRAY) ( ii + 1 , vv ) ;
+    zz := zz + 1 ;
+    se_siz := zz
+  END ;
+
+  CLR_SEQ = se_siz := 0 ;
+
+  TAIL_SEQ = VAR zz IN
+    zz := se_siz ;
+    IF 2 <= zz THEN
+      (se_vrb.LEFT_SHIFT_ARRAY) ( 2 , zz , 1 )
+    END ;
+    zz := zz - 1 ;
+    se_siz := zz
+  END ;
+
+  KEEP_SEQ ( nn ) = VAR zz IN
+    zz := se_siz ;
+    IF nn < zz THEN
+      se_siz := nn
+    END
+  END ;
+
+  CUT_SEQ ( nn ) = VAR zz IN
+    IF nn /= 0 THEN
+      zz := se_siz ;
+      IF nn < zz THEN
+        (se_vrb.LEFT_SHIFT_ARRAY) ( nn + 1 , zz , nn ) ;
+        se_siz := zz - nn
+      ELSE
+        se_siz := 0
+      END
+    END
+  END ;
+
+  PART_SEQ ( ii , jj ) = VAR zz , xx IN
+    zz := se_siz ;
+    IF jj <= zz THEN
+      xx := jj
+    ELSE
+      xx := zz
+    END ;
+    IF ii <= xx THEN
+      IF 1 < ii THEN
+        (se_vrb.LEFT_SHIFT_ARRAY) ( ii , xx , ii - 1 )
+      END ;
+      se_siz := xx - ii + 1
+    ELSE
+      se_siz := 0
+    END
+  END ;
+
+  REV_SEQ = VAR zz IN
+    zz := se_siz ;
+    IF zz >= 2 THEN
+      (se_vrb.REVERSE_ARRAY) ( 1 , zz )
+    END
+  END ;
+
+  bb , ii <-- FIND_FIRST_SEQ ( vv ) = VAR zz IN
+    zz := se_siz ;
+    IF 1 <= zz THEN
+      ii , bb <-- (se_vrb.SEARCH_MIN_EQL_ARRAY) ( 1 , zz , vv )
+    ELSE
+      ii := 0 ;
+      bb := FALSE
+    END
+  END ;
+
+  bb , ii <-- FIND_LAST_SEQ ( vv ) = VAR zz IN
+    zz := se_siz ;
+    IF 1 <= zz THEN
+      ii , bb <-- (se_vrb.SEARCH_MAX_EQL_ARRAY) ( 1 , zz , vv )
+    ELSE
+      ii := 0 ;
+      bb := FALSE
+    END
+  END
+
+END

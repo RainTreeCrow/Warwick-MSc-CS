@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/dcs/pg23/u5525549/AtelierB/question1/bdp/expand_src" old_decomp_dir="/dcs/pg23/u5525549/AtelierB/question1/bdp/src">
+        <!-- Definition directory list -->
+        <!-- Component file list -->
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question1" name="Buffer" suffix="mch" user="u5525549">
+            <component name="Buffer" type="specification" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question1" name="Buffer_r" suffix="ref" user="u5525549">
+            <component name="Buffer_r" type="refinement" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question1" name="Wrapper" suffix="mch" user="u5525549">
+            <component name="Wrapper" type="specification" />
+        </component_file>
+        <component_file path="/dcs/pg23/u5525549/AtelierB/question1" name="Wrapper_r" suffix="ref" user="u5525549">
+            <component name="Wrapper_r" type="refinement" />
+        </component_file>
+    </project>
+</db_xml>

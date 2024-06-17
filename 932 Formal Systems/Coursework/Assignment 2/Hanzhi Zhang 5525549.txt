@@ -1,0 +1,77 @@
+CS412 Advanced Specification Methods: Assignment 2
+==================================================
+
+
+Identifiers: 5525549
+
+
+====================================================================
+
+Question 1
+----------
+a) You'll find it easier with the wrapper if the RESP SET definition is separated out  to its own machine for both to SEE. Normally you wouldn't alter a machine provided by the question but in this case you need to do it in order for the wrapper to refer to it.
+
+Your invariant has become somewhat complicated and that makes it less clear than it could be. There would be a much more straightforward way to express the connection using take and drop. Also, it might help to introduce further variables here. For example, if you have a length component you know immediately how many elements are in the buffer. 
+
+If you do decide to include more information in an invariant (perhaps for proof reasons) that can be derived from other statements remeber that using ASSERTIONS can make life a lot easier.
+
+12/15
+
+b) The idea of the wrapper approach is to provide a separation of concerns whereby you can simply define error cases. That is, you shouldn't be including the buffer spec and promoting operations. The method follows pretty closely what we did with the car park spec in lectures.
+
+Ops can't simply be promoted as you are required to provide versions with additional error outputs. 
+
+Following this approach you don't need to import the buffer spec till the implementation of the wrapper.
+
+6/10
+
+Marks: 18/25
+
+====================================================================
+
+Question 2
+----------
+a) Good - and you've remembered to set a bound on inputs. Both cases of the tricky median operation are dealt with.
+
+Small point but I'd expect .5+ to round up (even though B doesn't make that easy!)
+
+Should be a multiplication by 100 in query pc.
+
+7/9
+
+b) Use of B0 for implementation fine. 
+
+The invariants for the median loops are obviously going to be a little tricky and you've made a good effort, but you wouldn't be able to verify the loop with these.
+
+7/8
+
+c) Appropriate library machine used and linking invariant provided. But as an implementation this would be pretty
+hoorrendous - space and timewise. 
+
+6/8
+
+Marks: 20/25
+
+====================================================================
+
+Question 3
+----------
+a) Good - you've followed what the specification does for the case nn=1 no  matter what your instincts might tell you!
+
+Loop fine. It would be best to state pre/post completely formally.
+
+14/15
+
+b) Good use of BASIC_IO for helpful interface. 
+
+Just one small niggle: you output a message about the number being prime or not. The spec doesn't actually follow the accepted definition of prime (and nowhere refers to primes). You've ensured your implementation does the right thing
+according to the spec (rather than trying to "fix" it at the implementation level) - but it's not correct to use the term prime.
+
+9/10
+
+Marks: 23/25
+
+====================================================================
+
+
+Total:  61/75

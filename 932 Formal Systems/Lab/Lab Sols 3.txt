@@ -1,0 +1,191 @@
+/* ProjectsLab3 machine. */
+
+MACHINE           ProjectsLab3
+
+SETS              STUDENT; PROJECT
+
+CONSTANTS         maxmark, MARK
+
+PROPERTIES        maxmark : NAT1 & MARK = 0..maxmark
+
+VARIABLES         students, projects, marks
+
+INVARIANT         students <: STUDENT &
+                  projects : STUDENT +-> PROJECT &
+                  dom(projects) = students &      
+                  marks : STUDENT +-> MARK &      
+                  dom(marks) <: students          
+
+INITIALISATION    students := {} || projects := {} || marks := {}
+
+OPERATIONS
+          
+ signup(ss,pp) =
+  PRE                   
+     ss:STUDENT & pp:PROJECT & ss /: dom(projects) 
+  THEN                                              
+     students := students \/ {ss} ||                
+     projects := projects \/ {ss |-> pp}             
+  END;                                              
+
+pp <-- assignproject(ss) =
+  PRE  ss:STUDENT & ss /: students    
+  THEN                    
+     ANY proj              
+       WHERE proj : PROJECT 
+       THEN pp := proj      
+            || students := students \/ {ss} 
+            || projects(ss) := proj          
+       END                                  
+  END;                                      
+
+pp <-- queryproject(ss) =
+  PRE                    
+    ss:STUDENT & ss : dom(projects)
+  THEN                             
+    pp := projects(ss)             
+  END;
+
+  entermark(ss,mm) =
+   PRE
+     ss:STUDENT & mm:MARK & ss:students
+   THEN
+     marks := marks <+ {ss |-> mm}
+   END;
+
+mm <-- querymark(ss) =
+  PRE
+    ss:STUDENT & ss : dom(marks)
+  THEN
+    mm := marks(ss)
+  END
+
+
+END
+
+
+
+===============================================================
+
+/* There are lots of different ways you might approach this. I've
+   chosen to use a constant for the mapping of qualification ids to the
+   constituent modules as we're told this is fixed. 
+   
+ */
+MACHINE
+    LMS
+    
+/* These are sets of identifiers for: modules, staff, students and qualifications 
+*/ 
+SETS
+    MID; STAFF; STUDENT; QID
+    
+CONSTANTS
+    qualmods
+    
+PROPERTIES
+    qualmods : QID --> POW(MID)    /* Quals are fixed (so just use QID). */
+                                /* Each qual maps to the modules it is comprised of */  
+                                /* Could also use a rel here: QID <-> MID */
+    
+VARIABLES
+    regstaff, regstu, manager, isstudying, haspassed
+    
+INVARIANT 
+    regstaff <: STAFF &   /* The set of staff known to the system */
+    regstu <: STUDENT &   /* The set of students known to the system */
+    manager : MID --> regstaff & /* Each module has a unique manager (total function) */
+    isstudying : STUDENT <-> MID & /* Which modules are being studied by which students */
+    haspassed : STUDENT <-> MID &  /* Which modules have been passed by which students */
+    dom(isstudying) <: regstu & /* Students studying modules must be known to the system */
+    dom(haspassed) <: regstu &  /* Students who've passed modules must be known to the system */
+    isstudying /\ haspassed = {} /* Students can't be studying a module already passed */
+    
+INITIALISATION
+    /* Note a complication here: MID is fixed (that is, this system doesn't register
+       and deregister modules. Every module must have a manager, so the initialisation 
+       must ensure that this is done - that is, we can't just say it's empty. The 
+       easiest way is just to state a nondeterministic assignment for now and fix it 
+       up later. But this also involves knowing which staff 
+       are registered in order that they can be managers. Hence regstaff can't be
+       initialised to empty either. The nondeterministic structure below attempts to 
+       capture this
+      */
+    regstu, isstudying, haspassed := {}, {}, {} ||
+    ANY rs WHERE rs <: STAFF 
+    THEN manager :: MID --> rs || regstaff := rs
+    END
+    
+OPERATIONS
+    
+    /* Record a student starting to study a module */ 
+    startstudy(ss,mm) = 
+       PRE 
+           ss:STUDENT & mm:MID & ss:registered & ss /: dom(isstudying) & 
+           ss /: dom(haspassed)
+       THEN
+           isstudying := isstudying \/ {ss |-> mm}
+       END;
+       
+     /* Record a student passing a module */
+     justpassed(ss,mm) = 
+       PRE 
+           ss:STUDENT & mm:MID & ss |-> mm : isstudying
+       THEN
+           isstudying, haspassed := isstudying - {ss |-> mm}, haspassed \/ {ss |-> mm}
+       END;
+       
+      /* Output modules a student is studying */
+      mms <-- currentlystudying(ss) = 
+        PRE 
+            ss:STUDENT & ss:regstu 
+        THEN 
+            mms := isstudying[{ss}]
+        END;
+        
+      /* Is qual passed? */
+      pp <-- haveIpassed(ss,qq) = 
+         PRE ss:STUDENT & ss:regstu & qq:QID
+         THEN IF   qualmods(qq) <: haspassed[{ss}]
+              THEN pp := TRUE
+              ELSE pp := FALSE
+              END
+         END;
+         
+      /* What modules are still needed? */
+      mms <-- stilltodo(ss,qq) =
+          PRE ss:STUDENT & ss:regstu & qq:QID
+          THEN mms := qualmods(qq) - haspassed[{ss}]
+          END;
+          
+          
+      /* Change organiser - new one input */
+      change1(mm,ss) =
+         PRE mm:MID & ss:STAFF & ss:regstaff & ss /= manager(mm) 
+         THEN manager := manager <+ {mm |-> ss}
+         END;
+         
+      /* Change organiser - new one allocated */
+      change2(mm) =
+         PRE mm:MID & (regstaff - {manager(mm)}) /= {}
+         THEN ANY newss WHERE newss:STAFF & 
+                              newss : (regstaff - {manager(mm)})
+              THEN manager := manager <+ {mm |-> newss}
+              END
+         END;
+           
+      /* Change organiser - lightly loaded */
+      change3(mm) =
+         PRE mm:MID & (regstaff - {manager(mm)}) /= {}
+         THEN LET lload 
+              BE lload = {ss|ss:regstaff &
+                             !nn.(nn:STAFF & nn:regstaff => 
+                                     (card(manager|>{ss}) <= card(manager|>{nn})))} 
+              IN  ANY newss WHERE newss:lload
+                  THEN manager := manager <+ {mm |-> newss}
+                  END
+              END
+         END
+      
+      
+END

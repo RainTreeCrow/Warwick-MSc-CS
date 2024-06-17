@@ -1,0 +1,102 @@
+IMPLEMENTATION
+  L_ARITHMETIC_2
+
+REFINES
+  L_ARITHMETIC_1
+
+
+OPERATIONS
+
+  uu <-- MIN(vv,ww) = BEGIN
+    IF vv<ww THEN
+      uu :=vv
+    ELSE
+      uu :=ww
+    END
+  END;
+
+  uu <-- MAX(vv,ww) = BEGIN
+    IF vv<ww THEN
+      uu :=ww
+    ELSE
+      uu :=vv
+    END
+  END;
+
+  uu <-- INC(vv) = BEGIN
+    uu :=vv+1
+  END;
+
+  uu <-- DEC(vv) = BEGIN
+    uu :=vv-1
+  END;
+
+  rr <-- EXP(xx,nn) = VAR cc,mm IN
+    cc :=xx;
+    mm :=nn;
+    rr :=1;
+    WHILE mm>0 DO
+      VAR uu IN
+        uu := mm mod 2;
+        IF uu = 1 THEN
+          rr := cc*rr
+        END
+      END;
+      mm := mm/2;
+      IF mm>0 THEN
+        cc := cc*cc
+      END
+    INVARIANT
+      mm: NAT &
+      cc: NAT &
+	  rr: NAT &
+      #tt.(tt: NATURAL & mm = nn/(2**(tt)) & (mm>0 => cc = xx**(2**tt)) &
+           rr = PI(vv).(vv: 0..tt-1 & nn/(2**vv) mod 2 = 1 | xx**(2**vv)))
+    VARIANT
+      mm
+    END
+  END;
+
+  uu,rr <-- LOG_BY_DEFAULT1(vv,ww) = VAR kk,dd,cc IN
+    cc :=ww/vv;
+    dd :=1;
+    kk :=vv;
+    WHILE kk<=cc DO
+      dd :=dd+1;
+      kk :=kk*vv
+    INVARIANT
+      dd: NAT &
+      kk: NAT &
+      cc: NAT &
+      kk = vv**dd &
+      cc*vv<= ww &
+      ww<(cc+1)*vv &
+      kk<=ww
+    VARIANT
+      MAXINT-dd
+    END;
+    rr:=kk;
+    uu:=dd
+  END;
+
+  nn <-- SQRT(pp) = VAR cc,ii,rr IN
+    cc :=0;
+    ii :=1;
+    rr :=pp;
+    WHILE ii<=rr DO
+      rr :=rr-ii;
+      cc :=cc+1;
+      ii :=ii+2
+    INVARIANT
+      cc: NAT &
+      ii: NAT &
+      rr: NAT &
+      ii = 2*cc+1 &
+      rr = pp-cc*cc
+    VARIANT
+      MAXINT-cc
+    END;
+    nn:=cc
+  END
+
+END

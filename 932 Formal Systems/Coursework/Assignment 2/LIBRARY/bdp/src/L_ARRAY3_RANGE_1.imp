@@ -1,0 +1,33 @@
+IMPLEMENTATION
+  L_ARRAY3_RANGE_1 ( LATR_minrge , LATR_maxrge , LATR_maxidx , LATR_VALUE )
+
+REFINES
+  L_ARRAY3_RANGE
+
+
+EXTENDS
+  L_ARRAY2_RANGE ( LATR_minrge , LATR_maxrge , LATR_maxidx , LATR_VALUE )
+
+OPERATIONS
+
+  REVERSE_RGE ( rng , ii , jj ) = VAR kk , ll IN
+    kk := ii ;
+    ll := jj ;
+    WHILE kk < ll DO
+      SWAP_RGE ( rng , kk , ll ) ;
+      kk := kk + 1 ;
+      ll := ll - 1
+    INVARIANT
+      kk : NATURAL &
+      ll : NATURAL &
+      kk >= ii &
+      ( ii <= jj => kk <= ll + 1 ) &
+      ll <= jj &
+      kk + ll = ii + jj &
+      arr_rge = arr_rge$0 <+ { rng |-> ( arr_rge$0 ( rng ) <+ % xx . ( xx : ii .. jj & ( xx < kk or xx > ll ) | arr_rge$0 ( rng ) ( ii + jj - xx ) ) ) }
+    VARIANT
+      ii + jj - kk
+    END
+  END
+
+END

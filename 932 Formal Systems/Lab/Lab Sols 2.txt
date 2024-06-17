@@ -1,0 +1,233 @@
+MACHINE
+    docsys
+
+/* If you want to check different scopes
+DEFINITIONS 
+    scope_DOC == 4; scope_PID == 4
+*/
+    
+SETS 
+    PID; DOC
+    
+VARIABLES 
+    reg, allowed, viewing, restricted
+    
+INVARIANT
+    reg <: PID &
+    allowed: PID <-> DOC &
+    viewing: PID <-> DOC &
+    restricted <: DOC &
+    dom(allowed) <: reg &
+    viewing <: allowed &
+    !pp.(pp:PID => card((viewing |> restricted)[{pp}]) <= 1)
+
+INITIALISATION
+    reg, allowed, viewing, restricted := {}, {}, {}, {}
+    
+OPERATIONS
+    
+/* to output the documents currently being viewed;                  */  
+dds <-- being_accessed = dds := ran(viewing);                          
+
+/* to output the people allowed to view a particular document;      */
+pps <-- can_access(dd) = PRE  dd:DOC 
+                         THEN pps := dom(allowed |> {dd})                                               
+                         END;
+                         
+/* to register a person in the system;                                */
+register(pp) = PRE  pp:PID & pp /: reg
+               THEN reg := reg \/ {pp}
+               END;
+
+/* person pp starts to view document dd; */
+access_doc(pp,dd) = PRE  pp:PID & dd:DOC & 
+                         pp |-> dd : allowed & pp |-> dd /: viewing &
+                         (dd:restricted =>((viewing[{pp}] /\ restricted) = {}))
+                    THEN viewing := viewing \/ {pp|->dd}
+                    END;
+
+/* person pp stops viewing document dd; */
+stop_access(pp,dd) = PRE  pp:PID & dd:DOC & pp |-> dd : viewing          
+                     THEN viewing := viewing - {pp|->dd}
+                     END;     
+
+/* person pp stops viewing all documents */
+stopall(pp) = 
+   PRE pp:PID THEN viewing := viewing - ({pp}*DOC) END   
+                             
+/* to remove from a person the right to access a particular document; */
+/* need to consider what to do if the person is currently viewing     */
+/* a document. Here is one way.                                       */
+remove_perm(pp,dd) = PRE pp:PID & dd:DOC & 
+                         pp |-> dd : allowed & pp |-> dd /: viewing
+                     THEN allowed := allowed - {pp |->dd}
+                     END;
+                     
+                     /* Alternatively, 
+                     PRE pp:PID & dd:DOC & pp |-> dd : allowed 
+                     THEN BEGIN allowed := allowed - {pp |->dd} ||
+                                viewing:= viewing - {pp |->dd}
+                          END
+                     END
+                    */
+                     
+/* to allow all people the permission to access a particular document.*/
+allow_all(dd) = PRE  dd:DOC 
+                THEN allowed := allowed \/ (reg * {dd})                                                               
+                END;
+                
+/* Alternative way
+allow_all(dd) = PRE  dd:DOC 
+                THEN allowed := allowed \/ 
+                                {xx,yy|xx:PID & yy:DOC & xx:reg & yy=dd}                                                     
+                END;
+*/
+
+
+/* group shares access */
+
+share_access(gg) =    
+   PRE  gg <: PID & gg <: reg
+   THEN allowed := allowed \/ (gg * (allowed[gg]))
+   END;
+
+/* alternatively, you might use a set union */
+share_access1(gg) =    
+   PRE  gg <: PID & gg <: reg
+   THEN allowed := allowed \/ 
+                   {pp,dd | pp:PID & dd:DOC & pp:gg &
+                           #xx.(xx:gg & xx |-> dd : allowed)}
+   END;
+
+/*  or what about ...*/
+share_access2(gg) = 
+   PRE  gg <: PID & gg <: reg
+   THEN allowed := allowed \/ {pp,dd | pp:pps & dd : allowed[pps]}
+   END
+
+/* or perhaps you might see from the syntax sheet a generalised union */
+
+share_access3(gg) = 
+   PRE  gg <: PID & gg <: reg
+   THEN allowed := allowed \/ (gg * UNION (pp).(pp:gg | allowed[{pp}]))
+   END
+
+END
+
+/* There are always lots of different ways!  */
+
+
+Chinese Wall policy
+-------------------
+Here are some operations that might be added - you may also need to modify the 
+existing ones.
+
+/* I've included a pre here to say noone can be currently viewing dd along with 
+   another restricted doc. */
+add_restricted(dd) = 
+    PRE dd:DOC & 
+        !pp.(pp:PID => card((viewing |> (restricted \/ {dd}))[{pp}]) <= 1)
+    THEN restricted := restricted \/ {dd}
+    END;
+    
+/* I suppose you could take an alternative view and perhaps just stop people
+    viewing it if they're currently also viewing something else... 
+add_restricted(dd) =
+    PRE  dd:DOC
+    THEN BEGIN restricted := restricted \/ {dd} ||
+               viewing := viewing - 
+                           {xx,yy|xx:PID & yy:DOC & yy=dd & 
+                                   card((viewing |> (restricted \/ {dd}))[{xx}]) > 1}
+         END
+    END;  
+*/        
+       
+/* Here's another way to say the same thing - may be a bit neater? */
+add_restricted(dd) = 
+    PRE dd:DOC & dd /: restricted
+    THEN restricted := restricted \/ {dd} ||
+         viewing := viewing - 
+                    ({pp| pp:PID & card(viewing[{pp}]/\(restricted \/ {dd})) = 2} * {dd})
+    END
+
+
+   
+rem_restricted(dd) = PRE dd:DOC THEN restricted := restricted - {dd} END              
+              
+
+
+==========================================================================
+
+MACHINE
+    department
+    
+DEFINITIONS scope_MID == 4
+    
+SETS  SID; MID; STAFF
+    
+          /* reg - the register of students and the modules they take 
+             managedby - records which modules are managed by which
+                         member(s) of staff
+             modsoffered - the modules currently offered
+          */
+VARIABLES reg, managedby, modsoffered
+    
+INVARIANT reg: SID <-> MID & managedby:MID <-> STAFF &
+          modsoffered <: MID & 
+          /* Any module a student is registered for must by a
+             module that is offered.
+          */
+          ran(reg) <: modsoffered &
+          /* All modules offered must be managed by one or more staff
+          */
+          dom(managedby) = modsoffered &
+          /* Students cannot register for more than 6 modules
+          */
+          !ss.(ss:SID => (card({ss}<|reg) <= 6)) &
+          /* Staff cannot manage more than 3 modules 
+          */
+          !ss.(ss:STAFF => (card(managedby |> {ss}) <= 3)) 
+    
+INITIALISATION  reg, managedby, modsoffered := {}, {}, {}
+    
+OPERATIONS
+    regstudent(ss,mm) = PRE  ss:SID & mm:MID & mm:modsoffered &
+                             mm /: reg[{ss}] & (card({ss}<|reg) < 6)
+                        THEN reg := reg \/ {ss |-> mm}
+                        END;
+                        
+    deregstudent(ss,mm) = PRE  ss:SID & mm:MID  & ss |-> mm: reg                
+                          THEN reg := reg - {ss |-> mm}
+                          END;
+                        
+    alloc_staff(ss,mm) = PRE  ss:STAFF & mm:MID & mm:modsoffered &
+                              ss /: managedby[{mm}] &
+                              card(managedby |> {ss}) < 3                    
+                         THEN managedby := managedby \/  {mm |-> ss}  
+                         END;
+                              
+    ss <-- all_students_on(mm) = PRE mm:MID THEN ss := reg~[{mm}] END;
+                              
+    ss <-- staff_full = ss := {xx|xx:STAFF & card(managedby~[{xx}]) = 3};
+    
+    /* The invariant says that all modules offered must be managed by
+       someone. So, this operation has to add a manager or else the
+       invariant will be violated.
+    */
+    newmodule(mm,ss) =
+        PRE  mm:MID & ss:STAFF & mm/:modsoffered & card(managedby~[{ss}]) < 3
+        THEN modsoffered := modsoffered \/ {mm} || 
+             managedby := managedby \/ {mm |-> ss}
+        END;
+        
+    /* An alternative would be to allow people to be registered initially
+       but just remove mm from their registrations.
+    */
+    withdrawmodule(mm) =
+        PRE  mm:MID & mm:modsoffered & mm /: ran(reg)
+        THEN modsoffered := modsoffered - {mm} || 
+             managedby := {mm} <<| managedby 
+        END
+                     
+END
+

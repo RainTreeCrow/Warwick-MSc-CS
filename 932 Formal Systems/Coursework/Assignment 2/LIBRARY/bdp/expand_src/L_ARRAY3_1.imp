@@ -1,0 +1,36 @@
+IMPLEMENTATION
+  L_ARRAY3_1 ( LAT_VALUE , LAT_maxidx )
+
+REFINES
+  L_ARRAY3
+
+
+EXTENDS
+  L_ARRAY2 ( LAT_VALUE , LAT_maxidx )
+
+DEFINITIONS
+  LAT_INDEX == 0 .. LAT_maxidx
+
+OPERATIONS
+
+  REVERSE_ARRAY ( ii , jj ) = VAR kk , ll IN
+    kk := ii ;
+    ll := jj ;
+    WHILE kk < ll DO
+      SWAP_ARRAY ( kk , ll ) ;
+      kk := kk + 1 ;
+      ll := ll - 1
+    INVARIANT
+      kk : NATURAL &
+      ll : NATURAL &
+      kk >= ii &
+      ( ii <= jj => kk <= ll + 1 ) &
+      ll <= jj &
+      kk + ll = ii + jj &
+      arr_vrb = arr_vrb$0 <+ % xx . ( xx : ii .. jj & ( xx < kk or xx > ll ) | arr_vrb$0 ( ii + jj - xx ) )
+    VARIANT
+      ii + jj - kk
+    END
+  END
+
+END

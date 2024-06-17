@@ -1,0 +1,177 @@
+MACHINE           Warehouse
+    
+SETS 		  ITEM
+
+VARIABLES         stock
+
+INVARIANT         stock : ITEM --> NAT 
+
+INITIALISATION    stock := ITEM * {0}
+
+OPERATIONS
+
+add_stock(ii, nn) = 
+    PRE   ii:ITEM & nn:NAT1 & (stock(ii) + nn) <= MAXINT
+    THEN  stock := stock <+ {ii |-> stock(ii) + nn}
+    END;
+    
+remove_stock(ii, nn) = 
+	PRE	 ii:ITEM & nn:NAT1 & stock(ii) >= nn
+        THEN stock := stock <+ {ii |-> stock(ii) - nn}
+ 	END;
+/* Question doesn't say what to do if there is not enough stock. I'm
+assuming here that the operation should only proceed if the whole
+amount is in stock.
+*/
+
+bb <-- stock_query(ii, nn) = 
+    PRE	 ii:ITEM & nn:NAT
+    THEN IF   stock(ii) >= nn 
+         THEN bb := TRUE
+         ELSE bb := FALSE
+         END
+    END   
+      
+	
+END
+
+
+=====================================================================
+
+MACHINE      Orders
+    
+SETS		  OID, ITEM
+
+VARIABLES         orderitem, orderamt
+
+INVARIANT         orderitem : OID +-> ITEM & orderamt :  OID +-> NAT1 &
+                  dom(orderitem) = dom(orderamt)
+
+INITIALISATION    orderitem, orderamt := {}, {}
+
+OPERATIONS
+
+  place_order(ii,nn) = 
+	PRE 	ii:ITEM & nn:NAT1 & OID - dom(orderitem) /= {}
+  	THEN    
+          ANY 	oid 
+	      WHERE	oid : OID - dom(orderitem)
+	      THEN 	BEGIN 
+	              orderitem(oid) := ii || orderamt(oid) := nn
+	            END
+          END
+	END;
+
+  service_order(oid) =
+        PRE 	oid:OID & oid : dom(orderitem)
+        THEN 	BEGIN 
+	              orderitem := {oid} <<| orderitem || 
+	              orderamt := {oid} <<| orderamt
+	            END
+	    END
+
+
+END
+
+==========================================================================
+
+/* To incorporate these in a larger machine need to make sure they're both 
+referencing the same set of ITEMs. So define this as a separate machine and 
+alter the previous 2 so they both SEE it. (I've referred to the versions of
+Warehouse and Orders updated in this way as NewWarehouse and NewOrders.)
+*/
+
+MACHINE           Items
+
+SETS	          ITEM
+
+END
+
+
+===========================================================================
+
+
+MACHINE           Big_Business
+
+INCLUDES	  NewWarehouse,NewOrders,Items
+
+PROMOTES	  add_stock,place_order,stock_query
+
+OPERATIONS
+
+  satisfy_order(oo) =
+	PRE 	oo:OID & oo:dom(orderitem) &
+                orderamt(oo) <= stock(orderitem(oo))
+        THEN	BEGIN remove_stock(orderitem(oo),orderamt(oo)) || service_order(oo)
+                END
+	END;
+
+  oids <-- not_met =
+	        oids := {oid | oid : OID & oid : dom(orderitem) & 
+                               orderamt(oid) > stock(orderitem(oid))}
+
+END
+
+
+
+===========================================================================
+
+PROOF QUESTIONS
+===============
+
+Q1. SimplifyRelDorXY.3  as the goal is exactly what we want and we 
+    should be able to prove the antecedents. If it's in the List View
+    just click, or apply it manually using:
+       ar(SimplifyRelDorXY.3, Goal)
+    Remember, the "Goal" direction means apply this rewrite once in the goal.                       
+                                                                   
+Q2. May be several ways to proceed. One way is to search for something to
+    simplify the LHS of the current goal, perhaps with:                  
+        sr(SimplifyRelDorXY,c<|{a|->b})                                  
+    This returns 3 matches. The one obviously applicable here is         
+    SimplifyRelDorXY.8                                                   
+
+    Apply this using: ar(SimplifyRelDorXY.8, Goal)
+
+    You should now be left with the obviously true goal {} = {} which
+    can be discharged by pressing pr.
+
+
+Q3. There's often more than one way to prove a result. Below are just examples.
+
+    PO3: ... => dom(projects\/{ss|->pp}) = students\/{ss}
+
+    Click dd to add LHS of => to hyps.
+    It looks like we can simplify the dom expression. If we type sr(All,Goal) 
+    at the top of the list of applicable rules we're offered 
+    SimplifyRelDomXY.19. Apply this using right click on rule name and
+    ar(...,Goal) and goal becomes:
+       dom(projects)\/dom({ss|->pp}) = students\/{ss}
+    The hyps tell us what dom(projects) is. Force use of this equality with
+    eh(dom(projects),students,Goal) and you get goal
+       students\/dom({ss|->pp}) = students\/{ss}
+    It looks like we should be able to simplify the dom expression. Again, 
+    if you check out the applicable rules using something like 
+    sr(All,dom({a|->b})) you should see SimplifyRelDomXY.21 is offered. 
+    Apply this using ar(SimplifyRelDomXY.21,Goal) and you should get:
+       students\/{ss} = students\/{ss}
+    Well, this looks pretty obvious but if we want to use arule, the top of the
+    list currently offered is SimplifyX.112 and this would do (apply by right
+    clicking and choosing ar(...,Goal). Alternatively, a bit lower down the 
+    list of rules offered is EqualityXY.163 which will do just as well if you 
+    apply using ar(EqualityXY.163,Once). Alternatively, as it's a very simple
+    logical truth you could just click on either $pr$ or $pp_{0}$.
+    Job done!
+
+
+    PO4: ... => dom(marks) <: students\/{ss}
+
+    Click dd to add LHS of => to hyps.
+    Look at the available hyps and think of your strategy. The hyps tell us
+    dom(marks) <: students and then of course this is a subset of students\/{ss}.
+    Look for a rule that might justify this in the applicable rules. It doesn't
+    have to be anything involving dom - it's a simple fact about set inclusion.
+    Searching with sr(All,Goal) gives us some possibilities. The one that
+    appears to work is InPOWLeavesXY.59. Apply using ar(..,Once).
+    That's all there is to it!
+
