@@ -1,7 +1,5 @@
 ### University of Warwick, MSc CS 2023-2024
 
-
-
 - *<u>CS908 Research Methods</u>*
   - *Critical Analysis    **77 A***
   - *Presentation on Ethics    **67 B***
