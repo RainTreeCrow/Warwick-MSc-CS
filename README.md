@@ -1,9 +1,9 @@
 ### University of Warwick, MSc CS 2023-2024
 
-- *<u>CS907 Dissertation Project</u>*
-  - *Presentation*
-  - *Interim Report*
-  - *Dissertation Report*
+- *<u>CS907 Dissertation Project</u>    **77 A***
+  - *Presentation    **72 A***
+  - *Interim Report    **80 A+***
+  - *Dissertation Report    **77 A***
 
 - *<u>CS908 Research Methods</u>    **72 A***
   - *Critical Analysis    **77 A***
